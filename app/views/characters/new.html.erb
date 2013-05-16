@@ -1,0 +1,5 @@
+<%= simple_form_for @character do |f| %>
+  <% Character::BASIC_ATTRIBUTES.each do |attribute| %>
+    <%= f.input attribute, as: :integer %>
+  <% end %>
+<% end %>

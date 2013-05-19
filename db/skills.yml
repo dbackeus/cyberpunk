@@ -1,0 +1,206 @@
+---
+- name: Personal Grooming
+  stat: attractiveness
+- name: Wardrobe & Style
+  stat: attractiveness
+- name: Endurance
+  stat: body_type
+- name: Strength Feat
+  stat: body_type
+- name: Swimming
+  stat: body_type
+- name: Interrogation
+  stat: cool
+- name: Intimidate
+  stat: cool
+- name: Oratory
+  stat: cool
+- name: Resist Torture/Drugs
+  stat: cool
+- name: Streetwise
+  stat: cool
+- name: Human Perception
+  stat: empathy
+- name: Interview
+  stat: empathy
+- name: Leadership
+  stat: empathy
+- name: Seduction
+  stat: empathy
+- name: Social
+  stat: empathy
+- name: Persuasion & Fast Talk
+  stat: empathy
+- name: Perform
+  stat: empathy
+- name: Accounting
+  stat: intelligence
+- name: Anthropology
+  stat: intelligence
+- name: Awareness/Notice
+  stat: intelligence
+- name: Biology
+  stat: intelligence
+- name: Botany
+  stat: intelligence
+- name: Chemistry
+  stat: intelligence
+- name: Composition
+  stat: intelligence
+- name: Diagnose Illness
+  stat: intelligence
+- name: Education & General Knowledge
+  stat: intelligence
+- name: Expert
+  stat: intelligence
+  custom: true
+- name: Gamble
+  stat: intelligence
+- name: Geology
+  stat: intelligence
+- name: Hide/Evade
+  stat: intelligence
+- name: History
+  stat: intelligence
+- name: Library Search
+  stat: intelligence
+- name: Mathematics
+  stat: intelligence
+- name: Physics
+  stat: intelligence
+- name: Programming
+  stat: intelligence
+- name: Shadow/Track
+  stat: intelligence
+- name: Stock Market
+  stat: intelligence
+- name: System Knowledge
+  stat: intelligence
+- name: Teaching
+  stat: intelligence
+- name: Wilderness Survival
+  stat: intelligence
+- name: Zoology
+  stat: intelligence
+- name: Archery
+  stat: reflexes
+- name: Athletics
+  stat: reflexes
+- name: Brawling
+  stat: reflexes
+- name: Dance
+  stat: reflexes
+- name: Dodge & Escape
+  stat: reflexes
+- name: Driving
+  stat: reflexes
+- name: Fencing
+  stat: reflexes
+- name: Handgun
+  stat: reflexes
+- name: Heavy Weapons
+  stat: reflexes
+- name: Martial Arts (Aikido)
+  stat: reflexes
+  ip_multiplier: 3
+- name: Martial Arts (Animal Kung Fu)
+  stat: reflexes
+  ip_multiplier: 3
+- name: Martial Arts (Boxing)
+  stat: reflexes
+- name: Martial Arts (Capoeira)
+  stat: reflexes
+  ip_multiplier: 3
+- name: Martial Arts (Choi Li Fut)
+  stat: reflexes
+  ip_multiplier: 3
+- name: Martial Arts (Judo)
+  stat: reflexes
+- name: Martial Arts (Karate)
+  stat: reflexes
+  ip_multiplier: 2
+- name: Martial Arts (Tae Kwon Do)
+  stat: reflexes
+  ip_multiplier: 3
+- name: Martial Arts (Thai Kick Boxing)
+  stat: reflexes
+  ip_multiplier: 4
+- name: Martial Arts (Wrestling)
+  stat: reflexes
+- name: Melee
+  stat: reflexes
+- name: Motorcycle
+  stat: reflexes
+- name: Operate Heavy Machinery
+  stat: reflexes
+- name: Pilot (Gyro & Rotorcraft)
+  stat: reflexes
+  ip_multiplier: 3
+- name: Pilot (Fixed Wing Aircraft)
+  stat: reflexes
+  ip_multiplier: 2
+- name: Pilot (Dirigible)
+  stat: reflexes
+  ip_multiplier: 2
+- name: Pilot (Vectored Thrust Aerodyne)
+  stat: reflexes
+  ip_multiplier: 3
+- name: Rifle
+  stat: reflexes
+- name: Stealth
+  stat: reflexes
+  ip_multiplier: 2
+- name: Submachinegun
+  stat: reflexes
+- name: Aero Tech
+  stat: technical_ability
+  ip_multiplier: 2
+- name: AV Tech
+  stat: technical_ability
+  ip_multiplier: 3
+- name: Basic Tech
+  stat: technical_ability
+  ip_multiplier: 2
+- name: Cryotank Operation
+  stat: technical_ability
+- name: Cyberteck Design
+  stat: technical_ability
+  ip_multiplier: 2
+- name: CyberTech
+  stat: technical_ability
+  ip_multiplier: 2
+- name: Demolitions
+  stat: technical_ability
+  ip_multiplier: 2
+- name: Disguise
+  stat: technical_ability
+- name: Electronics
+  stat: technical_ability
+- name: Electronic Security
+  stat: technical_ability
+  ip_multiplier: 2
+- name: First Aid
+  stat: technical_ability
+- name: Forgery
+  stat: technical_ability
+- name: Gyro Tech
+  stat: technical_ability
+  ip_multiplier: 3
+- name: Paint or Draw
+  stat: technical_ability
+- name: Photo & Film
+  stat: technical_ability
+- name: Pharmacuticals
+  stat: technical_ability
+  ip_multiplier: 2
+- name: Pick Lock
+  stat: technical_ability
+- name: Pick Pocket
+  stat: technical_ability
+- name: Play Instrument
+  stat: technical_ability
+- name: Weaponsmith
+  stat: technical_ability
+  ip_multiplier: 2
+- name: Other
+  custom: true

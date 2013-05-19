@@ -1,0 +1,9 @@
+<h1><%= @character.handle %></h1>
+
+<ul>
+  <% (Character::BASIC_ATTRIBUTES + %i[run leap humanity]).each do |attribute| %>
+  <li><%= Character.human_attribute_name(attribute) %>: <%= @character.send(attribute) %></li>
+<% end %>
+</ul>
+
+<%= link_to "edit", edit_character_path(@character) %>

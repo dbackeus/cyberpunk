@@ -1,0 +1,128 @@
+<script type="text/javascript">
+  $(function() {
+    $("a[data-roll]").click(function() {
+      roll($(this).data("roll"))
+      return false
+    })
+  })
+
+  function roll(section) {
+    if(section == "stats") rollStats()
+    if(section == "style") rollStyle()
+    if(section == "family") rollFamily()
+  }
+
+  function rollStats() {
+    $("ul.stats input").each(function() {
+      var value = d10({rerollIf: function(result) { return result <= 2 }})
+      $(this).val(value)
+    })
+  }
+
+  var clothes = <%= clothes_options.to_json.html_safe %>
+  var hairs = <%= hair_options.to_json.html_safe %>
+  var affections = <%= affections_options.to_json.html_safe %>
+  var ethniticies = <%= ethnicity_options.keys.to_json.html_safe %>
+  var languages = <%= ethnicity_options.to_json.html_safe %>
+  function rollStyle() {
+    $("#character_clothes").val(clothes.sample())
+    $("#character_hair").val(hairs.sample())
+    $("#character_affections").val(affections.sample())
+    var ethnicity = ethniticies.sample()
+    $("#character_ethnicity").val(ethnicity)
+    $("#character_language").val(languages[ethnicity].sample())
+  }
+
+  var familyRankings = <%= family_ranking_options.to_json.html_safe %>
+  var parentHappenings = <%= something_happened_to_parents_options.to_json.html_safe %>
+  var familyTragedies = <%= family_tragedy_options.to_json.html_safe %>
+  var childhoods = <%= childhood_options.to_json.html_safe %>
+  var siblingFeelings = <%= sibling_feelings_options.to_json.html_safe %>
+  function rollFamily() {
+    $("#character_family_ranking").val(familyRankings.sample())
+    var parents = d10() > 6 ? parentHappenings.sample() : "Your parents are alive"
+    $("#character_parents").val(parents)
+    var familyStatus = d10() > 6 ? "Family is OK" : familyTragedies.sample()
+    $("#character_family_status").val(familyStatus)
+    $("#character_childhood_environment").val(childhoods.sample())
+
+    $(".siblings").html("")
+    var numberOfSiblings = (result = d10()) > 7 ? 0 : result
+    for(var i=0; i<numberOfSiblings; i++) {
+      $('<h4>Sibling '+(i + 1)+'</h4>').appendTo(".siblings")
+      var sex = ["Male", "Female"].sample()
+      generateInput("character", "siblings_attributes", "sex", i, sex).appendTo(".siblings")
+      var ageRoll = d10()
+      if(ageRoll == 10) var age = "Twin"
+      else if(ageRoll <= 5) var age = "Older"
+      else var age = "Younger"
+      generateInput("character", "siblings_attributes", "age", i, age).appendTo(".siblings")
+      var feelings = siblingFeelings.sample()
+      generateInput("character", "siblings_attributes", "feelings", i, feelings).appendTo(".siblings")
+    }
+  }
+
+  function generateInput(model, group, attribute, index, value, simpleformType, inputType) {
+    simpleformType = simpleformType || "string"
+    inputType = inputType || "text"
+    return $('<div class="input '+simpleformType+'"><label class="'+simpleformType+'" for="'+model+'_'+group+'_'+index+'_'+attribute+'">'+attribute.capitalize()+'</label><input type="'+inputType+'" id="'+model+'_'+group+'_'+index+'_'+attribute+'" name="'+model+'['+group+']['+index+']['+attribute+']" value="'+value+'" /></div>')
+  }
+
+  function d10(options) {
+    options = options || {rerollIf: function(result) { return false }}
+    var result = parseInt(Math.random() * 10) + 1
+    if(options.rerollIf(result)) result = d10(options)
+    return result
+  }
+</script>
+
+<%= simple_form_for @character do |f| %>
+  <%= f.input :handle %>
+  <%= f.input :role_id, collection: Role.all, include_blank: false %>
+  <h2>Statistics <%= link_to image_tag("roll.png"), "#roll", data: { roll: "stats" } %></h2>
+  <ul class="stats">
+    <% Character::BASIC_ATTRIBUTES.each do |stat| %>
+      <li class="stat"><%= f.input stat, as: :integer %></li>
+    <% end %>
+  </ul>
+  <h2>Lifepath</h2>
+  <h3>Origins and Personal Style <%= link_to image_tag("roll.png"), "#roll", data: { roll: "style" } %></h3>
+  <p>What do you look like and where do you come from?</p>
+  <%= f.input :clothes %>
+  <%= f.input :hair %>
+  <%= f.input :affections %>
+  <%= f.input :ethnicity %>
+  <%= f.input :language %>
+  <h3>Family Background <%= link_to image_tag("roll.png"), "#roll", data: { roll: "family" } %></h3>
+  <%= f.input :family_ranking %>
+  <%= f.input :parents %>
+  <%= f.input :family_status %>
+  <%= f.input :childhood_environment %>
+  <div class="siblings">
+  </div>
+  <h2>Skills</h2>
+  <%= f.fields_for :character_skills do |skill_form| %>
+    <%= skill_form.input :value, as: :integer, label: skill_form.object.name, wrapper_html: { class: "skill-input", style: "display: none;", data: { stat: skill_form.object.stat }, components: [:label_input,:placeholder] } %>
+    <%= skill_form.input :name, as: :hidden %>
+    <%= skill_form.input :stat, as: :hidden %>
+    <%= skill_form.input :custom, as: :hidden %>
+    <%= skill_form.input :custom_description, as: :hidden %>
+    <%= skill_form.input :ip_multiplier, as: :hidden %>
+  <% end %>
+  <% Skill.distinct(:stat).each do |stat| %>
+    <div class="skill-list-box">
+      <h3><%= Character.human_attribute_name(stat) %></h3>
+      <ul class="skill-list <%= stat %>">
+      </ul>
+    </div>
+  <% end %>
+  <div class="clear"></div>
+  <%= f.button :submit %>
+<% end %>
+<script type="text/javascript">
+  $(function() {
+    <% Skill.distinct(:stat).each do |stat| %>
+      $(".skill-input[data-stat=<%= stat %>]").appendTo(".skill-list.<%= stat %>").show()
+    <% end %>
+  })
+</script>

@@ -27,7 +27,6 @@ class Character
   end
 
   # Origins and personal style
-  field :age, type: Integer
   field :ethnicity, type: String
   field :clothes, type: String
   field :affections, type: String
@@ -50,7 +49,9 @@ class Character
   field :feelings_toward_others, type: String
 
   # Life events
+  field :age, type: Integer
   embeds_many :life_events
+  accepts_nested_attributes_for :life_events
 
   validates :handle, :role, presence: true
 

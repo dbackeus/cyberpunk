@@ -1,6 +1,8 @@
 class CharacterSkill
   include Mongoid::Document
 
+  embedded_in :character, inverse_of: :skills
+
   field :name, type: String
   field :stat, type: String
   field :custom, type: Boolean, default: false

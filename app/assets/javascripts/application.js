@@ -30,3 +30,7 @@ Number.prototype.isEven = function() {
 Number.prototype.isOdd = function() {
   return this % 2 == 1
 }
+
+$(function() {
+  $("textarea").autosize()
+})

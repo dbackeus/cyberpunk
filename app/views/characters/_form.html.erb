@@ -381,7 +381,8 @@
   <div class="life-events">
   </div>
   <h2>Skills</h2>
-  <%= f.fields_for :character_skills do |skill_form| %>
+  <%= f.fields_for :skills do |skill_form| %>
+    <%= skill_form.input :id, as: :hidden if skill_form.object.persisted? %>
     <%= skill_form.input :value, as: :integer, label: skill_form.object.name, wrapper_html: { class: "skill-input", style: "display: none;", data: { stat: skill_form.object.stat }, components: [:label_input,:placeholder] } %>
     <%= skill_form.input :name, as: :hidden %>
     <%= skill_form.input :stat, as: :hidden %>

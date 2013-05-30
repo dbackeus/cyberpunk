@@ -16,8 +16,8 @@ class Character
 
   belongs_to :role
 
-  embeds_many :character_skills
-  accepts_nested_attributes_for :character_skills
+  embeds_many :skills, class_name: "CharacterSkill"
+  accepts_nested_attributes_for :skills
 
   field :handle, type: String
 

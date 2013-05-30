@@ -1,8 +1,8 @@
 <h1>Characters</h1>
 
-<ul>
+<ul class="characters">
   <% @characters.each do |character| %>
-    <li><%= link_to character.handle, character %> | <%= link_to "edit", edit_character_path(character) %> | <%= link_to "destroy", character, method: :delete %></li>
+    <li class="character"><%= link_to character.handle, character %> | <%= link_to "edit", edit_character_path(character) %> | <%= link_to "destroy", character, method: :delete %></li>
   <% end %>
 </ul>
 

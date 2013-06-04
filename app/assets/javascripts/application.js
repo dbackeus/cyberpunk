@@ -13,10 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require_directory .
 
 Array.prototype.sample = function() {
   return this[Math.floor((Math.random()*this.length))]
+}
+
+Array.prototype.popHighestValue = function() {
+  var highest = Math.max.apply(Math, this)
+  return this.deleteOne(highest)
+}
+
+Array.prototype.deleteOne = function(matcher) {
+  for(var i=0; i<this.length; i++) {
+    var value = this[i]
+    if(value == matcher) {
+      this.splice(i, 1)
+      return value
+    }
+  }
 }
 
 String.prototype.capitalize = function() {

@@ -1,0 +1,370 @@
+<% extend CharactersHelper %>
+
+var preferredRoleStats = <%= Hash[Role.all.collect { |role| [role.id, role.preferred_stats] }].to_json %>
+
+$(function() {
+  $("a[data-roll]").click(function() {
+    roll($(this).data("roll"))
+    return false
+  })
+})
+
+function roll(section) {
+  if(section == "stats") rollStats()
+  if(section == "style") rollStyle()
+  if(section == "family") rollFamily()
+  if(section == "events") rollEvents()
+}
+
+function rollStats() {
+  var selectedRole = $("#character_role_id").val()
+  var preferredStats = preferredRoleStats[selectedRole]
+  
+  var rolls = $.map(<%= Character::BASIC_ATTRIBUTES.to_json %>, function() {
+    return dice(10, {rerollIf: function(result) { return result <= 2 }})
+  })
+
+  $.each(preferredStats, function(index, stat) {
+    var nextHighest = rolls.popHighestValue()
+    $("#character_"+stat).val(nextHighest)
+  })
+
+  var preferedStatsMatcher = new RegExp(preferredStats.join("|"))
+  $("ul.stats input").each(function() {
+    var input = $(this)
+    if(!input.attr("id").match(preferedStatsMatcher)) {
+      input.val(rolls.pop())
+    }
+  })
+}
+
+var clothes = <%= clothes_options.to_json.html_safe %>
+var hairs = <%= hair_options.to_json.html_safe %>
+var affections = <%= affections_options.to_json.html_safe %>
+var ethniticies = <%= ethnicity_options.keys.to_json.html_safe %>
+var languages = <%= ethnicity_options.to_json.html_safe %>
+function rollStyle() {
+  $("#character_clothes").val(clothes.sample())
+  $("#character_hair").val(hairs.sample())
+  $("#character_affections").val(affections.sample())
+  var ethnicity = ethniticies.sample()
+  $("#character_ethnicity").val(ethnicity)
+  $("#character_language").val(languages[ethnicity].sample())
+}
+
+var familyRankings = <%= family_ranking_options.to_json.html_safe %>
+var parentHappenings = <%= something_happened_to_parents_options.to_json.html_safe %>
+var familyTragedies = <%= family_tragedy_options.to_json.html_safe %>
+var childhoods = <%= childhood_options.to_json.html_safe %>
+var siblingFeelings = <%= sibling_feelings_options.to_json.html_safe %>
+function rollFamily() {
+  $("#character_family_ranking").val(familyRankings.sample())
+  var parents = dice(10) > 6 ? parentHappenings.sample() : "Your parents are alive"
+  $("#character_parents").val(parents)
+  var familyStatus = dice(10) > 6 ? "Family is OK" : familyTragedies.sample()
+  $("#character_family_status").val(familyStatus)
+  $("#character_childhood_environment").val(childhoods.sample())
+
+  $(".siblings").html("")
+  var numberOfSiblings = (result = dice(10)) > 7 ? 0 : result
+  for(var i=0; i<numberOfSiblings; i++) {
+    $('<h4>Sibling '+(i + 1)+'</h4>').appendTo(".siblings")
+    var sex = ["Male", "Female"].sample()
+    generateInput("character", "siblings_attributes", "sex", i, sex).appendTo(".siblings")
+    var ageRoll = dice(10)
+    if(ageRoll == 10) var age = "Twin"
+    else if(ageRoll <= 5) var age = "Older"
+    else var age = "Younger"
+    generateInput("character", "siblings_attributes", "age", i, age).appendTo(".siblings")
+    var feelings = siblingFeelings.sample()
+    generateInput("character", "siblings_attributes", "feelings", i, feelings).appendTo(".siblings")
+  }
+}
+
+function rollEvents() {
+  $(".life-events").html("")
+  var age = dice(6) + dice(6) + 16
+  $("#character_age").val(age)
+  for(var i=0; i<(age-16); i++) {
+    $('<h4>Age '+(17 + i)+'</h4>').appendTo(".life-events")
+    var description = generateLifeEventDescription()
+    generateInput("character", "life_events_attributes", "description", i, description, "text", "textarea").appendTo(".life-events")
+  }
+  $(".life-events textarea").autosize()
+}
+
+function generateLifeEventDescription() {
+  var result = dice(10)
+  if(result <= 3) return bigProblemsBigWins()
+  else if(result <= 6) return friendsAndEnemies()
+  else if(result <= 8) return romanticInvolvement()
+  else return "Nothing happened."
+}
+
+function bigProblemsBigWins() {
+  var result = dice(10)
+  if(result.isEven()) return bigWin()
+  if(result.isOdd()) return bigProblem()+" You plan to "+whatAreYouGonnaDoAboutIt()
+}
+
+function bigWin() {
+  switch(dice(10)) {
+    case 1: return makePowerfulConnection()
+    case 2: return "Scored "+(dice(10) * 100)+"eb on a financial windfall."
+    case 3: return "Scored "+(dice(10) * 100)+"eb on a job/deal."
+    case 4: return "You found a sensei. Begin at +2 or add +1 to a Martial Art skill of your choice."
+    case 5: return "You found a teacher. Begin at +2 or add +1 to an Intelligence skill of your choice."
+    case 6: return "A poweful coroporate exec owes you a favor."
+    case 7: return "A local nomad gang befriends you. You can call upon them for one favor a month, equivalent of a Family Special Ability of +2."
+    case 8: return "Make a friend at the Police Force. You may use him for inside information at level +2 Streetwise on any police related situation."
+    case 9: return "A local boostergang befriends you (who knows why, these a boosters, right?). You can call upon them for 1 favor a month, equivalent of a Family Special Ability of +2. But don't push it."
+    case 10: return "You found a combat teacher. Begin at +2 or add +1 to any combat skill of your choice (except for Martial Arts and Brawling)."
+  }
+}
+
+function makePowerfulConnection() {
+  var result = dice(10)
+  if(result <= 4) { var location = "Police Department" }
+  else if(result <= 7) { var location = "District Attourney's Office" }
+  else { var location = "Mayor's Office" }
+  return "Made a powerful connection in the "+location+"."
+}
+
+function bigProblem() {
+  switch(dice(10)) {
+    case 1: return "You made a debt of "+(dice(10) * 100)+"eb (pay now or when you have the cash)."
+    case 2: return "You were imprisoned or held hostage (your choice) for "+dice(10)+" months."
+    case 3: return "You contracted either an illness or a drug habit. Lost 1pt of Reflexes permanently as a result."
+    case 4: return betrayal()
+    case 5: return accident()
+    case 6: return lostSomeone()
+    case 7: return falseAccusation()
+    case 8: return huntedByTheLaw()
+    case 9: return huntedByCorporation()
+    case 10: return incapacitation()
+  }
+}
+
+function betrayal() {
+  var result = dice(10)
+  if(result <= 4) { var what = "You are being blackmailed." }
+  else if(result <= 7) { var what = "A secret was exposed." }
+  else { var what = "You were betrayed by a close friend in either romance or career (you chose)." }
+  return "You were backstabbed; "+what
+}
+
+function accident() {
+  var result = dice(10)
+  if(result <= 4) { var what = "was terribly disfigured and must subtract -5 from your Attractiveness." }
+  else if(result <= 6) { var what = "was hospitalized for "+dice(10)+" months." }
+  else if(result <= 8) { var what = "lost "+dice(10)+" months of memory of this year." }
+  else { var what = "constantly relive nightmares (8 in 10 chance each night) of the accident and wake up screaming" }
+  return "You were in an accident and "+what
+}
+
+function lostSomeone() {
+  var result = dice(10)
+  if(result <= 5) { var what = "They died accidently." }
+  else if(result <= 8) { var what = "They were murdured by unknown parties." }
+  else { var what = "They were murdured and you know who did it." }
+  return "You lost someone you really cared about. "+what
+}
+
+function falseAccusation() {
+  var result = dice(10)
+  if(result <= 3) { var what = "The false accusation was theft." }
+  else if(result <= 5) { var what = "The false accusation was covardice." }
+  else if(result <= 8) { var what = "The false accusation was murder." }
+  else if(result <= 9) { var what = "The false accusation was rape." }
+  else { var what = "The false accusation was lying or betrayal." }
+  return "You were set up. "+what
+}
+
+function huntedByTheLaw() {
+  var result = dice(10)
+  if(result <= 3) { var what = "Only a couple of local cops want you." }
+  else if(result <= 6) { var what = "The entire local force is after you." }
+  else if(result <= 8) { var what = "The State Police or Militia are after you." }
+  else { var what = "The FBI or equivalent national police force are after you." }
+  return "You are hunted by the law for crimes you may or may not have commited (your choice). "+what
+}
+
+function huntedByCorporation() {
+  var result = dice(10)
+  if(result <= 3) { var what = "It's a small local firm." }
+  else if(result <= 6) { var what = "It's a larger corp with offices statewide." }
+  else if(result <= 8) { var what = "It's a big, national corp, with agents in major cities nationwide." }
+  else { var what = "It's a huge multinational with armies, ninja and spies everywhere." }
+  return "You have angered some corporate honcho. "+what
+}
+
+function incapacitation() {
+  var result = dice(10)
+  if(result <= 3) { var what = "It's some type of nervous disorder, probably from a bioplague. Lost 1pt from your Reflexes stat." }
+  else if(result <= 7) { var what = "It's some kind of mental proble; you suffer anxiety attacks and phobias. Lost 1pt from your Cool stat." }
+  else { var what = "It's a major psychosis. You hear voices, are violent, irrational, depressive. Lost 1pt from your Cool and 1pt from Reflexes." }
+  return "You have experienced some type of mental or physical breakdown. "+what
+}
+
+function whatAreYouGonnaDoAboutIt() {
+  var result = dice(10)
+  if(result <= 2) { return "clear your name." }
+  else if(result <= 4) { return "live it down and try to forget it." }
+  else if(result <= 6) { return "hunt down those responsible and make them pay!" }
+  else if(result <= 8) { return "get what's rightfully yours." }
+  else { return "save, if possible, anyone else involved in the situation." }
+}
+
+function friendsAndEnemies() {
+  var result = dice(10)
+  if(result <= 5) { return makeFriend() }
+  else { return makeEnemy() }
+}
+
+function makeFriend() {
+  var sex = dice(10).isEven() ? "male" : "female"
+  switch(dice(10)) {
+    case 1: var relation = "a "+manWoman(sex)+" who is like a big "+(sex == "male" ? "brother" : "sister")+" to you"; break
+    case 2: var relation = "a "+manWoman(sex)+" who is like a kid "+(sex == "male" ? "brother" : "sister")+" to you"; break
+    case 3: var relation = "a "+sex+" teacher / mentor"; break
+    case 4: var relation = "a "+sex+" partner or co-worker"; break
+    case 5: var relation = "an old lover (chose which one)"; break
+    case 6: var relation = "an old "+sex+" enemy (chose which one)"; break
+    case 7: var relation = "a "+manWoman(sex)+"  who is like a foster "+(sex == "male" ? "father" : "mother")+" to you"; break
+    case 8: var relation = "a "+sex+" relative"; break
+    case 9: var relation = "a "+sex+" childhood friend"; break
+    case 10: var relation = "a "+manWoman(sex)+" met through a common interest"; break
+  }
+  return "Made a new friend - "+relation+". Roll style/motivation to further elaborate on this friend."
+}
+
+function makeEnemy() {
+  var sex = dice(10).isEven() ? "male" : "female"
+  switch(dice(10)) {
+    case 1: var relation = "an ex "+sex+" friend"; break
+    case 2: var relation = "an ex lover"; break
+    case 3: var relation = "a "+sex+" relative"; break
+    case 4: var relation = "a "+sex+" childhood enemy"; break
+    case 5: var relation = "a "+sex+" person working for you"; break
+    case 6: var relation = "a "+sex+" person you are working for"; break
+    case 7: var relation = "a "+sex+" partner or co-worker"; break
+    case 8: var relation = "a "+sex+" booster gang member"; break
+    case 9: var relation = "a "+sex+" corporate exec"; break
+    case 10: var relation = "a "+sex+" government official"; break
+  }
+
+  var potentialEnemyDisabilities = ["lost eye", "lost arm", "badly scarred"]
+  switch(dice(10)) {
+    case 1: var cause = "caused the other to lose face or status"; break
+    case 2: var cause = "caused the loss of a lover, friend or relative"; break
+    case 3: var cause = "caused a major humiliation"; break
+    case 4: var cause = "accused the other of cowardice or some other personal flaw"; break
+    case 5: var cause = "caused a physical disability: "+potentialEnemyDisabilities.sample(); break
+    case 6: var cause = "deserted or betrayed the other"; break
+    case 7: var cause = "turned down other's offer of job or romantic involvement"; break
+    case 8: var cause = "you just didn't like each other"; break
+    case 9: var cause = "was a romantic rival"; break
+    case 10: var cause = "foiled a plan of the other's"; break
+  }
+
+  var result = dice(10)
+  if(result <= 4) { var who = heShe(sex).capitalize()+" hates you but you're not so much bothered" }
+  else if(result <= 7) { var who = "You hate "+himHer(sex)+" but "+heShe(sex)+"'s not so much bothered" }
+  else { var who = "The feeling's mutual" }
+
+
+  var potentialSolutions = ["go into a murderous killing rage and rip the others face off!", "avoid the other.", "backstab the other indirectly.", "rip into the other verbally."]
+
+
+  var result = dice(10)
+  if(result <= 3) { var possy = "just "+himHer(sex)+"self" }
+  else if(result <= 5) { var possy = himHer(sex)+"self and a few friends" }
+  else if(result <= 7) { var possy = "an entire gang" }
+  else if(result <= 8) { var possy = "a small corporation" }
+  else if(result <= 9) { var possy = "a large corporation" }
+  else { var possy = "an entire government agency" }
+
+  return "Made an enemy - "+relation+". The enmity started when one of you "+cause+". "+who+". If the two of you met face to face, the injured party would most likely "+potentialSolutions.sample()+" The enemy might involve "+possy+" to handle the conflict. Roll style/motivation to further elaborate on this enemy."
+}
+
+function romanticInvolvement() {
+  var result = dice(10)
+  if(result <= 4) { return "Had a happy love affair." }
+  else if(result <= 5) { return "Had a tragic love affair. "+tragicLove() }
+  else if(result <= 7) { return "Had a problematic love affair. "+problematicLove()+" "+mutualFeelings() }
+  else { return "Had a few fast affairs and hot dates." }
+}
+
+function tragicLove() {
+  switch(dice(10)) {
+    case 1: return "Lover died in an accident."
+    case 2: return "Lover mysteriously vanished. "+mutualFeelings()
+    case 3: return "It just didn't work out. "+mutualFeelings()
+    case 4: return "A personal goal or vendetta came between you. "+mutualFeelings()
+    case 5: return "Lover was kidnapped. "+mutualFeelings()
+    case 6: return "Lover went insane. "+mutualFeelings()
+    case 7: return "Lover commited suicide."
+    case 8: return "Lover was killed in a fight."
+    case 9: return "A rival cut you out of the action. "+mutualFeelings()
+    case 10: return "Lover was imprisoned or exiled. "+mutualFeelings()
+  }
+}
+
+function problematicLove() {
+  switch(dice(10)) {
+    case 1: return "You lover's friends/family hate you."
+    case 2: return "Your lover's friends/family would use any means to get rid of you."
+    case 3: return "Your friends7family hate your lover."
+    case 4: return "One of you has a romantic rival."
+    case 5: return "You are separated in some way."
+    case 6: return "You fight constantly."
+    case 7: return "You're professional rivals."
+    case 8: return "One of you is insanely jealous."
+    case 9: return "One of you is \"messing around\"."
+    case 10: return "You have conflicting backgrounds and families."
+  }
+}
+
+function mutualFeelings() {
+  switch(dice(10)) {
+    case 1: return "She/he still loves you."
+    case 2: return "You still love her/him."
+    case 3: return "You still love each other."
+    case 4: return "You hate her/him."
+    case 5: return "She/he hates you."
+    case 6: return "You hate each other."
+    case 7: return "You're friends now."
+    case 8: return "No feeling's either way now; it's over."
+    case 9: return "You still like her/him but she/he hate you."
+    case 10: return "She/he still likes you but you hate her/him."
+  }
+}
+
+function generateInput(model, group, attribute, index, value, simpleformType, inputType) {
+  simpleformType = simpleformType || "string"
+  inputType = inputType || "text"
+  var id = model+'_'+group+'_'+index+'_'+attribute
+  var name = model+'['+group+']['+index+']['+attribute+']'
+  if(inputType == "textarea") {
+    var formTag = '<textarea id="'+id+'" name="'+name+'">'+value+'</textarea>'
+  }
+  else {
+    var formTag = '<input type="'+inputType+'" id="'+id+'" name="'+name+'" value="'+value+'" />'
+  }
+  return $('<div class="input '+simpleformType+'"><label class="'+simpleformType+'" for="'+model+'_'+group+'_'+index+'_'+attribute+'">'+attribute.capitalize()+'</label>'+formTag+'</div>')
+}
+
+function hisHer(sex) { return sex == "male" ? "his" : "her" }
+
+function himHer(sex) { return sex == "male" ? "him" : "her" }
+
+function heShe(sex) { return sex == "male" ? "he" : "she" }
+
+function manWoman(sex) { return sex == "male" ? "man" : "woman" }
+
+function dice(number, options) {
+  options = options || {rerollIf: function(result) { return false }}
+  var result = parseInt(Math.random() * number) + 1
+  if(options.rerollIf(result)) result = dice(number, options)
+  return result
+}

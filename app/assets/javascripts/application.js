@@ -34,6 +34,10 @@ Array.prototype.deleteOne = function(matcher) {
   }
 }
 
+Array.prototype.isEmpty = function() {
+  return this.length == 0
+}
+
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1)
 }

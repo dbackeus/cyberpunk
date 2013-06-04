@@ -1,5 +1,10 @@
 Cyberpunk::Application.routes.draw do
-  resources :characters
+  resources :characters do
+    collection do
+      get :chose_role
+      get :random_name
+    end
+  end
 
   root "characters#index"
 

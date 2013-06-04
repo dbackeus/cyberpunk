@@ -1,8 +1,9 @@
 <%= javascript_include_tag "standalone/character-creation.js" %>
 
 <%= simple_form_for @character do |f| %>
-  <%= f.input :handle %>
-  <%= f.input :role_id, collection: Role.all, include_blank: false %>
+  <%= f.input :role_id, as: :hidden %>
+  <%= f.input :sex, collection: {"Male" => "male", "Female" => "female"}, include_blank: false %>
+  <%= f.input :handle %> <%= link_to "random!", random_name_characters_path, id: "random-name-button" %> <%= link_to "name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank" %>
   <h2>Statistics <%= link_to image_tag("roll.png"), "#roll", data: { roll: "stats" } %></h2>
   <ul class="stats">
     <% Character::BASIC_ATTRIBUTES.each do |stat| %>
@@ -29,9 +30,14 @@
   <div class="life-events">
   </div>
   <h2>Skills</h2>
+  <div id="career-points-left-box">
+    <label for="career-points-left">Career Points Left</label>
+    <input type="number" id="career-points-left" readonly></input>
+  </div>
   <%= f.fields_for :skills do |skill_form| %>
+    <% career_skill = @character.role.career_skills.collect(&:name).include?(skill_form.object.name) %>
     <%= skill_form.input :id, as: :hidden if skill_form.object.persisted? %>
-    <%= skill_form.input :value, as: :integer, label: skill_form.object.name, wrapper_html: { class: "skill-input", style: "display: none;", data: { stat: skill_form.object.stat }, components: [:label_input,:placeholder] } %>
+    <%= skill_form.input :value, as: :integer, label: skill_form.object.name, wrapper_html: { class: "skill-input #{'career' if career_skill}", style: "display: none;", data: { stat: skill_form.object.stat }, components: [:label_input,:placeholder] } %>
     <%= skill_form.input :name, as: :hidden %>
     <%= skill_form.input :stat, as: :hidden %>
     <%= skill_form.input :custom, as: :hidden %>
@@ -41,17 +47,9 @@
   <% Skill.distinct(:stat).each do |stat| %>
     <div class="skill-list-box">
       <h3><%= Character.human_attribute_name(stat) %></h3>
-      <ul class="skill-list <%= stat %>">
-      </ul>
+      <div class="skill-list <%= stat %>"></div>
     </div>
   <% end %>
   <div class="clear"></div>
   <%= f.button :submit %>
 <% end %>
-<script type="text/javascript">
-  $(function() {
-    <% Skill.distinct(:stat).each do |stat| %>
-      $(".skill-input[data-stat=<%= stat %>]").appendTo(".skill-list.<%= stat %>").show()
-    <% end %>
-  })
-</script>

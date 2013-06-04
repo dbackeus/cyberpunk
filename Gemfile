@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 1.0.1'
 # App gems
 gem 'mongoid', git: "git://github.com/mongoid/mongoid.git"
 gem 'simple_form'
+gem 'httpi'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

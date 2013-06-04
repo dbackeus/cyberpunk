@@ -1,0 +1,166 @@
+---
+- name: Solo
+  preferred_stats:
+  - reflexes
+  - cool
+  - body_type
+  career_skills:
+  - Awareness/Notice
+  - Handgun
+  - Brawling
+  - Melee
+  - Weaponsmith
+  - Rifle
+  - Athletics
+  - Submachinegun
+  - Stealth
+  - Martial Arts (Aikido)
+  - Martial Arts (Animal Kung Fu)
+  - Martial Arts (Boxing)
+  - Martial Arts (Capoeira)
+  - Martial Arts (Choi Li Fut)
+  - Martial Arts (Judo)
+  - Martial Arts (Karate)
+  - Martial Arts (Tae Kwon Do)
+  - Martial Arts (Thai Kick Boxing)
+  - Martial Arts (Wrestling)
+- name: Rocker
+  preferred_stats:
+  - attractiveness
+  - cool
+  - empathy
+  - technical_ability
+  career_skills:
+  - Awareness/Notice
+  - Perform
+  - Wardrobe & Style
+  - Composition
+  - Brawling
+  - Play Instrument
+  - Streetwise
+  - Persuation
+  - Seduction
+- name: Netrunner
+  preferred_stats:
+  - intelligence
+  - technical_ability
+  career_skills:
+  - Awareness/Notice
+  - Basic Tech
+  - Education
+  - System Knowledge
+  - CyberTech
+  - Cyberdeck Design
+  - Composition
+  - Electronics
+  - Programming
+- name: Media
+  preferred_stats:
+  - attractiveness
+  - intelligence
+  - empathy
+  - cool
+  career_skills:
+  - Awareness/Notice
+  - Composition
+  - Education
+  - Persuation
+  - Human Perception
+  - Social
+  - Streetwise
+  - Photo & Film
+  - Interview
+- name: Nomad
+  preferred_stats:
+  - reflexes
+  - body_type
+  - technical_ability
+  - cool
+  career_skills:
+  - Awareness/Notice
+  - Endurance
+  - Melee
+  - Rifle
+  - Drive
+  - Basic Tech
+  - Wilderness Survival
+  - Brawling
+  - Athletics
+- name: Fixer
+  preferred_stats:
+  - cool
+  - empathy
+  - technical_ability
+  - reflexes
+  career_skills:
+  - Awareness/Notice
+  - Forgery
+  - Handgun
+  - Brawling
+  - Melee
+  - Pick Lock
+  - Pick Pocket
+  - Intimidate
+  - Persuation
+- name: Cop
+  preferred_stats:
+  - reflexes
+  - cool
+  - empathy
+  - intelligence
+  career_skills:
+  - Awareness/Notice
+  - Handgun
+  - Human Perception
+  - Athletics
+  - Education
+  - Brawling
+  - Melee
+  - Interrogation
+  - Streetwise
+- name: Corp
+  preferred_stats:
+  - intelligence
+  - empathy
+  - attractiveness
+  career_skills:
+  - Awareness/Notice
+  - Human Perception
+  - Education
+  - Library Search
+  - Social
+  - Persuation
+  - Stock Market
+  - Wardrobe & Style
+  - Personal Grooming
+- name: Techie
+  preferred_stats:
+  - technical_ability
+  - intelligence
+  career_skills:
+  - Awareness/Notice
+  - Basic Tech
+  - CyberTech
+  - Teaching
+  - Education
+  - Electronics
+  - Aero Tech
+  - AV Tech
+  - Electronic Security
+  - Gyro Tech
+  - Weaponsmith
+- name: Medtechie
+  preferred_stats:
+  - technical_ability
+  - intelligence
+  - empathy
+  career_skills:
+  - Awareness/Notice
+  - Basic Tech
+  - Diagnose
+  - Education
+  - Cryotank Operation
+  - Library Search
+  - Pharmaceuticals
+  - Zoology
+  - Human Perception

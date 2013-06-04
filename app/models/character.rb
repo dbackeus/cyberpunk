@@ -19,6 +19,7 @@ class Character
   embeds_many :skills, class_name: "CharacterSkill"
   accepts_nested_attributes_for :skills
 
+  field :sex, type: String
   field :handle, type: String
 
   BASIC_ATTRIBUTES.each do |attribute|

@@ -1,13 +1,45 @@
 <% extend CharactersHelper %>
 
 var preferredRoleStats = <%= Hash[Role.all.collect { |role| [role.id, role.preferred_stats] }].to_json %>
+var careerSkills = <%= Hash[Role.all.collect { |role| [role.id, role.career_skills.collect(&:id)] }].to_json %>
 
 $(function() {
   $("a[data-roll]").click(function() {
     roll($(this).data("roll"))
     return false
   })
+  $("#random-name-button").click(function() {
+    var sex = $("#character_sex option:selected").text()
+    $.get("/characters/random_name?sex="+sex, function(data) {
+      $("#character_handle").val(data)
+    })
+    return false
+  })
+  <% Skill.distinct(:stat).each do |stat| %>
+    $(".skill-input[data-stat=<%= stat %>]").appendTo(".skill-list.<%= stat %>").show()
+  <% end %>
+  $(".skill-list:empty").closest(".skill-list-box").hide()
+
+  $(".career input").change(function() { refreshUsedCareerPoints() })
+
+  refreshUsedCareerPoints()
 })
+
+function refreshUsedCareerPoints() {
+  var usedCareerPoints = 0
+  $(".career input").each(function() {
+    usedCareerPoints += parseInt(this.value) || 0
+  })
+  var remainingCareerPoints = 40 - usedCareerPoints
+  $("#career-points-left").val(remainingCareerPoints)
+
+  if(remainingCareerPoints < 0) {
+    $("#career-points-left").parent().find("label").addClass("warning")
+  }
+  else {
+    $("#career-points-left").parent().find("label").removeClass("warning")
+  }
+}
 
 function roll(section) {
   if(section == "stats") rollStats()

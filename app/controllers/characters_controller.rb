@@ -7,8 +7,16 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
-  def new
+  def chose_role
     @character = Character.new
+  end
+
+  def new
+    @character = Character.new(character_params)
+    @character.role.career_skills.each do |skill|
+      attributes = skill.attributes.slice *%w(name stat custom custom_description ip_multiplier)
+      @character.skills.build(attributes)
+    end
   end
 
   def create
@@ -39,6 +47,13 @@ class CharactersController < ApplicationController
     character = Character.find(params[:id])
     character.destroy
     redirect_to characters_path, notice: "Character destroyed!"
+  end
+
+  def random_name
+    name = Timeout.timeout(5) do
+      HTTPI.get("http://donjon.bin.sh/name/rpc.cgi?type=Modern%20#{params[:sex] || "Male"}&n=1").body
+    end
+    render text: name
   end
 
   private

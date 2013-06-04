@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: a56dc4e11230567691f11f828c6446a4c7eabd20
+  revision: e1fa17295bfbc048f613a070e67bd433ccec256f
   specs:
     mongoid (4.0.0)
       activemodel (~> 4.0.0.rc1)
@@ -50,6 +50,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.2)
+    httpi (2.0.2)
+      rack
     i18n (0.6.4)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
@@ -63,7 +65,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.4)
     moped (1.5.0)
-    multi_json (1.7.3)
+    multi_json (1.7.4)
     origin (1.1.0)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -134,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  httpi
   jbuilder (~> 1.0.1)
   jquery-rails
   mongoid!

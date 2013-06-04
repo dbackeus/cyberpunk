@@ -6,22 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-roles = {
-  "Solo" => %w[reflexes cool body_type],
-  "Rocker" => %w[attractiveness cool empathy technical_ability],
-  "Netrunner" => %w[intelligence technical_ability],
-  "Media" => %w[attractiveness intelligence empathy cool],
-  "Nomad" => %w[reflexes body_type technical_ability cool],
-  "Fixer" => %w[cool empathy technical_ability reflexes],
-  "Cop" => %w[reflexes cool empathy intelligence],
-  "Corp" => %w[intelligence empathy attractiveness],
-  "Techie" => %w[technical_ability intelligence],
-  "Medtechie" => %w[technical_ability intelligence empathy],
-}
-roles.each do |name, stats|
-  Role.create!(name: name, preferred_stats: stats)
+YAML.load_file("db/skills.yml").each do |skill_attributes|
+  Skill.create!(skill_attributes)
 end
 
-YAML.load_file("db/skills.yml").each do |skill_atributes|
-  Skill.create!(skill_atributes)
+YAML.load_file("db/roles.yml").each do |skill_attributes|
+  career_skill_names = skill_attributes.delete('career_skills')
+  career_skill_ids = Skill.where(:name.in => career_skill_names).collect(&:id)
+  Role.create!(skill_attributes.merge(career_skill_ids: career_skill_ids))
 end

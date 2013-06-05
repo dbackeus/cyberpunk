@@ -50,6 +50,10 @@ Number.prototype.isOdd = function() {
   return this % 2 == 1
 }
 
+String.prototype.toI = function() {
+  return parseInt(this) || 0
+}
+
 $(function() {
   $("textarea").autosize()
 })

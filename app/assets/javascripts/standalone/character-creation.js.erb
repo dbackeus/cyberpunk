@@ -15,30 +15,47 @@ $(function() {
     })
     return false
   })
+  $("#add-pickup-skill-button").fancybox()
   <% Skill.distinct(:stat).each do |stat| %>
     $(".skill-input[data-stat=<%= stat %>]").appendTo(".skill-list.<%= stat %>").show()
   <% end %>
-  $(".skill-list:empty").closest(".skill-list-box").hide()
+  $(".skill-list:empty").closest(".skill-list-box").addClass("hidden")
+  $(".add-pickup-skill").click(function() {
+    $.fancybox.close()
+    addPickupSkill($(this).data())
+    return false
+  })
 
-  $(".career input").change(function() { refreshUsedCareerPoints() })
+  $(".career input").change(refreshCareerPoints)
+  $(".pickup input").change(refreshPickupPoints)
 
-  refreshUsedCareerPoints()
+  refreshCareerPoints()
+  refreshPickupPoints()
 })
 
-function refreshUsedCareerPoints() {
-  var usedCareerPoints = 0
+function refreshCareerPoints() {
+  var pointsUsed = 0
   $(".career input").each(function() {
-    usedCareerPoints += parseInt(this.value) || 0
+    pointsUsed += parseInt(this.value) || 0
   })
-  var remainingCareerPoints = 40 - usedCareerPoints
-  $("#career-points-left").val(remainingCareerPoints)
+  var pointsRemaining = 40 - pointsUsed
+  $("#career-points-left").val(pointsRemaining)
 
-  if(remainingCareerPoints < 0) {
-    $("#career-points-left").parent().find("label").addClass("warning")
-  }
-  else {
-    $("#career-points-left").parent().find("label").removeClass("warning")
-  }
+  if(pointsRemaining < 0) $("#career-points-left").parent().find("label").addClass("warning")
+  else $("#career-points-left").parent().find("label").removeClass("warning")
+}
+
+function refreshPickupPoints() {
+  var pointsTotal = $("#character_intelligence").val().toI() + $("#character_reflexes").val().toI()
+  var pointsUsed = 0
+  $(".pickup input").each(function() {
+    pointsUsed += parseInt(this.value) || 0
+  })
+  var pointsRemaining = pointsTotal - pointsUsed
+  $("#pickup-points-left").val(pointsRemaining)
+
+  if(pointsRemaining < 0) $("#pickup-points-left").parent().find("label").addClass("warning")
+  else $("#pickup-points-left").parent().find("label").removeClass("warning")
 }
 
 function roll(section) {
@@ -102,14 +119,14 @@ function rollFamily() {
   for(var i=0; i<numberOfSiblings; i++) {
     $('<h4>Sibling '+(i + 1)+'</h4>').appendTo(".siblings")
     var sex = ["Male", "Female"].sample()
-    generateInput("character", "siblings_attributes", "sex", i, sex).appendTo(".siblings")
+    generateInput("siblings_attributes", "sex", i, sex).appendTo(".siblings")
     var ageRoll = dice(10)
     if(ageRoll == 10) var age = "Twin"
     else if(ageRoll <= 5) var age = "Older"
     else var age = "Younger"
-    generateInput("character", "siblings_attributes", "age", i, age).appendTo(".siblings")
+    generateInput("siblings_attributes", "age", i, age).appendTo(".siblings")
     var feelings = siblingFeelings.sample()
-    generateInput("character", "siblings_attributes", "feelings", i, feelings).appendTo(".siblings")
+    generateInput("siblings_attributes", "feelings", i, feelings).appendTo(".siblings")
   }
 }
 
@@ -120,7 +137,7 @@ function rollEvents() {
   for(var i=0; i<(age-16); i++) {
     $('<h4>Age '+(17 + i)+'</h4>').appendTo(".life-events")
     var description = generateLifeEventDescription()
-    generateInput("character", "life_events_attributes", "description", i, description, "text", "textarea").appendTo(".life-events")
+    generateInput("life_events_attributes", "description", i, description, {simpleformType: "text", inputType: "textarea"}).appendTo(".life-events")
   }
   $(".life-events textarea").autosize()
 }
@@ -372,9 +389,24 @@ function mutualFeelings() {
   }
 }
 
-function generateInput(model, group, attribute, index, value, simpleformType, inputType) {
-  simpleformType = simpleformType || "string"
-  inputType = inputType || "text"
+function addPickupSkill(data) {
+  var index = new Date().valueOf()
+  inputOptions = {simpleformType: "hidden", inputType: "hidden"}
+  generateInput("skills_attributes", "name", index, data.name, inputOptions).appendTo(".skill-list."+data.stat)
+  generateInput("skills_attributes", "stat", index, data.stat, inputOptions).appendTo(".skill-list."+data.stat)
+  generateInput("skills_attributes", "ip_multiplier", index, data.ip_multiplier, inputOptions).appendTo(".skill-list."+data.stat)
+  generateInput("skills_attributes", "value", index, 0, {
+    simpleformType: "numeric integer skill-input pickup", inputType: "number", label: data.name
+  }).change(refreshPickupPoints).appendTo(".skill-list."+data.stat)
+  $(".skill-list."+data.stat).parent().removeClass("hidden")
+}
+
+function generateInput(group, attribute, index, value, options) {
+  var model = options.model || "character"
+  var simpleformType = options.simpleformType || "string"
+  var inputType = options.inputType || "text"
+  var label = options.label || attribute.capitalize()
+
   var id = model+'_'+group+'_'+index+'_'+attribute
   var name = model+'['+group+']['+index+']['+attribute+']'
   if(inputType == "textarea") {
@@ -383,7 +415,7 @@ function generateInput(model, group, attribute, index, value, simpleformType, in
   else {
     var formTag = '<input type="'+inputType+'" id="'+id+'" name="'+name+'" value="'+value+'" />'
   }
-  return $('<div class="input '+simpleformType+'"><label class="'+simpleformType+'" for="'+model+'_'+group+'_'+index+'_'+attribute+'">'+attribute.capitalize()+'</label>'+formTag+'</div>')
+  return $('<div class="input '+simpleformType+'"><label class="'+simpleformType+'" for="'+model+'_'+group+'_'+index+'_'+attribute+'">'+label+'</label>'+formTag+'</div>')
 }
 
 function hisHer(sex) { return sex == "male" ? "his" : "her" }

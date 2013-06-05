@@ -31,9 +31,25 @@
   </div>
   <h2>Skills</h2>
   <div id="career-points-left-box">
-    <label for="career-points-left">Career Points Left</label>
+    <label for="career-points-left">Career Skill Points Left</label>
     <input type="number" id="career-points-left" readonly></input>
   </div>
+  <div id="pickup-points-left-box">
+    <label for="pickup-points-left">Pickup Skill Points Left</label>
+    <input type="number" id="pickup-points-left" readonly></input>
+  </div>
+  <div id="pickup-skills" style="display:none">
+    <% Skill.where(:_id.nin => @character.role.career_skill_ids).group_by(&:stat).each do |stat, skills| %>
+      <% next unless stat %>
+      <h3><%= Character.human_attribute_name(stat) %></h3>
+      <ul class="pickup-skills <%= stat %>">
+        <% skills.each do |skill| %>
+          <li class="pickup-skill"><%= link_to "+", "#", class: "add-pickup-skill", data: { name: skill.name, stat: skill.stat, ip_multiplier: skill.ip_multiplier } %> <%= skill.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <%= link_to "Add Pickup Skill", "#pickup-skills", id: "add-pickup-skill-button" %>
   <%= f.fields_for :skills do |skill_form| %>
     <% career_skill = @character.role.career_skills.collect(&:name).include?(skill_form.object.name) %>
     <%= skill_form.input :id, as: :hidden if skill_form.object.persisted? %>
@@ -44,12 +60,14 @@
     <%= skill_form.input :custom_description, as: :hidden %>
     <%= skill_form.input :ip_multiplier, as: :hidden %>
   <% end %>
-  <% Skill.distinct(:stat).each do |stat| %>
-    <div class="skill-list-box">
-      <h3><%= Character.human_attribute_name(stat) %></h3>
-      <div class="skill-list <%= stat %>"></div>
-    </div>
-  <% end %>
+  <div id="skill-boxes">
+    <% Skill.distinct(:stat).each do |stat| %>
+      <div class="skill-list-box">
+        <h3><%= Character.human_attribute_name(stat) %></h3>
+        <div class="skill-list <%= stat %>"></div>
+      </div>
+    <% end %>
+  </div>
   <div class="clear"></div>
   <%= f.button :submit %>
 <% end %>

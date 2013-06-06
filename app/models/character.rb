@@ -68,8 +68,12 @@ class Character
     empathy * 10
   end
 
-  def carry_weight
+  def carry
     body_type * 10
+  end
+
+  def lift
+    body_type * 40
   end
 
   def body_type_modifier

@@ -32,11 +32,11 @@
   <h2>Skills</h2>
   <div id="career-points-left-box">
     <label for="career-points-left">Career Skill Points Left</label>
-    <input type="number" id="career-points-left" readonly></input>
+    <output id="career-points-left"></output>
   </div>
   <div id="pickup-points-left-box">
     <label for="pickup-points-left">Pickup Skill Points Left</label>
-    <input type="number" id="pickup-points-left" readonly></input>
+    <output id="pickup-points-left"></output>
   </div>
   <div id="pickup-skills" style="display:none">
     <% Skill.where(:_id.nin => @character.role.career_skill_ids).group_by(&:stat).each do |stat, skills| %>

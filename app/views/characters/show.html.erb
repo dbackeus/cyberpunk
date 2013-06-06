@@ -1,9 +1,42 @@
-<h1><%= @character.handle %></h1>
+<h1><%= @character.handle %> (<%= @character.role.name %>)</h1>
 
-<ul>
-  <% (Character::BASIC_ATTRIBUTES + %i[run leap humanity]).each do |attribute| %>
-  <li><%= Character.human_attribute_name(attribute) %>: <%= @character.send(attribute) %></li>
+<h2 class="inversed">Stats</h2>
+<ul class="stats">
+  <% (Character::BASIC_ATTRIBUTES).each do |stat| %>
+  <li class="stat">
+    <abbr title="<%= Character.human_attribute_name(stat).titleize %>" class="stat-name"><%= abbrivated_stats[stat] %></abbr>
+    <span class="stat-value"><%= @character.send(stat) %></span>
+  </li>
 <% end %>
 </ul>
+
+<ul class="stats">
+  <% %i[run leap lift carry humanity].each do |attribute| %>
+  <li class="stat">
+    <span class="stat-name"><%= Character.human_attribute_name(attribute) %></span>
+    <span class="stat-value"><%= @character.send(attribute) %></span>
+  </li>
+  <% end %>
+</ul>
+<div class="clear"></div>
+
+<h2 class="inversed">Skills</h2>
+<% @character.skills.reject { |s| s.value == 0 }.group_by(&:stat).each do |stat, skills| %>
+  <div class="skill-group">
+    <h3><%= Character.human_attribute_name(stat) %></h3>
+    <ul class="skills <%= stat %>">
+      <% skills.each do |skill| %>
+        <li class="skill">
+          <span class="values">
+            <abbr class="value actual" title="Skill Value"><%= skill.value %></abbr>
+            /
+            <abbr class="value modified" title="Skill Value + <%= Character.human_attribute_name(stat) %> Stat"><%= skill.value + @character.send(skill.stat) %></abbr>
+          </span>
+          <span class="name"><%= skill.name %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= link_to "edit", edit_character_path(@character) %>

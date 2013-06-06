@@ -9,4 +9,6 @@ class CharacterSkill
   field :custom_description, type: String
   field :ip_multiplier, type: Integer, default: 1
   field :value, type: Integer, default: 0
+
+  validates :value, numericality: true
 end

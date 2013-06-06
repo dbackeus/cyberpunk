@@ -15,6 +15,20 @@ describe Character do
     end
   end
 
+  describe "#lift" do
+    it "is body type times 40" do
+      Character.new(body_type: 6).lift.should == 240
+      Character.new(body_type: 3).lift.should == 120
+    end
+  end
+
+  describe "#carry" do
+    it "is body type times 10" do
+      Character.new(body_type: 6).carry.should == 60
+      Character.new(body_type: 3).carry.should == 30
+    end
+  end
+
   describe "#body_type_modifier" do
     [2].each do |i|
       it "should be 0 when body type is set to #{i}" do

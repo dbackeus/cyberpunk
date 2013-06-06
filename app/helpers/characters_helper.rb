@@ -1,4 +1,18 @@
 module CharactersHelper
+  def abbrivated_stats
+    {
+      intelligence: "INT",
+      reflexes: "REF",
+      cool: "COOL",
+      technical_ability: "TECH",
+      luck: "LUCK",
+      attractiveness: "ATTR",
+      movement_allowance: "MA",
+      empathy: "EMP",
+      body_type: "BODY",
+    }
+  end
+
   def clothes_options
     [
       "Biker leathers",

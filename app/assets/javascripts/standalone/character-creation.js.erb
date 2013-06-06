@@ -402,6 +402,7 @@ function addPickupSkill(data) {
 }
 
 function generateInput(group, attribute, index, value, options) {
+  options = options || {}
   var model = options.model || "character"
   var simpleformType = options.simpleformType || "string"
   var inputType = options.inputType || "text"

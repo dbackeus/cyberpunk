@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-YAML.load_file("db/skills.yml").each do |skill_attributes|
-  Skill.create!(skill_attributes)
+YAML.load_file("db/skills.yml").each do |attributes|
+  Skill.create!(attributes)
 end
 
-YAML.load_file("db/roles.yml").each do |skill_attributes|
-  career_skill_names = skill_attributes.delete('career_skills')
+YAML.load_file("db/roles.yml").each do |attributes|
+  career_skill_names = attributes.delete('career_skills')
   career_skill_ids = Skill.where(:name.in => career_skill_names).collect(&:id)
-  Role.create!(skill_attributes.merge(career_skill_ids: career_skill_ids))
+  Role.create!(attributes.merge(career_skill_ids: career_skill_ids, special_ability_id: special_ability.id))
 end

@@ -21,22 +21,12 @@
 <div class="clear"></div>
 
 <h2 class="inversed">Skills</h2>
-<% @character.skills.reject { |s| s.value == 0 }.group_by(&:stat).each do |stat, skills| %>
-  <div class="skill-group">
-    <h3><%= Character.human_attribute_name(stat) %></h3>
-    <ul class="skills <%= stat %>">
-      <% skills.each do |skill| %>
-        <li class="skill">
-          <span class="values">
-            <abbr class="value actual" title="Skill Value"><%= skill.value %></abbr>
-            /
-            <abbr class="value modified" title="Skill Value + <%= Character.human_attribute_name(stat) %> Stat"><%= skill.value + @character.send(skill.stat) %></abbr>
-          </span>
-          <span class="name"><%= skill.name %></span>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<% special_abilities = @character.skills.select { |s| s.value > 0 && s.special_ability } %>
+<%= render partial: "skill_group", object: {"Special #{special_abilities.many? ? 'Abilities' : 'Ability'}" => special_abilities} %>
+<% grouped_skills = @character.skills.reject { |s| s.value == 0 || s.special_ability }.group_by(&:stat) %>
+<% (Character::BASIC_ATTRIBUTES).each do |category| %>
+  <% next unless skills = grouped_skills.symbolize_keys[category] %>
+  <%= render partial: "skill_group", object: {Character.human_attribute_name(category) => skills} %>
 <% end %>
 
 <%= link_to "edit", edit_character_path(@character) %>

@@ -20,9 +20,15 @@ $(function() {
     $(".skill-input[data-stat=<%= stat %>]").appendTo(".skill-list.<%= stat %>").show()
   <% end %>
   $(".skill-list:empty").closest(".skill-list-box").addClass("hidden")
+
   $(".add-pickup-skill").click(function() {
     $.fancybox.close()
-    addPickupSkill($(this).data())
+    addSkill("pickup", $(this).data())
+    return false
+  })
+  $(".add-chip-skill").click(function() {
+    $.fancybox.close()
+    addSkill("chip", $(this).data())
     return false
   })
 
@@ -389,12 +395,14 @@ function mutualFeelings() {
   }
 }
 
-function addPickupSkill(data) {
+function addSkill(type, data) {
   var index = new Date().valueOf()
   inputOptions = {simpleformType: "hidden", inputType: "hidden"}
   generateInput("skills_attributes", "name", index, data.name, inputOptions).appendTo(".skill-list."+data.stat)
   generateInput("skills_attributes", "stat", index, data.stat, inputOptions).appendTo(".skill-list."+data.stat)
   generateInput("skills_attributes", "ip_multiplier", index, data.ip_multiplier, inputOptions).appendTo(".skill-list."+data.stat)
+  generateInput("skills_attributes", "special_ability", index, data.special_ability, inputOptions).appendTo(".skill-list."+data.stat)
+  generateInput("skills_attributes", "type", index, type, inputOptions).appendTo(".skill-list."+data.stat)
   generateInput("skills_attributes", "value", index, 0, {
     simpleformType: "numeric integer skill-input pickup", inputType: "number", label: data.name
   }).change(refreshPickupPoints).appendTo(".skill-list."+data.stat)

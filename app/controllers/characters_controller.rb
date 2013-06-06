@@ -14,8 +14,8 @@ class CharactersController < ApplicationController
   def new
     @character = Character.new(character_params)
     @character.role.career_skills.each do |skill|
-      attributes = skill.attributes.slice *%w(name stat custom custom_description ip_multiplier)
-      @character.skills.build(attributes)
+      attributes = skill.attributes.slice *%w[name stat custom custom_description ip_multiplier special_ability]
+      @character.skills.build(attributes.merge(type: "career"))
     end
   end
 

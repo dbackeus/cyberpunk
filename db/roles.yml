@@ -5,6 +5,7 @@
   - cool
   - body_type
   career_skills:
+  - Combat Sense
   - Awareness/Notice
   - Handgun
   - Brawling
@@ -31,6 +32,7 @@
   - empathy
   - technical_ability
   career_skills:
+  - Charismatic Leadership
   - Awareness/Notice
   - Perform
   - Wardrobe & Style
@@ -38,13 +40,14 @@
   - Brawling
   - Play Instrument
   - Streetwise
-  - Persuation
+  - Persuasion & Fast Talk
   - Seduction
 - name: Netrunner
   preferred_stats:
   - intelligence
   - technical_ability
   career_skills:
+  - Interface
   - Awareness/Notice
   - Basic Tech
   - Education
@@ -61,10 +64,11 @@
   - empathy
   - cool
   career_skills:
+  - Credibility
   - Awareness/Notice
   - Composition
   - Education
-  - Persuation
+  - Persuasion & Fast Talk
   - Human Perception
   - Social
   - Streetwise
@@ -77,6 +81,7 @@
   - technical_ability
   - cool
   career_skills:
+  - Family
   - Awareness/Notice
   - Endurance
   - Melee
@@ -93,6 +98,7 @@
   - technical_ability
   - reflexes
   career_skills:
+  - Streetdeal
   - Awareness/Notice
   - Forgery
   - Handgun
@@ -101,7 +107,7 @@
   - Pick Lock
   - Pick Pocket
   - Intimidate
-  - Persuation
+  - Persuasion & Fast Talk
 - name: Cop
   preferred_stats:
   - reflexes
@@ -109,6 +115,7 @@
   - empathy
   - intelligence
   career_skills:
+  - Authority
   - Awareness/Notice
   - Handgun
   - Human Perception
@@ -124,12 +131,13 @@
   - empathy
   - attractiveness
   career_skills:
+  - Resources
   - Awareness/Notice
   - Human Perception
   - Education
   - Library Search
   - Social
-  - Persuation
+  - Persuasion & Fast Talk
   - Stock Market
   - Wardrobe & Style
   - Personal Grooming
@@ -138,6 +146,7 @@
   - technical_ability
   - intelligence
   career_skills:
+  - Jury Rig
   - Awareness/Notice
   - Basic Tech
   - CyberTech
@@ -155,6 +164,7 @@
   - intelligence
   - empathy
   career_skills:
+  - Medical Tech
   - Awareness/Notice
   - Basic Tech
   - Diagnose

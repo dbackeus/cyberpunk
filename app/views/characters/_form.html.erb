@@ -5,9 +5,9 @@
   <%= f.input :sex, collection: {"Male" => "male", "Female" => "female"}, include_blank: false %>
   <%= f.input :handle %> <%= link_to "random!", random_name_characters_path, id: "random-name-button" %> <%= link_to "name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank" %>
   <h2>Statistics <%= link_to image_tag("roll.png"), "#roll", data: { roll: "stats" } %></h2>
-  <ul class="stats">
+  <ul class="editable-stats">
     <% Character::BASIC_ATTRIBUTES.each do |stat| %>
-      <li class="stat"><%= f.input stat, as: :integer %></li>
+      <li class="editable-stat"><%= f.input stat, as: :integer %></li>
     <% end %>
   </ul>
   <h2>Lifepath</h2>
@@ -44,12 +44,20 @@
       <h3><%= Character.human_attribute_name(stat) %></h3>
       <ul class="pickup-skills <%= stat %>">
         <% skills.each do |skill| %>
-          <li class="pickup-skill"><%= link_to "+", "#", class: "add-pickup-skill", data: { name: skill.name, stat: skill.stat, ip_multiplier: skill.ip_multiplier } %> <%= skill.name %></li>
+          <% skill_data = { name: skill.name, stat: skill.stat, ip_multiplier: skill.ip_multiplier, special_ability: skill.special_ability } %>
+          <li class="pickup-skill">
+            <%= skill.name %>
+            (
+            <%= link_to "add as pickup", "#", class: "add-pickup-skill", data: skill_data %>
+            |
+            <%= link_to "add as chip", "#", class: "add-chip-skill", data: skill_data %>
+            )
+          </li>
         <% end %>
       </ul>
     <% end %>
   </div>
-  <%= link_to "Add Pickup Skill", "#pickup-skills", id: "add-pickup-skill-button" %>
+  <%= link_to "Add Skills", "#pickup-skills", id: "add-pickup-skill-button" %>
   <%= f.fields_for :skills do |skill_form| %>
     <% career_skill = @character.role.career_skills.collect(&:name).include?(skill_form.object.name) %>
     <%= skill_form.input :id, as: :hidden if skill_form.object.persisted? %>
@@ -59,6 +67,8 @@
     <%= skill_form.input :custom, as: :hidden %>
     <%= skill_form.input :custom_description, as: :hidden %>
     <%= skill_form.input :ip_multiplier, as: :hidden %>
+    <%= skill_form.input :type, as: :hidden %>
+    <%= skill_form.input :special_ability, as: :hidden %>
   <% end %>
   <div id="skill-boxes">
     <% Skill.distinct(:stat).each do |stat| %>

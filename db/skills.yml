@@ -1,4 +1,35 @@
 ---
+- name: Authority
+  stat: cool
+  special_ability: true
+- name: Charismatic Leadership
+  stat: cool
+  special_ability: true
+- name: Combat Sense
+  special_ability: true
+- name: Credibility
+  stat: intelligence
+  special_ability: true
+- name: Family
+  stat: intelligence
+  special_ability: true
+- name: Interface
+  stat: intelligence
+  special_ability: true
+- name: Charismatic Leadership
+  stat: cool
+  special_ability: true
+- name: Jury Rig
+  special_ability: true
+- name: Medical Tech
+  stat: technical_ability
+  special_ability: true
+- name: Resources
+  stat: intelligence
+  special_ability: true
+- name: Streetdeal
+  stat: cool
+  special_ability: true
 - name: Personal Grooming
   stat: attractiveness
 - name: Wardrobe & Style

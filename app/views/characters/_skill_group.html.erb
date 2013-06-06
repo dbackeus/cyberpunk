@@ -1,0 +1,21 @@
+<% category = skill_group.keys.first %>
+<% skills = skill_group[category] %>
+
+<div class="skill-group">
+  <h3><%= category %></h3>
+  <ul class="skills">
+    <% skills.each do |skill| %>
+      <li class="skill">
+        <span title="<%= skill.type.capitalize %> Skill" class="circle-icon <%= skill.type %>"></span>
+        <span class="values">
+          <abbr class="value actual" title="Skill Value"><%= skill.value %></abbr>
+          /
+          <abbr class="value modified" title="Skill Value + <%= skill.stat ? Character.human_attribute_name(skill.stat) : '' %> Stat">
+            <%= skill.value + (skill.stat ? @character.send(skill.stat) : 0) %>
+          </abbr>
+        </span>
+        <span class="name"><%= skill.name %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -6,4 +6,5 @@ class Skill
   field :custom, type: Boolean, default: false
   field :custom_description, type: String
   field :ip_multiplier, type: Integer, default: 1
+  field :special_ability, type: Boolean, default: false
 end

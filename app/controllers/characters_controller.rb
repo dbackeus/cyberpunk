@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @characters = Character.all
+    @characters = Character.where(creator: current_user)
   end
 
   def show
@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
   end
 
   def new
-    @character = Character.new(character_params)
+    @character = Character.new(character_params.merge(creator: current_user))
     @character.role.career_skills.each do |skill|
       attributes = skill.attributes.slice *%w[name stat custom custom_description ip_multiplier special_ability]
       @character.skills.build(attributes.merge(type: "career"))
@@ -22,7 +22,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.new(character_params)
+    @character = Character.new(character_params.merge(creator: current_user))
 
     if @character.save
       redirect_to characters_path, notice: "Character added!"

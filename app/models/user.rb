@@ -1,8 +1,9 @@
 class User
   include Mongoid::Document
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :characters, foreign_key: :creator_id
 
   field :name, type: String, default: ""
 

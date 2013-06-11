@@ -14,6 +14,7 @@ class Character
     body_type
   ).freeze
 
+  belongs_to :creator, class_name: 'User'
   belongs_to :role
 
   embeds_many :skills, class_name: "CharacterSkill"

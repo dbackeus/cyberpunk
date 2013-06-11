@@ -31,9 +31,19 @@ $(function() {
     addSkill("chip", $(this).data())
     return false
   })
+  $(".add-custom-pickup-skill").click(function() {
+    $.fancybox.close()
+    addCustomSkill("pickup")
+    return false
+  })
+  $(".add-custom-chip-skill").click(function() {
+    $.fancybox.close()
+    addCustomSkill("chip", $(this).data())
+    return false
+  })
 
   $(".career input").change(refreshCareerPoints)
-  $(".pickup input").change(refreshPickupPoints)
+  $(".pickup input, #character_intelligence, #character_reflexes").change(refreshPickupPoints)
 
   refreshCareerPoints()
   refreshPickupPoints()
@@ -85,12 +95,14 @@ function rollStats() {
   })
 
   var preferedStatsMatcher = new RegExp(preferredStats.join("|"))
-  $("ul.stats input").each(function() {
+  $("#character-stats input").each(function() {
     var input = $(this)
     if(!input.attr("id").match(preferedStatsMatcher)) {
       input.val(rolls.pop())
     }
   })
+
+  refreshPickupPoints()
 }
 
 var clothes = <%= clothes_options.to_json.html_safe %>

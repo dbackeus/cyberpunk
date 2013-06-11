@@ -233,5 +233,164 @@
 - name: Weaponsmith
   stat: technical_ability
   ip_multiplier: 2
+- name: Language (Bantu)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Fante)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Ashanti)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Kongo)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Zulu)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Swahili)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Blackfolk)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Lithuanian)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Estonian)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Latvian)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Finnish)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Gaelic)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Welsh)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Breton)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Farsi)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Danish)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Dutch)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (English)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (German)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Norwegian)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Swedish)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Yiddish)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Greek)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Japanese)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Korean)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Micronesian)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Tagalog)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Polynesian)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Javanese)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Malayan)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Sudanese)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Indonesian)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (Hawaiian)
+  stat: intelligence
+  ip_multiplier: 2
+- name: Language (French)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Italian)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Romanian)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Spanish)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Portugese)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Latin)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Arabic)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Hebrew)
+  stat: intelligence
+  ip_multiplier: 1
+- name: Language (Burmese)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Cantonese)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Mandarin)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Thai)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Tibetan)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Vietnamese)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Bulgarian)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Russian)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Czech)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Polish)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Ukrainian)
+  stat: intelligence
+  ip_multiplier: 3
+- name: Language (Slovak)
+  stat: intelligence
+  ip_multiplier: 3
 - name: Other
   custom: true

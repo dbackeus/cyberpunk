@@ -1,4 +1,5 @@
 Cyberpunk::Application.routes.draw do
+  devise_for :users
   resources :characters do
     collection do
       get :chose_role

@@ -16,9 +16,6 @@
 - name: Interface
   stat: intelligence
   special_ability: true
-- name: Charismatic Leadership
-  stat: cool
-  special_ability: true
 - name: Jury Rig
   special_ability: true
 - name: Medical Tech

@@ -389,5 +389,3 @@
 - name: Language (Slovak)
   stat: intelligence
   ip_multiplier: 3
-- name: Other
-  custom: true

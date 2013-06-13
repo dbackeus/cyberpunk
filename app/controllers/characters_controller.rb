@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :show
 
   def index
     @characters = Character.where(creator: current_user)

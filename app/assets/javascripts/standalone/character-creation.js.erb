@@ -15,10 +15,13 @@ $(function() {
     })
     return false
   })
+
   $("#add-pickup-skill-button").fancybox()
+
   <% Skill.distinct(:stat).each do |stat| %>
     $(".skill-input[data-stat=<%= stat %>]").appendTo(".skill-list.<%= stat %>").show()
   <% end %>
+  $(".skill-input[data-special-ability=true]").appendTo(".skill-list.special-ability").show()
   $(".skill-list:empty").closest(".skill-list-box").addClass("hidden")
 
   $(".add-pickup-skill").click(function() {
@@ -410,15 +413,16 @@ function mutualFeelings() {
 function addSkill(type, data) {
   var index = new Date().valueOf()
   inputOptions = {simpleformType: "hidden", inputType: "hidden"}
-  generateInput("skills_attributes", "name", index, data.name, inputOptions).appendTo(".skill-list."+data.stat)
-  generateInput("skills_attributes", "stat", index, data.stat, inputOptions).appendTo(".skill-list."+data.stat)
-  generateInput("skills_attributes", "ip_multiplier", index, data.ip_multiplier, inputOptions).appendTo(".skill-list."+data.stat)
-  generateInput("skills_attributes", "special_ability", index, data.special_ability, inputOptions).appendTo(".skill-list."+data.stat)
+  generateInput("skills_attributes", "skill_id", index, data.skillId, inputOptions).appendTo(".skill-list."+data.stat)
   generateInput("skills_attributes", "type", index, type, inputOptions).appendTo(".skill-list."+data.stat)
-  generateInput("skills_attributes", "value", index, 0, {
-    simpleformType: "numeric integer skill-input pickup", inputType: "number", label: data.name
-  }).change(refreshPickupPoints).appendTo(".skill-list."+data.stat)
-  $(".skill-list."+data.stat).parent().removeClass("hidden")
+
+  var valueInput = generateInput("skills_attributes", "value", index, 0, {
+    simpleformType: "numeric integer skill-input "+type, inputType: "number", label: data.name
+  })
+
+  var selector = data.specialAbility ? "special-ability" : data.stat
+  valueInput.change(refreshPickupPoints).appendTo(".skill-list."+selector)
+  $(".skill-list."+selector).parent().removeClass("hidden")
 }
 
 function generateInput(group, attribute, index, value, options) {

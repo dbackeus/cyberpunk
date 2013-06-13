@@ -40,21 +40,16 @@
   </div>
   <%= link_to "Add Skills", "#pickup-skills", id: "add-pickup-skill-button" %>
   <%= f.fields_for :skills do |skill_form| %>
-    <% career_skill = @character.role.career_skills.collect(&:name).include?(skill_form.object.name) %>
+    <% skill = skill_form.object %>
     <%= skill_form.input :id, as: :hidden if skill_form.object.persisted? %>
-    <%= skill_form.input :value, as: :integer, label: skill_form.object.name, wrapper_html: { class: "skill-input #{'career' if career_skill}", style: "display: none;", data: { stat: skill_form.object.stat }, components: [:label_input,:placeholder] } %>
-    <%= skill_form.input :name, as: :hidden %>
-    <%= skill_form.input :stat, as: :hidden %>
-    <%= skill_form.input :custom, as: :hidden %>
-    <%= skill_form.input :custom_description, as: :hidden %>
-    <%= skill_form.input :ip_multiplier, as: :hidden %>
+    <%= skill_form.input :skill_id, as: :hidden %>
+    <%= skill_form.input :value, as: :integer, label: skill.name, wrapper_html: { class: "skill-input hidden #{skill.type}", data: { stat: skill.stat, special_ability: skill.special_ability, skill_id: skill.id }, components: [:label_input,:placeholder] } %>
     <%= skill_form.input :type, as: :hidden %>
-    <%= skill_form.input :special_ability, as: :hidden %>
   <% end %>
   <div id="skill-boxes">
-    <% Skill.distinct(:stat).each do |stat| %>
+    <% (Skill.distinct(:stat) + ["special-ability"]).each do |stat| %>
       <div class="skill-list-box">
-        <h3><%= Character.human_attribute_name(stat) %></h3>
+        <h3><%= Character.human_attribute_name(stat).titleize %></h3>
         <div class="skill-list <%= stat %>"></div>
       </div>
     <% end %>
@@ -63,12 +58,14 @@
   <%= f.button :submit %>
 <% end %>
 <div id="pickup-skills" style="display:none">
-  <% Skill.where(:_id.nin => @character.role.career_skill_ids).group_by(&:stat).each do |stat, skills| %>
-    <% next unless stat %>
-    <h3><%= Character.human_attribute_name(stat) %></h3>
+  <% pickup_skills = Skill.where(:_id.nin => @character.role.career_skill_ids) %>
+  <% stat_based = pickup_skills.where(special_ability: false).group_by(&:stat) %>
+  <% special_abilities = { special_ability: pickup_skills.where(special_ability: true) } %>
+  <% stat_based.merge(special_abilities).each do |stat, skills| %>
+    <h3><%= Character.human_attribute_name(stat).titleize %></h3>
     <ul class="pickup-skills">
       <% skills.sort_by(&:name).each do |skill| %>
-        <% skill_data = { name: skill.name, stat: skill.stat, ip_multiplier: skill.ip_multiplier, special_ability: skill.special_ability } %>
+        <% skill_data = { name: skill.name, stat: skill.stat, ip_multiplier: skill.ip_multiplier, special_ability: skill.special_ability, skill_id: skill.id.to_s } %>
         <li class="pickup-skill">
           <%= skill.name %>
           (

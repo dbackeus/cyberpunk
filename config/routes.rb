@@ -1,4 +1,6 @@
 Cyberpunk::Application.routes.draw do
+  resources :campaigns
+
   devise_for :users
   resources :characters do
     collection do
@@ -8,6 +10,8 @@ Cyberpunk::Application.routes.draw do
   end
 
   root "characters#index"
+
+  get "dashboard" => "dashboard#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

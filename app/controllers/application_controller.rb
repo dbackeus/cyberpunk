@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
   end
+
+  private
+  def current_campaign
+    return @current_campaign if @current_campaign
+    return nil unless user_signed_in?
+    @current_campaign = current_user.current_campaign
+  end
+  helper_method :current_campaign
 end

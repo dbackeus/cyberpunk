@@ -6,6 +6,7 @@ class User
   has_many :characters, foreign_key: :creator_id
 
   field :name, type: String, default: ""
+  field :current_campaign_id, type: Moped::BSON::ObjectId
 
   # Devise
   field :email, type: String, default: ""
@@ -27,10 +28,32 @@ class User
   
   validate :validate_full_name
 
+  def campaigns
+    Campaign.where("memberships.user_id" => id)
+  end
+
+  def set_current_campaign(campaign)
+    self.current_campaign_id = campaign.id
+    return false unless save
+    @campaign = campaign
+  end
+
+  def current_campaign
+    return @campaign if @campaign
+    if current_campaign_id.present?
+      @campaign = campaigns.find(current_campaign_id)
+    elsif campaigns.present?
+      self.current_campaign_id = campaigns.first.id
+      save
+      current_campaign
+    end
+  rescue Mongoid::Errors::DocumentNotFound
+    update_attributes(current_campaign_id: nil)
+    current_campaign
+  end
+
   private
   def validate_full_name
-    p name
-    p name.split
     errors[:name] << "has to be a real first and last name" unless name.split.many?
   end
 end

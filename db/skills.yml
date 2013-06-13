@@ -191,7 +191,7 @@
   ip_multiplier: 2
 - name: Cryotank Operation
   stat: technical_ability
-- name: Cyberteck Design
+- name: Cyberdeck Design
   stat: technical_ability
   ip_multiplier: 2
 - name: CyberTech
@@ -218,7 +218,7 @@
   stat: technical_ability
 - name: Photo & Film
   stat: technical_ability
-- name: Pharmacuticals
+- name: Pharmaceuticals
   stat: technical_ability
   ip_multiplier: 2
 - name: Pick Lock

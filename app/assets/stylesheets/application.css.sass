@@ -12,6 +12,18 @@
  *= require_self
  */
 
+@font-face
+  font-family: Molot
+  src: url('/assets/molot.otf')
+
+@font-face
+  font-family: 'Final Frontier'
+  src: url('/assets/final_frontier.ttf')
+
+@font-face
+  font-family: 'Counter Strike'
+  src: url('/assets/counter_strike.ttf')
+
 textarea
   width: 500px
   height: 200px
@@ -19,11 +31,10 @@ textarea
 body
   font-size: 14px
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial
-  margin-left: 40px
-  margin-top: 30px
   line-height: 1.5em
 
 h1
+  font-family: 'Counter Strike'
   font-size: 3em
   margin-bottom: 0.5em
 
@@ -40,6 +51,29 @@ h2
 h3
   font-size: 1.5em
   margin-bottom: 0.5em
+
+nav
+  margin-bottom: 1em
+  a
+    text-decoration: none
+    font-size: 1em
+
+.content
+  margin: 30px 0 20px 20px
+
+.flash-message
+  width: 500px
+  margin: 20px 0 20px 20px
+  margin-top: 10px
+  margin-bottom: 20px
+  border: 1px solid
+  padding: 5px
+  &.notice
+    background: #d0efc0
+    border-color: #6abf3d
+  &.error
+    background: #e5b8b8
+    border-color: #b74343
 
 input[type=number]
   margin-left: 10px

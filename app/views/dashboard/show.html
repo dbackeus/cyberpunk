@@ -1,0 +1,6 @@
+<% if current_campaign %>
+  
+<% else %>
+  <p>You are currently not a member of any campaigns.</p>
+  <p>You can either <%= link_to "create one", new_campaign_path %> or get a referee to invite you to an existing one.</p>
+<% end %>

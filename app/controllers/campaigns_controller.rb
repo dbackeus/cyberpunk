@@ -1,6 +1,16 @@
 class CampaignsController < ApplicationController
   before_filter :authenticate_user!
 
+  def show
+    campaign = current_user.campaigns.find(params[:id])
+    current_user.set_current_campaign(campaign)
+    redirect_to dashboard_path, notice: "Switched campaign to #{campaign.name}."
+  end
+
+  def index
+    @campaigns = current_user.campaigns
+  end
+
   def new
     @campaign = Campaign.new(creator: current_user)
   end
@@ -10,7 +20,8 @@ class CampaignsController < ApplicationController
     @campaign.memberships.build(user: current_user, admin: true, referee: true)
 
     if @campaign.save
-      redirect_to dashboard_path, notice: "Campaign created!"
+      current_user.set_current_campaign(@campaign)
+      redirect_to dashboard_path, notice: "Created and switched to campaign #{campaign.name}."
     else
       render :new
     end

@@ -1,7 +1,12 @@
 Cyberpunk::Application.routes.draw do
-  resources :campaigns
+  resources :memberships
 
-  devise_for :users
+  get "pages_controller/register"
+  resources :campaigns
+  resource :session, only: :destroy
+
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+
   resources :characters do
     collection do
       get :chose_role
@@ -9,7 +14,7 @@ Cyberpunk::Application.routes.draw do
     end
   end
 
-  root "characters#index"
+  root "pages#register"
 
   get "dashboard" => "dashboard#show"
 

@@ -28,7 +28,10 @@ module Cyberpunk
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
     config.generators do |g|
+      g.test_framework :rspec, fixture: false, view_specs: false
       g.factory_girl false
+      g.helper false
+      g.assets = false
     end
   end
 end

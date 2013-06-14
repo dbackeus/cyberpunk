@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
     @current_campaign = current_user.current_campaign
   end
   helper_method :current_campaign
+
+  def current_membership
+    @current_membership ||= current_campaign.memberships.detect { |m| m.user_id == current_user.id }
+  end
+  helper_method :current_membership
 end

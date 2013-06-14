@@ -1,31 +1,41 @@
 class User
   include Mongoid::Document
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, :rememberable, :trackable, omniauth_providers: [:google_oauth2]
+
+  def self.from_omniauth(auth)
+    if user = User.where(email: auth.info.email).first
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user
+    else
+      where(auth.slice(:provider, :uid)).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.name = auth.info.name
+        user.email = auth.info.email
+        user.avatar = auth.info.image
+      end
+    end
+  end
 
   has_many :characters, foreign_key: :creator_id
 
   field :name, type: String, default: ""
+  field :avatar, type: String
   field :current_campaign_id, type: Moped::BSON::ObjectId
 
   # Devise
   field :email, type: String, default: ""
-  field :encrypted_password, type: String, default: ""
-  field :reset_password_token, type: String
-  field :reset_password_sent_at, type: Time
   field :remember_created_at, type: Time
   field :sign_in_count, type: Integer, default: 0
   field :current_sign_in_at, type: Time
   field :last_sign_in_at, type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip, type: String
+  field :provider, type: String
+  field :uid, type: String
 
-  ## Confirmable
-  # field :confirmation_token,   type: String
-  # field :confirmed_at,         type: Time
-  # field :confirmation_sent_at, type: Time
-  # field :unconfirmed_email,    type: String # Only if using reconfirmable
-  
   validate :validate_full_name
 
   def campaigns

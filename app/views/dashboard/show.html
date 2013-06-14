@@ -1,5 +1,21 @@
 <% if current_campaign %>
-  
+  <div class="members">
+    <h2>Campaign Members</h2>
+    <ul>
+      <% current_campaign.memberships.each do |membership| %>
+        <li>
+          <%= membership.user.name %>
+        </li>
+      <% end %>
+    </ul>
+    <% if current_membership.admin? %>
+      <%= form_tag memberships_path do |f| %>
+        <%= label_tag :email %>
+        <%= text_field_tag :email %>
+        <%= submit_tag "Add Member" %>
+      <% end %>
+    <% end %>
+  </div>
 <% else %>
   <p>You are currently not a member of any campaigns.</p>
   <p>You can either <%= link_to "create one", new_campaign_path %> or get a referee to invite you to an existing one.</p>

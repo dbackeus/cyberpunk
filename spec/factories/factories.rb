@@ -7,7 +7,6 @@ FactoryGirl.define do
   factory :user do
     email
     name "Simon Cyberpunk"
-    password "123456"
   end
 
   factory :campaign do

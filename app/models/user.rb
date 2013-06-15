@@ -6,23 +6,23 @@ class User
   devise :omniauthable, :rememberable, :trackable, omniauth_providers: [:google_oauth2]
 
   def self.from_omniauth(auth)
-    if user = User.where(email: auth.info.email).first
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user
-    else
-      where(auth.slice(:provider, :uid)).first_or_create do |user|
-        user.skip_google_email_validation = true
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.name = auth.info.name
-        user.email = auth.info.email
-        user.avatar = auth.info.image
-      end
+    user = where(email: auth.info.email).first_or_create
+
+    unless user.confirmed?
+      user.update_attributes!(
+        provider: auth[:provider],
+        uid: auth[:uid],
+        name: auth.info.name,
+        avatar: auth.info.image,
+        skip_google_email_validation: true,
+      )
     end
+
+    user
   end
 
-  has_many :characters, foreign_key: :creator_id
+  has_many :characters, foreign_key: :creator_id, inverse_of: :creator
+  has_and_belongs_to_many :player_characters, class_name: "Character", inverse_of: :players
 
   field :name, type: String, default: ""
   field :avatar, type: String
@@ -41,8 +41,13 @@ class User
 
   attr_accessor :skip_google_email_validation
 
+  validates_presence_of :email
   validates_uniqueness_of :email
-  validate :validate_google_email, unless: :skip_google_email_validation
+  validate :validate_google_email, unless: lambda { email.blank? || skip_google_email_validation }
+
+  def confirmed?
+    name.present?
+  end
 
   def campaigns
     Campaign.where("memberships.user_id" => id)

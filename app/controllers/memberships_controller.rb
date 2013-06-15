@@ -1,14 +1,35 @@
 class MembershipsController < ApplicationController
-  before_filter :authenticate_user!, except: :show
+  before_filter :authenticate_user!
+
+  def index
+    @new_membership = MembershipCreator.new(campaign: current_campaign, invitor: current_user)
+  end
 
   def create
-    email = params.require(:email)
-    user = User.where(email: email).first
-    if user
-      @membership = current_campaign.memberships.create(user: user)
+    @new_membership = MembershipCreator.new(membership_params)
+    if @new_membership.save
       redirect_to dashboard_path, notice: "#{user.name} was added to the campaign!"
     else
-      redirect_to dashboard_path, alert: "Could not find any user with email '#{email}'. Check the spelling or ask the owner of the email to register before trying again."
+      render :index
     end
   end
+
+  private
+  def membership_params
+    params.require(:membership_creator).permit!.merge(campaign: current_campaign, invitor: current_user)
+  end
+
+  def confirmed_members
+    current_campaign.memberships.select do |member|
+      member.name.present?
+    end.sort_by(&:name)
+  end
+  helper_method :confirmed_members
+
+  def unconfirmed_members
+    current_campaign.memberships.select do |member|
+      member.name.blank?
+    end
+  end
+  helper_method :unconfirmed_members
 end

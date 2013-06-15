@@ -1,0 +1,25 @@
+<h1>Campaign Members</h1>
+
+<h2>Confirmed Members</h2>
+<ul class="stomp">
+  <% confirmed_members.each do |membership| %>
+    <li>
+      <%= membership.name %>
+    </li>
+  <% end %>
+</ul>
+<h2>Invited Members</h2>
+<ul class="stomp">
+  <% unconfirmed_members.each do |membership| %>
+    <li>
+      <%= membership.email %>
+    </li>
+  <% end %>
+</ul>
+<% if current_membership.admin? %>
+  <h3>Invite another member</h3>
+  <%= simple_form_for @new_membership, url: memberships_path do |f| %>
+    <%= f.input :email, label: "Google Account Email" %>
+    <%= f.submit "Invite!" %>
+  <% end %>
+<% end %>

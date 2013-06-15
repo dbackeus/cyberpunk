@@ -15,6 +15,12 @@ class Membership
   before_destroy :validate_not_last_memberhip_of_campaign
   before_destroy :clean_up_users_current_campaign
 
+  delegate :name, :email, :confirmed?, to: :user
+
+  def player?
+    !referee?
+  end
+
   private
   def validate_uniqueness_of_user_in_memberships
     if campaign.memberships.many? { |m| m.user_id == user_id }

@@ -1,0 +1,14 @@
+<p>Hi there!</p>
+
+<p>
+  A fellow netrunner called <%= @invitor.name %> (<%= @invitor.email %>) has invited you to join his Cyberpunk campaign "<%= @campaign.name %>" over at <a href="http://<%= ENV['host'] %>">Cyberpunk.NET</a>.
+</p>
+
+<p>
+  Please <strong><a href="http://<%= ENV['host'] %>/users/auth/google_oauth2">sign in</a></strong> using your invited google account (<%= @invited.email %>) to join the fun!
+</p>
+
+<p>
+  Regards,<br>
+  Cyberpunk.NET communications AI
+</p>

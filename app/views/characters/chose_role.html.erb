@@ -1,7 +1,6 @@
 <h1>New Character</h1>
 
 <%= simple_form_for @character, url: new_character_path, method: :get do |f| %>
-  <%= f.input :role_id, collection: Role.all, include_blank: false %>
-  <br>
+  <%= f.input :role_id, label: "Chose Role", collection: Role.all, include_blank: false, wrapper_html: { class: "stomp" } %>
   <%= f.button :submit, "Continue..." %>
 <% end %>

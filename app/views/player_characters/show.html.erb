@@ -1,0 +1,23 @@
+<h1>Players for <%= @character.handle %></h1>
+
+<% if @character.players.any? %>
+  <ul class="stomp">
+    <% @character.players.each do |user| %>
+      <li><%= user.name %> | <%= link_to "revoke player status", player_character_path(@character, user_id: user.id), method: :delete %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No players have been assigned to this character yet.</p>
+<% end %>
+
+<% if @possible_players.any? %>
+  <h2>Assign a player</h2>
+
+  <%= form_for :player_character, url: player_characters_path do |f| %>
+    <%= hidden_field_tag :character_id, @character.id %>
+    <%= select_tag :user_id, options_from_collection_for_select(@possible_players, :user_id, :name), include_blank: false %>
+    <%= f.submit "Assign!" %>
+  <% end %>
+<% else %>
+  <p>No more campaign members are available to play this character.</p>
+<% end %>

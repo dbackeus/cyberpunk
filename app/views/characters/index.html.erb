@@ -1,33 +1,40 @@
 <h1>Characters</h1>
 
-<h2>Your Characters</h1>
+<div class="character-box">
+  <h2>Your Created Characters</h1>
 
-<ul class="characters">
-  <% @user_characters.each do |character| %>
-    <li class="character">
-      <%= link_to character.handle, character %>
-      | <%= character.role.name %>
-      <% unless @campaign_characters.include?(character) %>
-      | <%= link_to "add to campaign", campaign_add_character_path(current_campaign, character), method: :post %>
-      <% end %>
-      | <%= link_to "edit", edit_character_path(character) %>
-      | <%= link_to "destroy", character, method: :delete %>
-    </li>
-  <% end %>
-</ul>
+  <ul class="characters stomp">
+    <% @user_characters.each do |character| %>
+      <li class="character">
+        <%= link_to character.handle, character %>
+        | <%= character.role.name %>
+        <% unless @campaign_characters.include?(character) %>
+        | <%= link_to "add to campaign", campaign_add_character_path(current_campaign, character), method: :post %>
+        <% end %>
+        | <%= link_to "edit", edit_character_path(character) %>
+        | <%= link_to "destroy", character, confirm: "Are you sure you want to permanently remove #{character.handle}?", method: :delete %>
+      </li>
+    <% end %>
+  </ul>
 
-<%= link_to "New Character", chose_role_characters_path %>
+  <%= link_to "New Character", chose_role_characters_path, class: "button add" %>
+</div>
 
-<h2>Campaign Characters</h1>
+<div class="character-box">
+  <h2>Campaign Characters</h1>
 
-<ul class="characters">
-  <% @campaign_characters.each do |character| %>
-    <li class="character">
-      <%= link_to character.handle, character %>
-      | <%= character.role.name %>
-      <% if current_membership.referee? || character.creator_id == current_user.id %>
-      | <%= link_to "remove from campaign", campaign_remove_character_path(current_campaign, character), method: :delete %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+  <ul class="characters">
+    <% @campaign_characters.each do |character| %>
+      <li class="character">
+        <%= link_to character.handle, character %>
+        | <%= character.role.name %>
+        <% if current_membership.referee? %>
+          | <%= link_to "manage players", player_character_path(character) %>
+        <% end %>
+        <% if current_membership.referee? || character.creator_id == current_user.id %>
+          | <%= link_to "remove from campaign", campaign_remove_character_path(current_campaign, character), method: :delete %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

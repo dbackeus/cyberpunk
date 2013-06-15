@@ -1,9 +1,9 @@
 <h1>Campaigns</h1>
 
-<ul>
+<ul class="stomp">
   <% @campaigns.each do |campaign| %>
     <li><%= link_to campaign.name, campaign %></li>
   <% end %>
 </ul>
 
-<%= link_to "New Campaign", new_campaign_path %>
+<%= link_to "New Campaign", new_campaign_path, class: "button add" %>

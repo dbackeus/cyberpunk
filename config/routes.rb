@@ -18,6 +18,8 @@ Cyberpunk::Application.routes.draw do
     end
   end
 
+  resources :player_characters, only: %I[show create destroy]
+
   get "dashboard" => "dashboard#show"
 
   get "pages_controller/register"

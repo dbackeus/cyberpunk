@@ -3,7 +3,7 @@
 <%= simple_form_for @character do |f| %>
   <%= f.input :role_id, as: :hidden %>
   <%= f.input :sex, collection: {"Male" => "male", "Female" => "female"}, include_blank: false %>
-  <%= f.input :handle %> <%= link_to "random!", random_name_characters_path, id: "random-name-button" %> <%= link_to "name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank" %>
+  <%= f.input :handle %> <%= link_to "random!", random_name_characters_path, id: "random-name-button", class: "" %> <%= link_to "name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank" %>
   <h2>Statistics <%= link_to image_tag("roll.png"), "#roll", data: { roll: "stats" } %></h2>
   <ul id="character-stats" class="editable-stats">
     <% Character::BASIC_ATTRIBUTES.each do |stat| %>
@@ -34,11 +34,11 @@
     <label for="career-points-left">Career Skill Points Left</label>
     <output id="career-points-left"></output>
   </div>
-  <div id="pickup-points-left-box">
+  <div id="pickup-points-left-box" class="stomp">
     <label for="pickup-points-left">Pickup Skill Points Left</label>
     <output id="pickup-points-left"></output>
   </div>
-  <%= link_to "Add Skills", "#pickup-skills", id: "add-pickup-skill-button" %>
+  <%= link_to "Add Pickup / Chipped Skills", "#pickup-skills", id: "add-pickup-skill-button", class: "button add" %>
   <%= f.fields_for :skills do |skill_form| %>
     <% skill = skill_form.object %>
     <%= skill_form.input :id, as: :hidden if skill_form.object.persisted? %>

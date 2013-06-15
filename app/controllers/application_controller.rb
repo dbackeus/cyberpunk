@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
     @current_membership ||= current_campaign.memberships.detect { |m| m.user_id == current_user.id }
   end
   helper_method :current_membership
+
+  def authorize_referee!
+    redirect_to root_path, alert: "Only referees can do that!" unless current_membership.referee?
+  end
 end

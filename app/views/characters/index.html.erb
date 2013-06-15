@@ -25,7 +25,7 @@
     <li class="character">
       <%= link_to character.handle, character %>
       | <%= character.role.name %>
-      <% if current_membership.referee? || characer.creator_id == current_user.id %>
+      <% if current_membership.referee? || character.creator_id == current_user.id %>
       | <%= link_to "remove from campaign", campaign_remove_character_path(current_campaign, character), method: :delete %>
       <% end %>
     </li>

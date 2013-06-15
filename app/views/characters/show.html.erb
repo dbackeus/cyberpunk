@@ -28,5 +28,3 @@
   <% next unless skills = grouped_skills.symbolize_keys[category] %>
   <%= render partial: "skill_group", object: {Character.human_attribute_name(category) => skills} %>
 <% end %>
-
-<%= link_to "edit", edit_character_path(@character) %>

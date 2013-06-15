@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
 
     if @campaign.save
       current_user.set_current_campaign(@campaign)
-      redirect_to dashboard_path, notice: "Created and switched to campaign #{campaign.name}."
+      redirect_to dashboard_path, notice: "Created and switched to campaign #{@campaign.name}."
     else
       render :new
     end

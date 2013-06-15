@@ -79,9 +79,6 @@
   stat: intelligence
 - name: Education & General Knowledge
   stat: intelligence
-- name: Expert
-  stat: intelligence
-  custom: true
 - name: Gamble
   stat: intelligence
 - name: Geology

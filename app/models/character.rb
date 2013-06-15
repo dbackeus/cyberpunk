@@ -59,6 +59,14 @@ class Character
 
   validates :handle, :role, presence: true
 
+  def pc?
+    player_ids.any?
+  end
+
+  def npc?
+    player_ids.empty?
+  end
+
   def run
     movement_allowance * 3
   end

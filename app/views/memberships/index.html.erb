@@ -1,21 +1,32 @@
 <h1>Campaign Members</h1>
 
 <h2>Confirmed Members</h2>
+<h3>Referees</h3>
 <ul class="stomp">
-  <% confirmed_members.each do |membership| %>
+  <% confirmed_members.select(&:referee?).each do |membership| %>
     <li>
       <%= membership.name %>
     </li>
   <% end %>
 </ul>
-<h2>Invited Members</h2>
+<h3>Players</h3>
 <ul class="stomp">
-  <% unconfirmed_members.each do |membership| %>
+  <% confirmed_members.select(&:player?).each do |membership| %>
     <li>
-      <%= membership.email %>
+      <%= membership.name %>
     </li>
   <% end %>
 </ul>
+<% if unconfirmed_members.any? %>
+  <h2>Invited Members</h2>
+  <ul class="stomp">
+    <% unconfirmed_members.each do |membership| %>
+      <li>
+        <%= membership.email %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <% if current_membership.admin? %>
   <h3>Invite another member</h3>
   <%= simple_form_for @new_membership, url: memberships_path do |f| %>

@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
 
   def index
     @user_characters = Character.where(creator: current_user)
-    @campaign_characters = current_campaign.characters
+    @campaign_characters = viewable_characters
   end
 
   def show
@@ -64,5 +64,13 @@ class CharactersController < ApplicationController
   private
   def character_params
     params.require(:character).permit!
+  end
+
+  def viewable_characters
+    if current_membership.referee?
+      current_campaign.characters
+    else
+      current_campaign.characters.select { |c| c.player_ids.any? }
+    end
   end
 end

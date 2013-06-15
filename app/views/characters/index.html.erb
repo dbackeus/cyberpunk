@@ -23,18 +23,15 @@
 <div class="character-box">
   <h2>Campaign Characters</h1>
 
+  <h3>Player Characters</h3>
+  <p class="hint">Any character that has been assigned a player is considered a PC (Player Character) and will be visible to all members of the campaign.</p>
+  <ul class="characters stomp">
+    <%= render @campaign_characters.select(&:pc?) %>
+  </ul>
+
+  <h3>Non Player Characters</h3>
+  <p class="hint">Characters that have not been assigned any players are considered NPCs (Non Playable Characters) and will only be visible to campaign members with referee status.</p>
   <ul class="characters">
-    <% @campaign_characters.each do |character| %>
-      <li class="character">
-        <%= link_to character.handle, character %>
-        | <%= character.role.name %>
-        <% if current_membership.referee? %>
-          | <%= link_to "manage players", player_character_path(character) %>
-        <% end %>
-        <% if current_membership.referee? || character.creator_id == current_user.id %>
-          | <%= link_to "remove from campaign", campaign_remove_character_path(current_campaign, character), method: :delete %>
-        <% end %>
-      </li>
-    <% end %>
+    <%= render @campaign_characters.select(&:npc?) %>
   </ul>
 </div>

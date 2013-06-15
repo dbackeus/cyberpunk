@@ -1,0 +1,13 @@
+<li class="character">
+  <%= link_to character.handle, character %>
+  | <%= character.role.name %>
+  <% if character.players.any? %>
+  | played by <span class="played-by"><%= character.players.collect(&:name).join(", ") %></span>
+  <% end %>
+  <% if current_membership.referee? %>
+    <%= link_to "manage players", player_character_path(character) %>
+  <% end %>
+  <% if current_membership.referee? || character.creator_id == current_user.id %>
+    | <%= link_to "remove from campaign", campaign_remove_character_path(current_campaign, character), method: :delete %>
+  <% end %>
+</li>

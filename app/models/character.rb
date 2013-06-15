@@ -49,8 +49,8 @@ class Character
   field :personality, type: String
   field :valued_person, type: String
   field :valued_concept, type: String
-  field :valued_posession, type: String
   field :feelings_toward_others, type: String
+  field :valued_posession, type: String
 
   # Life events
   field :age, type: Integer

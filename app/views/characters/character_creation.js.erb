@@ -79,6 +79,7 @@ function roll(section) {
   if(section == "stats") rollStats()
   if(section == "style") rollStyle()
   if(section == "family") rollFamily()
+  if(section == "motivations") rollMotivations()
   if(section == "events") rollEvents()
 }
 
@@ -406,6 +407,19 @@ function mutualFeelings() {
     case 9: return "You still like her/him but she/he hate you."
     case 10: return "She/he still likes you but you hate her/him."
   }
+}
+
+var personalities = ["Shy and secretive", "Rebellious, antisocial and violent", "Arrogant, proud and aloof", "Moody, rash and headstrong", "Picky, fussy and nervous", "Stable and serious", "Silly and fluffheaded", "Sneaky and deceptive", "Intellectual and detached", "Friendly and outgoing"]
+var valuedPersons = ["A parent", "Brother or sister", "Lover", "Friend", "Yourself", "A pet", "Teacher or mentor", "Public figure", "A personal hero", "No one"]
+var valuedConcepts = ["Money", "Honor", "Your word", "Honesty", "Knowledge", "Vengeance", "Love", "Power", "Having a good time", "Friendship"]
+var feelingsTowardOthers = ["Neutral", "Neutral", "I like almost everyone", "I hate almost everyone", "People are tools; use them for your own goals and discard them", "Every person is a valuable individual", "People are obstacles to be destroyed if they cross me", "People are untrustworthy; don't depend on anyone", "Wipe'em all out and give the place to the cockroaches", "People are wonderful"]
+var valuedPosessions = ["A weapon", "A tool", "A piece of clothing", "A photograph", "A book or diary", "A recording", "A musical instrument", "A piece of jewelry", "A toy", "A letter"]
+function rollMotivations() {
+  $("#character_personality").val(personalities.sample())
+  $("#character_valued_person").val(valuedPersons.sample())
+  $("#character_valued_concept").val(valuedConcepts.sample())
+  $("#character_feelings_toward_others").val(feelingsTowardOthers.sample())
+  $("#character_valued_posession").val(valuedPosessions.sample())
 }
 
 function addSkill(type, data) {

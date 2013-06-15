@@ -1,4 +1,4 @@
-<h1><%= @character.handle %> (<%= @character.role.name %>)</h1>
+<h1><%= @character.handle %><span class="subtitle"><%= articlerize(@character.role.name).titleize %> aged <%= @character.age %>.</span></h1>
 
 <h2 class="inversed">Stats</h2>
 <ul class="stats">
@@ -27,4 +27,60 @@
 <% (Character::BASIC_ATTRIBUTES).each do |category| %>
   <% next unless skills = grouped_skills.symbolize_keys[category] %>
   <%= render partial: "skill_group", object: {Character.human_attribute_name(category) => skills} %>
+<% end %>
+
+<h2 class="inversed">Life Path</h2>
+
+<h3>Style</h3>
+<% %w[clothes hair affections ethnicity language].each do |attribute| %>
+  <p>
+    <strong><%= attribute.titleize %></strong>
+    <br>
+    <%= @character.send(attribute) %>
+  </p>
+<% end %>
+
+<h3>Family Background</h3>
+<% %w[family_ranking parents family_status childhood_environment].each do |attribute| %>
+  <p>
+    <strong><%= attribute.titleize %></strong>
+    <br>
+    <%= @character.send(attribute) %>
+  </p>
+<% end %>
+
+<h3>Siblings</h3>
+<% if @character.siblings.any? %>
+  <ul class="stomp">
+    <% @character.siblings.each do |sibling| %>
+      <li>
+        <%= articlerize(sibling.age.downcase).capitalize %> <%= sibling.sex == "Male" ? "brother" : "sister" %> who <%= sibling.feelings.downcase %>.
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= @character.handle %> is an only child.</p>
+<% end %>
+
+<h3>Motivations</h3>
+<% %w[personality valued_person valued_concept feelings_toward_others valued_posession].each do |attribute| %>
+  <p>
+    <strong><%= attribute.titleize %></strong>
+    <br>
+    <%= @character.send(attribute) %>
+  </p>
+<% end %>
+
+<h3>Life Events</h3>
+<% if @character.life_events.any? %>
+  <ul>
+    <% @character.life_events.each_with_index do |event, index| %>
+      <li>
+        <strong>Age <%= 17 + index %></strong>
+        <%= simple_format event.description %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nothing so far...</p>
 <% end %>

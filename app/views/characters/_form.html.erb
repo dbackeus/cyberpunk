@@ -25,6 +25,12 @@
   <%= f.input :childhood_environment %>
   <div class="siblings">
   </div>
+  <h3>Motivations <%= link_to image_tag("roll.png"), "#roll", data: { roll: "motivations" } %></h3>
+  <%= f.input :personality %>
+  <%= f.input :valued_person %>
+  <%= f.input :valued_concept %>
+  <%= f.input :feelings_toward_others %>
+  <%= f.input :valued_posession %>
   <h3>Life Events <%= link_to image_tag("roll.png"), "#roll", data: { roll: "events" } %></h3>
   <%= f.input :age %>
   <div class="life-events">

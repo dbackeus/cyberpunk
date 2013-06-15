@@ -2,7 +2,8 @@ class CharactersController < ApplicationController
   before_filter :authenticate_user!, except: :show
 
   def index
-    @characters = Character.where(creator: current_user)
+    @user_characters = Character.where(creator: current_user)
+    @campaign_characters = current_campaign.characters
   end
 
   def show

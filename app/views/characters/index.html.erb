@@ -1,9 +1,33 @@
-<h1>Your Characters</h1>
+<h1>Characters</h1>
+
+<h2>Your Characters</h1>
 
 <ul class="characters">
-  <% @characters.each do |character| %>
-    <li class="character"><%= link_to character.handle, character %> | <%= link_to "edit", edit_character_path(character) %> | <%= link_to "destroy", character, method: :delete %></li>
+  <% @user_characters.each do |character| %>
+    <li class="character">
+      <%= link_to character.handle, character %>
+      | <%= character.role.name %>
+      <% unless @campaign_characters.include?(character) %>
+      | <%= link_to "add to campaign", campaign_add_character_path(current_campaign, character), method: :post %>
+      <% end %>
+      | <%= link_to "edit", edit_character_path(character) %>
+      | <%= link_to "destroy", character, method: :delete %>
+    </li>
   <% end %>
 </ul>
 
 <%= link_to "New Character", chose_role_characters_path %>
+
+<h2>Campaign Characters</h1>
+
+<ul class="characters">
+  <% @campaign_characters.each do |character| %>
+    <li class="character">
+      <%= link_to character.handle, character %>
+      | <%= character.role.name %>
+      <% if current_membership.referee? || characer.creator_id == current_user.id %>
+      | <%= link_to "remove from campaign", campaign_remove_character_path(current_campaign, character), method: :delete %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

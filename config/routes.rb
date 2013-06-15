@@ -1,8 +1,11 @@
 Cyberpunk::Application.routes.draw do
   resources :memberships
 
-  get "pages_controller/register"
-  resources :campaigns
+  resources :campaigns do
+    post "characters/:character_id", to: "campaigns#add_character", as: "add_character"
+    delete "characters/:character_id", to: "campaigns#remove_character", as: "remove_character"
+  end
+
   resource :session, only: :destroy
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
@@ -14,9 +17,11 @@ Cyberpunk::Application.routes.draw do
     end
   end
 
-  root "pages#register"
-
   get "dashboard" => "dashboard#show"
+
+  get "pages_controller/register"
+
+  root "pages#register"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

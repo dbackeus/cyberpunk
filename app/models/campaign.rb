@@ -5,6 +5,8 @@ class Campaign
 
   embeds_many :memberships
 
+  has_and_belongs_to_many :characters
+
   field :name, type: String
 
   validates :name, presence: true

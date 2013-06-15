@@ -16,6 +16,7 @@ class Character
 
   belongs_to :creator, class_name: 'User'
   belongs_to :role
+  has_and_belongs_to_many :campaigns
 
   embeds_many :skills, class_name: "CharacterSkill"
   accepts_nested_attributes_for :skills

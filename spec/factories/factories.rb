@@ -1,12 +1,11 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  sequence(:email) { |n| "test#{n}@test.com" }
+  sequence(:email) { |n| "test#{n}@gmail.com" }
   sequence(:name) { |n| "Simon Enterprises (#{n})" }
 
   factory :user do
     email
-    name "Simon Cyberpunk"
   end
 
   factory :campaign do

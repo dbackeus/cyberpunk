@@ -1,3 +1,5 @@
+require 'mx'
+
 class User
   include Mongoid::Document
 
@@ -10,6 +12,7 @@ class User
       user
     else
       where(auth.slice(:provider, :uid)).first_or_create do |user|
+        user.skip_google_email_validation = true
         user.provider = auth.provider
         user.uid = auth.uid
         user.name = auth.info.name
@@ -36,7 +39,10 @@ class User
   field :provider, type: String
   field :uid, type: String
 
-  validate :validate_full_name
+  attr_accessor :skip_google_email_validation
+
+  validates_uniqueness_of :email
+  validate :validate_google_email, unless: :skip_google_email_validation
 
   def campaigns
     Campaign.where("memberships.user_id" => id)
@@ -63,7 +69,10 @@ class User
   end
 
   private
-  def validate_full_name
-    errors[:name] << "has to be a real first and last name" unless name.split.many?
+  def validate_google_email
+    domain = email.split("@").last
+    unless %w[gmail.com googlemail.com].include?(domain) || MX.for_domain(domain).flatten.join[/google.com/]
+      errors[:email] << "must belong to a google account"
+    end
   end
 end

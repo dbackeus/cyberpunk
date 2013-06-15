@@ -1,12 +1,12 @@
 class Membership
   include Mongoid::Document
-  include Mongoid::Timestamps
 
   embedded_in :campaign, inverse_of: :memberships
   belongs_to :user
 
   field :admin, type: Boolean, default: false
   field :referee, type: Boolean, default: false
+  field :created_at, type: Time, default: lambda { Time.now }
 
   validates :user, presence: true
 

@@ -51,6 +51,9 @@ class CharactersController < ApplicationController
     redirect_to characters_path, notice: "Character destroyed!"
   end
 
+  def character_creation
+  end
+
   def random_name
     name = Timeout.timeout(5) do
       HTTPI.get("http://donjon.bin.sh/name/rpc.cgi?type=Modern%20#{params[:sex] || "Male"}&n=1").body

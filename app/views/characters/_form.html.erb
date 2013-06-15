@@ -1,4 +1,4 @@
-<%= javascript_include_tag "standalone/character-creation.js" %>
+<%= javascript_include_tag character_creation_characters_path(:js) %>
 
 <%= simple_form_for @character do |f| %>
   <%= f.input :role_id, as: :hidden %>

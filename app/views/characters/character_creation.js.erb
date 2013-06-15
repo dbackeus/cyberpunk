@@ -1,7 +1,5 @@
-<% extend CharactersHelper %>
-
-var preferredRoleStats = <%= Hash[Role.all.collect { |role| [role.id, role.preferred_stats] }].to_json %>
-var careerSkills = <%= Hash[Role.all.collect { |role| [role.id, role.career_skills.collect(&:id)] }].to_json %>
+var preferredRoleStats = <%= Hash[Role.all.collect { |role| [role.id, role.preferred_stats] }].to_json.html_safe %>
+var careerSkills = <%= Hash[Role.all.collect { |role| [role.id, role.career_skills.collect(&:id)] }].to_json.html_safe %>
 
 $(function() {
   $("a[data-roll]").click(function() {
@@ -87,8 +85,8 @@ function roll(section) {
 function rollStats() {
   var selectedRole = $("#character_role_id").val()
   var preferredStats = preferredRoleStats[selectedRole]
-  
-  var rolls = $.map(<%= Character::BASIC_ATTRIBUTES.to_json %>, function() {
+
+  var rolls = $.map(<%= Character::BASIC_ATTRIBUTES.to_json.html_safe %>, function() {
     return dice(10, {rerollIf: function(result) { return result <= 2 }})
   })
 

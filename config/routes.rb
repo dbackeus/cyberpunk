@@ -14,6 +14,7 @@ Cyberpunk::Application.routes.draw do
     collection do
       get :chose_role
       get :random_name
+      get :character_creation
     end
   end
 

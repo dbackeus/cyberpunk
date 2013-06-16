@@ -12,4 +12,16 @@ class CharacterSkill
   validates :type, inclusion: { in: %w[career pickup chip] }
 
   delegate :name, :stat, :description, :ip_multiplier, :special_ability, to: :skill
+
+  def career?
+    type == "career"
+  end
+
+  def pickup?
+    type == "pickup"
+  end
+
+  def chip?
+    type == "chip"
+  end
 end

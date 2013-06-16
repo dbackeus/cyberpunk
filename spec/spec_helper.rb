@@ -51,3 +51,7 @@ def skill_fixtures!
     Skill.create!(attributes)
   end
 end
+
+def seed!
+  load("#{Rails.root}/db/seeds.rb")
+end

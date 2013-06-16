@@ -1,4 +1,11 @@
 module CharactersHelper
+  def sibling_form_template(form)
+    fields = form.fields_for(:siblings, Sibling.new, child_index: Time.now.to_i) do |sf|
+      render("sibling_form", sibling_form: sf)
+    end
+    escape_javascript(fields)
+  end
+
   def abbrivated_stats
     {
       intelligence: "INT",

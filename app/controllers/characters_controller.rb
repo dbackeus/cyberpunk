@@ -16,9 +16,6 @@ class CharactersController < ApplicationController
 
   def new
     @character = Character.new(character_params.merge(creator: current_user))
-    @character.role.career_skills.each do |skill|
-      @character.skills.build(type: "career", skill: skill)
-    end
   end
 
   def create

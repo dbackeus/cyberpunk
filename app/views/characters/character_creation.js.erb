@@ -43,6 +43,12 @@ $(function() {
     return false
   })
 
+  $(".siblings").nestedAttributes({
+    bindAddTo: $("#add_sibling"),
+    collectionName: "siblings",
+    $clone: $(siblingFormTemplate)
+  })
+
   $("#character_age").change(refreshLifeEvents)
 
   $(".career input").change(refreshCareerPoints)
@@ -81,6 +87,7 @@ function roll(section) {
   if(section == "stats") rollStats()
   if(section == "style") rollStyle()
   if(section == "family") rollFamily()
+  if(section == "siblings") rollSiblings()
   if(section == "motivations") rollMotivations()
   if(section == "events") rollEvents()
 }
@@ -135,21 +142,29 @@ function rollFamily() {
   var familyStatus = dice(10) > 6 ? "Family is OK" : familyTragedies.sample()
   $("#character_family_status").val(familyStatus)
   $("#character_childhood_environment").val(childhoods.sample())
+}
 
-  $(".siblings").html("")
+function rollSiblings() {
+  $(".siblings").empty()
   var numberOfSiblings = (result = dice(10)) > 7 ? 0 : result
   for(var i=0; i<numberOfSiblings; i++) {
-    $('<h4>Sibling '+(i + 1)+'</h4>').appendTo(".siblings")
+    $("#add_sibling").click()
+    var sibling = $(".sibling:last")
+
     var sex = ["Male", "Female"].sample()
-    generateInput("siblings_attributes", "sex", i, sex).appendTo(".siblings")
+    sibling.find("select.sex").val(sex)
+
     var ageRoll = dice(10)
     if(ageRoll == 10) var age = "Twin"
     else if(ageRoll <= 5) var age = "Older"
     else var age = "Younger"
-    generateInput("siblings_attributes", "age", i, age).appendTo(".siblings")
+    sibling.find("select.age").val(age)
+
     var feelings = siblingFeelings.sample()
-    generateInput("siblings_attributes", "feelings", i, feelings).appendTo(".siblings")
+    sibling.find("input.feelings").val(feelings)
   }
+
+  if(!numberOfSiblings) { $(".siblings").html("<p>No siblings!</p>") }
 }
 
 function rollEvents() {
@@ -170,7 +185,7 @@ function refreshLifeEvents() {
   }
   else {
     for(var i=currentNumberOfEvents; i<(age-16); i++) {
-      var container = $('<div id="life-event-'+i+'" class="life-event"></div>')
+      var container = $('<div class="life-event"></div>')
       $('<h4>Age '+(17 + i)+'</h4>').appendTo(container)
       var description = generateLifeEventDescription()
       generateInput("life_events_attributes", "description", i, description, {simpleformType: "text", inputType: "textarea"}).appendTo(container)

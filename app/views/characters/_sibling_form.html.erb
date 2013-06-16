@@ -1,0 +1,8 @@
+<li class="sibling">
+  <h4>Sibling</h4>
+  <%= sibling_form.input :id, as: :hidden if sibling_form.object.persisted? %>
+  <%= sibling_form.input :sex, collection: %w[Male Female], include_blank: false, input_html: { class: "sex" } %>
+  <%= sibling_form.input :age, collection: %w[Younger Older Twin], include_blank: false, input_html: { class: "age" } %>
+  <%= sibling_form.input :feelings, input_html: { class: "feelings" } %>
+  <a href="#" class="destroy button delete small">Remove</a>
+</li>

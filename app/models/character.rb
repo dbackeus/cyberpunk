@@ -43,7 +43,7 @@ class Character
   field :family_status, type: String
   field :childhood_environment, type: String
   embeds_many :siblings
-  accepts_nested_attributes_for :siblings
+  accepts_nested_attributes_for :siblings, allow_destroy: true
 
   # Motivations
   field :personality, type: String
@@ -65,6 +65,11 @@ class Character
 
   def npc?
     player_ids.empty?
+  end
+
+  def role_id=(role_id)
+    super
+    assign_career_skills if new_record? && role_id
   end
 
   def run
@@ -95,6 +100,15 @@ class Character
       when 8..9 then -3
       when 10 then -4
       when 11 then -5
+    end
+  end
+
+  private
+  def assign_career_skills
+    career_skills = role.career_skill_ids
+    return if skills.select(&:career?).any?
+    career_skills.each do |skill_id|
+      skills.build(type: "career", skill_id: skill_id)
     end
   end
 end

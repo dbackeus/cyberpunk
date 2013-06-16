@@ -1,6 +1,8 @@
 <%= javascript_include_tag character_creation_characters_path(:js) %>
 
 <%= simple_form_for @character do |f| %>
+  <script type="text/javascript">window.siblingFormTemplate = '<%= sibling_form_template(f) %>'</script>
+
   <%= f.input :role_id, as: :hidden %>
   <%= f.input :sex, collection: {"Male" => "male", "Female" => "female"}, include_blank: false %>
   <%= f.input :handle %> <%= link_to "random!", random_name_characters_path, id: "random-name-button", class: "" %> <%= link_to "name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank" %>
@@ -23,8 +25,13 @@
   <%= f.input :parents %>
   <%= f.input :family_status %>
   <%= f.input :childhood_environment %>
-  <div class="siblings">
-  </div>
+  <h3>Siblings <%= link_to image_tag("roll.png"), "#roll", data: { roll: "siblings" } %></h3>
+  <ul class="siblings stomp">
+    <%= f.fields_for(:siblings) do |sibling_form| %>
+      <%= render "sibling_form", sibling_form: sibling_form %>
+    <% end %>
+  </ul>
+  <a href="#" id="add_sibling" class="button add small">Add Sibling</a>
   <h3>Motivations <%= link_to image_tag("roll.png"), "#roll", data: { roll: "motivations" } %></h3>
   <%= f.input :personality %>
   <%= f.input :valued_person %>

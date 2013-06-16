@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= "gray-style" if @gray_style %>">
   <% %I[notice alert].each do |message| %>
     <div class="flash-message <%= message %> <%= 'hidden' if flash[message].blank? %>">
       <%= flash[message] %>

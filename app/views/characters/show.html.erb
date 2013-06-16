@@ -1,86 +1,111 @@
+<% @gray_style = true %>
+
+<script type="text/javascript">
+  $(function() {
+    $('#skill-groups-container').isotope({itemSelector : '.skill-group'})
+  })
+</script>
+
 <h1><%= @character.handle %><span class="subtitle"><%= articlerize(@character.role.name).titleize %> aged <%= @character.age %>.</span></h1>
 
 <h2 class="inversed">Stats</h2>
-<ul class="stats">
-  <% (Character::BASIC_ATTRIBUTES).each do |stat| %>
-  <li class="stat">
-    <abbr title="<%= Character.human_attribute_name(stat).titleize %>" class="stat-name"><%= abbrivated_stats[stat] %></abbr>
-    <span class="stat-value"><%= @character.send(stat) %></span>
-  </li>
-<% end %>
-</ul>
 
-<ul class="stats">
-  <% %i[run leap lift carry humanity].each do |attribute| %>
-  <li class="stat">
-    <span class="stat-name"><%= Character.human_attribute_name(attribute) %></span>
-    <span class="stat-value"><%= @character.send(attribute) %></span>
-  </li>
+<div class="box stats-container">
+  <ul class="stats">
+    <% (Character::BASIC_ATTRIBUTES).each do |stat| %>
+    <li class="stat">
+      <abbr title="<%= Character.human_attribute_name(stat).titleize %>" class="stat-name"><%= abbrivated_stats[stat] %></abbr>
+      <span class="stat-value"><%= @character.send(stat) %></span>
+    </li>
   <% end %>
-</ul>
-<div class="clear stomp"></div>
+  </ul>
+
+  <ul class="stats">
+    <% %i[run leap lift carry humanity].each do |attribute| %>
+    <li class="stat">
+      <span class="stat-name"><%= Character.human_attribute_name(attribute) %></span>
+      <span class="stat-value"><%= @character.send(attribute) %></span>
+    </li>
+    <% end %>
+  </ul>
+  <div class="clear"></div>
+</div>
 
 <h2 class="inversed">Skills</h2>
-<% special_abilities = @character.skills.select { |s| s.value > 0 && s.special_ability } %>
-<%= render partial: "skill_group", object: {"Special #{special_abilities.many? ? 'Abilities' : 'Ability'}" => special_abilities} %>
-<% grouped_skills = @character.skills.reject { |s| s.value == 0 || s.special_ability }.group_by(&:stat) %>
-<% (Character::BASIC_ATTRIBUTES).each do |category| %>
-  <% next unless skills = grouped_skills.symbolize_keys[category] %>
-  <%= render partial: "skill_group", object: {Character.human_attribute_name(category) => skills} %>
-<% end %>
+
+<div id="skill-groups-container">
+  <% special_abilities = @character.skills.select { |s| s.value > 0 && s.special_ability } %>
+  <%= render partial: "skill_group", object: {"Special #{special_abilities.many? ? 'Abilities' : 'Ability'}" => special_abilities} %>
+  <% grouped_skills = @character.skills.reject { |s| s.value == 0 || s.special_ability }.group_by(&:stat) %>
+  <% (Character::BASIC_ATTRIBUTES).each do |category| %>
+    <% next unless skills = grouped_skills.symbolize_keys[category] %>
+    <%= render partial: "skill_group", object: {Character.human_attribute_name(category) => skills} %>
+  <% end %>
+</div>
 
 <h2 class="inversed">Life Path</h2>
+<div class="clear"></div>
 
-<h3>Style</h3>
-<% %w[clothes hair affections ethnicity language].each do |attribute| %>
+<div class="life-path-entry box style">
+  <h3>Style</h3>
+  <% %w[clothes hair affections ethnicity language].each do |attribute| %>
+    <p>
+      <strong><%= attribute.titleize %></strong>
+      <br>
+      <%= @character.send(attribute) %>
+    </p>
+  <% end %>
+</div>
+
+<div class="life-path-entry box family">
+  <h3>Family Background</h3>
+  <% %w[family_ranking parents family_status childhood_environment].each do |attribute| %>
+    <p>
+      <strong><%= attribute.titleize %></strong>
+      <br>
+      <%= @character.send(attribute) %>
+    </p>
+  <% end %>
+
   <p>
-    <strong><%= attribute.titleize %></strong>
+    <strong>Siblings</strong>
     <br>
-    <%= @character.send(attribute) %>
-  </p>
-<% end %>
-
-<h3>Family Background</h3>
-<% %w[family_ranking parents family_status childhood_environment].each do |attribute| %>
-  <p>
-    <strong><%= attribute.titleize %></strong>
-    <br>
-    <%= @character.send(attribute) %>
-  </p>
-<% end %>
-
-<h3>Siblings</h3>
-<% if @character.siblings.any? %>
-  <ul class="stomp">
-    <% @character.siblings.each do |sibling| %>
-      <li>
-        <%= articlerize(sibling.age.downcase).capitalize %> <%= sibling.sex == "Male" ? "brother" : "sister" %> who <%= sibling.feelings.downcase %>.
-      </li>
+    <% if @character.siblings.any? %>
+      <% @character.siblings.each do |sibling| %>
+          <%= articlerize(sibling.age.downcase).capitalize %> <%= sibling.sex == "Male" ? "brother" : "sister" %> who <%= sibling.feelings.downcase %>.
+          <br>
+      <% end %>
+    <% else %>
+      <%= @character.handle %> is an only child.
     <% end %>
-  </ul>
-<% else %>
-  <p><%= @character.handle %> is an only child.</p>
-<% end %>
-
-<h3>Motivations</h3>
-<% %w[personality valued_person valued_concept feelings_toward_others valued_posession].each do |attribute| %>
-  <p>
-    <strong><%= attribute.titleize %></strong>
-    <br>
-    <%= @character.send(attribute) %>
   </p>
-<% end %>
+</div>
 
-<h3>Life Events</h3>
-<% if @character.life_events.any? %>
-  <ul>
-    <% @character.life_events.each_with_index do |event, index| %>
-      <li>
-        <strong>Age <%= 17 + index %></strong>
-        <%= simple_format event.description %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>Nothing so far...</p>
-<% end %>
+<div class="life-path-entry box motivations">
+  <h3>Motivations</h3>
+  <% %w[personality valued_person valued_concept feelings_toward_others valued_posession].each do |attribute| %>
+    <p>
+      <strong><%= attribute.titleize %></strong>
+      <br>
+      <%= @character.send(attribute) %>
+    </p>
+  <% end %>
+</div>
+
+
+<div class="life-path-entry box life-events">
+  <h3>Life Events</h3>
+  <% if @character.life_events.any? %>
+    <ul>
+      <% @character.life_events.each_with_index do |event, index| %>
+        <li>
+          <strong>Age <%= 17 + index %></strong>
+          <%= simple_format event.description %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Nothing so far...</p>
+  <% end %>
+</div>
+

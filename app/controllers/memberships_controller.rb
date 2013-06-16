@@ -8,7 +8,7 @@ class MembershipsController < ApplicationController
   def create
     @new_membership = MembershipCreator.new(membership_params)
     if @new_membership.save
-      redirect_to dashboard_path, notice: "#{new_membership.user.name} was added to the campaign!"
+      redirect_to dashboard_path, notice: "#{@new_membership.user.name} was added to the campaign!"
     else
       render :index
     end

@@ -31,6 +31,6 @@
   <h3>Invite another member</h3>
   <%= simple_form_for @new_membership, url: memberships_path do |f| %>
     <%= f.input :email, label: "Google Account Email" %>
-    <%= f.submit "Invite!" %>
+    <%= f.submit "Invite!", class: "button" %>
   <% end %>
 <% end %>

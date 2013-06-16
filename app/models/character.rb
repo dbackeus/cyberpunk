@@ -53,7 +53,7 @@ class Character
   field :valued_posession, type: String
 
   # Life events
-  field :age, type: Integer
+  field :age, type: Integer, default: 16
   embeds_many :life_events
   accepts_nested_attributes_for :life_events
 

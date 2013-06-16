@@ -43,6 +43,8 @@ $(function() {
     return false
   })
 
+  $("#character_age").change(refreshLifeEvents)
+
   $(".career input").change(refreshCareerPoints)
   $(".pickup input, #character_intelligence, #character_reflexes").change(refreshPickupPoints)
 
@@ -154,12 +156,28 @@ function rollEvents() {
   $(".life-events").html("")
   var age = dice(6) + dice(6) + 16
   $("#character_age").val(age)
-  for(var i=0; i<(age-16); i++) {
-    $('<h4>Age '+(17 + i)+'</h4>').appendTo(".life-events")
-    var description = generateLifeEventDescription()
-    generateInput("life_events_attributes", "description", i, description, {simpleformType: "text", inputType: "textarea"}).appendTo(".life-events")
+  refreshLifeEvents()
+}
+
+function refreshLifeEvents() {
+  var age = $("#character_age").val().toI()
+  var currentNumberOfEvents = $(".life-event").length
+  var superfluousEvents = currentNumberOfEvents - (age - 16)
+  if(superfluousEvents > 0) {
+    for(var i=0; i<superfluousEvents; i++) {
+      $(".life-event:last").remove()
+    }
   }
-  $(".life-events textarea").autosize()
+  else {
+    for(var i=currentNumberOfEvents; i<(age-16); i++) {
+      var container = $('<div id="life-event-'+i+'" class="life-event"></div>')
+      $('<h4>Age '+(17 + i)+'</h4>').appendTo(container)
+      var description = generateLifeEventDescription()
+      generateInput("life_events_attributes", "description", i, description, {simpleformType: "text", inputType: "textarea"}).appendTo(container)
+      container.appendTo(".life-events")
+    }
+    $(".life-events textarea").autosize()
+  }
 }
 
 function generateLifeEventDescription() {

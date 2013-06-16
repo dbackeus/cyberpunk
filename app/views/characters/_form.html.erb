@@ -32,7 +32,7 @@
   <%= f.input :feelings_toward_others %>
   <%= f.input :valued_posession %>
   <h3>Life Events <%= link_to image_tag("roll.png"), "#roll", data: { roll: "events" } %></h3>
-  <%= f.input :age %>
+  <%= f.input :age, as: :integer %>
   <div class="life-events">
   </div>
   <h2>Skills</h2>

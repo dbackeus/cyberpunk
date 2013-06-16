@@ -14,7 +14,15 @@
             <%= skill.value + (skill.stat ? @character.send(skill.stat) : 0) %>
           </abbr>
         </span>
-        <span class="name"><%= skill.name %></span>
+        <span class="name">
+          <% if skill.short.present? %>
+            <abbr title="<%= skill.name %>">
+              <%= skill.short %>
+            </abbr>
+          <% else %>
+            <%= skill.name %>
+          <% end %>
+        </span>
       </li>
     <% end %>
   </ul>

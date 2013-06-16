@@ -44,6 +44,7 @@
 - name: Oratory
   stat: cool
 - name: Resist Torture/Drugs
+  short: Resist Torture
   stat: cool
 - name: Streetwise
   stat: cool
@@ -58,6 +59,7 @@
 - name: Social
   stat: empathy
 - name: Persuasion & Fast Talk
+  short: Persuasion
   stat: empathy
 - name: Perform
   stat: empathy
@@ -78,6 +80,7 @@
 - name: Diagnose Illness
   stat: intelligence
 - name: Education & General Knowledge
+  short: Education/Knowledge
   stat: intelligence
 - name: Gamble
   stat: intelligence
@@ -126,31 +129,41 @@
 - name: Heavy Weapons
   stat: reflexes
 - name: Martial Arts (Aikido)
+  short: Aikido
   stat: reflexes
   ip_multiplier: 3
 - name: Martial Arts (Animal Kung Fu)
+  short: Animal Kung Fu
   stat: reflexes
   ip_multiplier: 3
 - name: Martial Arts (Boxing)
+  short: Boxing
   stat: reflexes
 - name: Martial Arts (Capoeira)
+  short: Capoeira
   stat: reflexes
   ip_multiplier: 3
 - name: Martial Arts (Choi Li Fut)
+  short: Choi Li Fut
   stat: reflexes
   ip_multiplier: 3
 - name: Martial Arts (Judo)
+  short: Judo
   stat: reflexes
 - name: Martial Arts (Karate)
+  short: Karate
   stat: reflexes
   ip_multiplier: 2
 - name: Martial Arts (Tae Kwon Do)
+  short: Tae Kwon Do
   stat: reflexes
   ip_multiplier: 3
 - name: Martial Arts (Thai Kick Boxing)
+  short: Thai Kick Boxing
   stat: reflexes
   ip_multiplier: 4
 - name: Martial Arts (Wrestling)
+  short: Wrestling
   stat: reflexes
 - name: Melee
   stat: reflexes
@@ -159,15 +172,19 @@
 - name: Operate Heavy Machinery
   stat: reflexes
 - name: Pilot (Gyro & Rotorcraft)
+  short: Pilot Gyro
   stat: reflexes
   ip_multiplier: 3
 - name: Pilot (Fixed Wing Aircraft)
+  short: Pilot Airplane
   stat: reflexes
   ip_multiplier: 2
 - name: Pilot (Dirigible)
+  short: Pilot Dirigible
   stat: reflexes
   ip_multiplier: 2
 - name: Pilot (Vectored Thrust Aerodyne)
+  short: Pilot Hovercraft
   stat: reflexes
   ip_multiplier: 3
 - name: Rifle
@@ -230,159 +247,212 @@
 - name: Language (Bantu)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Bantu
 - name: Language (Fante)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Fante
 - name: Language (Ashanti)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Ashanti
 - name: Language (Kongo)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Kongo
 - name: Language (Zulu)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Zulu
 - name: Language (Swahili)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Swahili
 - name: Language (Blackfolk)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Blackfolk
 - name: Language (Lithuanian)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Lithuanian
 - name: Language (Estonian)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Estonian
 - name: Language (Latvian)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Latvian
 - name: Language (Finnish)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Finnish
 - name: Language (Gaelic)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Gaelic
 - name: Language (Welsh)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Welsh
 - name: Language (Breton)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Breton
 - name: Language (Farsi)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Farsi
 - name: Language (Danish)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Danish
 - name: Language (Dutch)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Dutch
 - name: Language (English)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. English
 - name: Language (German)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. German
 - name: Language (Norwegian)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Norwegian
 - name: Language (Swedish)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Swedish
 - name: Language (Yiddish)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Yiddish
 - name: Language (Greek)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Greek
 - name: Language (Japanese)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Japanese
 - name: Language (Korean)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Korean
 - name: Language (Micronesian)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Micronesian
 - name: Language (Tagalog)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Tagalog
 - name: Language (Polynesian)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Polynesian
 - name: Language (Javanese)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Javanese
 - name: Language (Malayan)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Malayan
 - name: Language (Sudanese)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Sudanese
 - name: Language (Indonesian)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Indonesian
 - name: Language (Hawaiian)
   stat: intelligence
   ip_multiplier: 2
+  short: Lang. Hawaiian
 - name: Language (French)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. French
 - name: Language (Italian)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Italian
 - name: Language (Romanian)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Romanian
 - name: Language (Spanish)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Spanish
 - name: Language (Portugese)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Portugese
 - name: Language (Latin)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Latin
 - name: Language (Arabic)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Arabic
 - name: Language (Hebrew)
   stat: intelligence
   ip_multiplier: 1
+  short: Lang. Hebrew
 - name: Language (Burmese)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Burmese
 - name: Language (Cantonese)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Cantonese
 - name: Language (Mandarin)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Mandarin
 - name: Language (Thai)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Thai
 - name: Language (Tibetan)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Tibetan
 - name: Language (Vietnamese)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Vietnamese
 - name: Language (Bulgarian)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Bulgarian
 - name: Language (Russian)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Russian
 - name: Language (Czech)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Czech
 - name: Language (Polish)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Polish
 - name: Language (Ukrainian)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Ukrainian
 - name: Language (Slovak)
   stat: intelligence
   ip_multiplier: 3
+  short: Lang. Slovak

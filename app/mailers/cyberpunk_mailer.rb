@@ -5,6 +5,6 @@ class CyberpunkMailer < ActionMailer::Base
     @invitor = User.find(invitor_id)
     @campaign = Campaign.find(campaign_id)
     @invited = User.find(invited_id)
-    mail to: invited.email, subject: "[Cyberpunk.net] Invitation to join campaign"
+    mail to: @invited.email, subject: "[Cyberpunk.net] Invitation to join campaign"
   end
 end

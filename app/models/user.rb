@@ -45,6 +45,8 @@ class User
   validates_uniqueness_of :email
   validate :validate_google_email, unless: lambda { email.blank? || skip_google_email_validation }
 
+  before_destroy :destroy_memberships
+
   def confirmed?
     name.present?
   end
@@ -78,6 +80,12 @@ class User
     domain = email.split("@").last
     unless %w[gmail.com googlemail.com].include?(domain) || MX.for_domain(domain).flatten.join[/google.com/]
       errors[:email] << "must belong to a google account"
+    end
+  end
+
+  def destroy_memberships
+    Campaign.where("memberships.user_id" => id).each do |campaign|
+      campaign.memberships.detect { |membership| membership.user_id == id }.destroy
     end
   end
 end

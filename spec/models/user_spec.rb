@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe User do
+  it "removed associated memberships from campaigns on deletion" do
+    campaign = create(:campaign)
+    user = create(:user)
+    campaign.memberships.create!(user: user)
+    Campaign.first.memberships.count.should == 2
+    user.destroy
+    Campaign.first.memberships.count.should == 1
+  end
+
   describe "#campaigns" do
     it "should have a list of all membership campaign" do
       campaign = create(:campaign)

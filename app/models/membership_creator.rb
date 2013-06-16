@@ -17,7 +17,7 @@ class MembershipCreator
 
     if user.valid?
       campaign.memberships.create!(user: user)
-      CyberpunkMailer.invitation(invitor.id.to_s, campaign.id.to_s, user.id.to_s)
+      CyberpunkMailer.invitation(invitor.id.to_s, campaign.id.to_s, user.id.to_s).deliver
     else
       user.errors[:email].each { |error| errors[:email] << error }
       false

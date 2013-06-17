@@ -15,7 +15,7 @@ class Membership
   before_destroy :validate_not_last_memberhip_of_campaign
   before_destroy :clean_up_users_current_campaign
 
-  delegate :name, :email, :confirmed?, to: :user
+  delegate :name, :email, :avatar, :confirmed?, to: :user
 
   def player?
     !referee?

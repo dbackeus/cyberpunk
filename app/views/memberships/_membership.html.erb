@@ -1,0 +1,17 @@
+<li class="membership">
+  <%= image_tag(membership.avatar ? membership.avatar : gravatar(membership.email), class: "avatar left") %>
+  <p>
+    <%= membership.name %>
+    <% if current_membership.referee? %>
+      <% if membership.referee? %>
+        | <%= link_to "demote to player", make_player_membership_path(membership), method: :patch %>
+      <% else %>
+        | <%= link_to "promote to referee", make_referee_membership_path(membership), method: :patch %>
+      <% end %>
+    <% end %>
+    <% if current_membership.admin? %>
+      | <%= link_to "remove member", membership, confirm: "Are you sure you want to remove #{membership.name} from the campaign #{current_campaign.name}?", method: :delete %>
+    <% end %>
+  </p>
+  <div class="clear"></div>
+</li>

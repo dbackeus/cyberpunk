@@ -16,9 +16,11 @@
     <div class="header">
       <div class="user-info">
         Signed in as <strong><%= current_user.name %></strong>
-        <% if current_campaign %> using the <strong><%= current_campaign.name %></strong> campaign <% end %>
-        | <%= link_to "Characters", characters_path %>
-        | <%= link_to "Members", memberships_path %>
+        <% if current_campaign %>
+          using the <strong><%= current_campaign.name %></strong> campaign
+          | <%= link_to "Characters", characters_path %>
+          | <%= link_to "Members", memberships_path %>
+        <% end %>
         | <%= link_to "Manage Campaigns", campaigns_path %>
         | <%= link_to "Sign Out", session_path, method: :delete %>
       </div>

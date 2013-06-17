@@ -1,5 +1,10 @@
 Cyberpunk::Application.routes.draw do
-  resources :memberships
+  resources :memberships do
+    member do
+      patch "make_referee"
+      patch "make_player"
+    end
+  end
 
   resources :campaigns do
     post "characters/:character_id", to: "campaigns#add_character", as: "add_character"

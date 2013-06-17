@@ -39,11 +39,11 @@ class CharactersController < ApplicationController
   end
 
   def edit
-    @character = Character.find(params[:id])
+    @character = Character.editable_by(current_user).find(params[:id])
   end
 
   def update
-    @character = Character.find(params[:id])
+    @character = Character.editable_by(current_user).find(params[:id])
 
     if @character.update_attributes(character_params)
       redirect_to character_path(@character), notice: "Character updated!"
@@ -53,7 +53,7 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    character = Character.find(params[:id])
+    character = current_user.characters.find(params[:id])
     character.destroy
     redirect_to characters_path, notice: "Character destroyed!"
   end

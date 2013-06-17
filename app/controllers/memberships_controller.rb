@@ -14,6 +14,36 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def destroy
+    if current_membership.admin?
+      membership = current_campaign.memberships.find(params[:id])
+      membership.destroy
+      redirect_to memberships_path, notice: "#{membership.name} was removed from the campaign!"
+    else
+      redirect_to memberships_path, alert: "Only campaign admins can remove members!"
+    end
+  end
+
+  def make_referee
+    if current_membership.admin? || current_membership.referee?
+      membership = current_campaign.memberships.find(params[:id])
+      membership.update_attributes(referee: true)
+      redirect_to memberships_path, notice: "#{membership.name} is now a referee!"
+    else
+      redirect_to memberships_path, alert: "Only campaign admins and referees can promote members!"
+    end
+  end
+
+  def make_player
+    if current_membership.admin? || current_membership.referee?
+      membership = current_campaign.memberships.find(params[:id])
+      membership.update_attributes(referee: false)
+      redirect_to memberships_path, notice: "#{membership.name} is no longer a referee!"
+    else
+      redirect_to memberships_path, alert: "Only campaign admins and referees can demote members!"
+    end
+  end
+
   private
   def membership_params
     params.require(:membership_creator).permit!.merge(campaign: current_campaign, invitor: current_user)

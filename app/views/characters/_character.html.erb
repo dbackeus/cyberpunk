@@ -3,6 +3,9 @@
   | <%= character.role.name %>
   <% if character.players.any? %>
   | played by <span class="played-by"><%= character.players.collect(&:name).join(", ") %></span>
+    <% if character.played_by?(current_user) || current_membership.referee? %>
+      | <%= link_to "edit", edit_character_path(character) %>
+    <% end %>
   <% end %>
   <% if current_membership.referee? %>
     | <%= link_to "manage players", player_character_path(character) %>

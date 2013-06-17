@@ -2,6 +2,11 @@ class Character
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  scope :editable_by, ->(user) {
+    refereeing = Campaign.where("memberships.user_id" => user.id, "memberships.referee" => true).distinct(:id)
+    any_of({creator_id: user.id}, {:player_ids.in => [user.id]}, {:campaign_ids.in => refereeing})
+  }
+
   BASIC_ATTRIBUTES = %i(
     intelligence
     reflexes
@@ -65,6 +70,10 @@ class Character
 
   def npc?
     player_ids.empty?
+  end
+
+  def played_by?(user)
+    player_ids.include?(user.id)
   end
 
   def role_id=(role_id)

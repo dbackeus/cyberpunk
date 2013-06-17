@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_campaign
 
   def current_membership
-    @current_membership ||= current_campaign.memberships.detect { |m| m.user_id == current_user.id }
+    @current_membership ||= current_campaign.membership_for(current_user)
   end
   helper_method :current_membership
 

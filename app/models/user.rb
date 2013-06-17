@@ -27,6 +27,7 @@ class User
   field :name, type: String, default: ""
   field :avatar, type: String
   field :current_campaign_id, type: Moped::BSON::ObjectId
+  field :admin, type: Boolean, default: false
 
   # Devise
   field :email, type: String, default: ""
@@ -52,7 +53,11 @@ class User
   end
 
   def campaigns
-    Campaign.where("memberships.user_id" => id)
+    if admin?
+      Campaign.all
+    else
+      Campaign.where("memberships.user_id" => id)
+    end
   end
 
   def set_current_campaign(campaign)

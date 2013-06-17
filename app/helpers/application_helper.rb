@@ -11,4 +11,14 @@ module ApplicationHelper
     email_hex = Digest::MD5.hexdigest(email)
     "https://www.gravatar.com/avatar/#{email_hex}?d=mm"
   end
+
+  def membership_status(membership)
+    if membership.admin?
+      "admin"
+    elsif membership.referee?
+      "referee"
+    else
+      "player"
+    end
+  end
 end

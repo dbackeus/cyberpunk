@@ -12,6 +12,10 @@ class Campaign
   validates :name, presence: true, uniqueness: true
 
   def membership_for(user)
-    memberships.detect { |membership| membership.user_id == user.id }
+    if user.admin?
+      memberships.build(user: user, admin: true, referee: true)
+    else
+      memberships.detect { |membership| membership.user_id == user.id }
+    end
   end
 end

@@ -5,13 +5,13 @@ class Character
   BASIC_ATTRIBUTES = %i(
     intelligence
     reflexes
-    cool
     technical_ability
-    luck
+    cool
     attractiveness
+    luck
     movement_allowance
-    empathy
     body_type
+    empathy
   ).freeze
 
   belongs_to :creator, class_name: 'User', inverse_of: :characters

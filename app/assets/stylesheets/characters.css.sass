@@ -5,33 +5,62 @@
 .played-by
   font-style: italic
 
-#new_character h2
-  margin-top: 1em
+.editable-stat
+  float: left
+  margin-right: 2em
+  margin-bottom: 2em
+  input[type=number]
+    font-size: 1.6em
 
 .character-box
   float: left
   margin-right: 40px
   max-width: 700px
 
-.skill-list-box
-  float: left
-  margin-right: 20px
-  width: 250px
-  background: #EEE
-  padding: 20px
-  label
-    width: 200px
-    display: block
+form
+  .roll-handle-link
+    img
+      padding-top: 17px
+  .lifepath
+    div.style, div.family, div.motivations, div.siblings, div.life-events
+      float: left
+      width: 24em
+      margin-right: 4em
+    div.style, div.family, div.motivations
+      min-height: 22em
+    .life-events
+      width: 52em
+      ul.life-events
+        label
+          display: none
+        textarea
+          line-height: 1.5em
+          width: 100%
+          height: 20px
+    textarea
+      width: 330px
+      height: 15px
+  .skill-list-box
     float: left
+    margin-right: 20px
+    margin-bottom: 10px
+    width: 270px
+    background: #EEE
+    padding: 20px
+    .input
+      margin-bottom: 2px
+    label
+      width: 220px
+      display: block
+      float: left
 
-.life-events
+.sibling
   label
-    display: none
-  textarea
-    padding: 4px
-    line-height: 1.5em
-    height: 20px
-    margin-bottom: 20px
+    display: inline-block
+    margin-right: 4px
+
+textarea
+  border-color: #AAA
 
 .characters
   li

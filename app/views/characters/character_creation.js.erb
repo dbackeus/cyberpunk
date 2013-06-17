@@ -43,7 +43,7 @@ $(function() {
     return false
   })
 
-  $(".siblings").nestedAttributes({
+  $("#siblings").nestedAttributes({
     bindAddTo: $("#add_sibling"),
     collectionName: "siblings",
     $clone: $(siblingFormTemplate)
@@ -128,6 +128,7 @@ function rollStyle() {
   var ethnicity = ethniticies.sample()
   $("#character_ethnicity").val(ethnicity)
   $("#character_language").val(languages[ethnicity].sample())
+  $("textarea").trigger("autosize")
 }
 
 var familyRankings = <%= family_ranking_options.to_json.html_safe %>
@@ -142,14 +143,16 @@ function rollFamily() {
   var familyStatus = dice(10) > 6 ? "Family is OK" : familyTragedies.sample()
   $("#character_family_status").val(familyStatus)
   $("#character_childhood_environment").val(childhoods.sample())
+  $("textarea").trigger("autosize")
 }
 
 function rollSiblings() {
-  $(".siblings").empty()
+  $("#siblings").empty()
+
   var numberOfSiblings = (result = dice(10)) > 7 ? 0 : result
   for(var i=0; i<numberOfSiblings; i++) {
     $("#add_sibling").click()
-    var sibling = $(".sibling:last")
+    var sibling = $("#siblings .sibling:last")
 
     var sex = ["Male", "Female"].sample()
     sibling.find("select.sex").val(sex)
@@ -164,11 +167,11 @@ function rollSiblings() {
     sibling.find("input.feelings").val(feelings)
   }
 
-  if(!numberOfSiblings) { $(".siblings").html("<p>No siblings!</p>") }
+  if(!numberOfSiblings) { $("#siblings").html("<p>No siblings!</p>") }
 }
 
 function rollEvents() {
-  $(".life-events").html("")
+  $("#life-events").html("")
   var age = dice(6) + dice(6) + 16
   $("#character_age").val(age)
   refreshLifeEvents()
@@ -189,9 +192,9 @@ function refreshLifeEvents() {
       $('<h4>Age '+(17 + i)+'</h4>').appendTo(container)
       var description = generateLifeEventDescription()
       generateInput("life_events_attributes", "description", i, description, {simpleformType: "text", inputType: "textarea"}).appendTo(container)
-      container.appendTo(".life-events")
+      container.appendTo("#life-events")
     }
-    $(".life-events textarea").autosize()
+    $("#life-events textarea").autosize()
   }
 }
 
@@ -453,6 +456,7 @@ function rollMotivations() {
   $("#character_valued_concept").val(valuedConcepts.sample())
   $("#character_feelings_toward_others").val(feelingsTowardOthers.sample())
   $("#character_valued_posession").val(valuedPosessions.sample())
+  $("textarea").trigger("autosize")
 }
 
 function addSkill(type, data) {

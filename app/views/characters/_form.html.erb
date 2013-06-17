@@ -4,60 +4,78 @@
   <script type="text/javascript">window.siblingFormTemplate = '<%= sibling_form_template(f) %>'</script>
 
   <%= f.input :role_id, as: :hidden %>
+  <%= f.input :handle, label: "Handle (#{link_to("name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank")})", wrapper_html: { class: "left" } %> <%= link_to die_image, random_name_characters_path, id: "random-name-button", class: "roll-handle-link" %>
+  <div class="clear"></div>
   <%= f.input :sex, collection: {"Male" => "male", "Female" => "female"}, include_blank: false %>
-  <%= f.input :handle %> <%= link_to "random!", random_name_characters_path, id: "random-name-button", class: "" %> <%= link_to "name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank" %>
-  <h2>Statistics <%= link_to image_tag("roll.png"), "#roll", data: { roll: "stats" } %></h2>
+  <h2>Statistics <%= link_to die_image, "#roll", data: { roll: "stats" } %></h2>
   <ul id="character-stats" class="editable-stats">
     <% Character::BASIC_ATTRIBUTES.each do |stat| %>
-      <li class="editable-stat"><%= f.input stat, as: :integer %></li>
+      <li class="editable-stat"><%= f.input stat, as: :integer, label: %Q{<abbr title="#{stat.to_s.titleize}">#{shortened_stats[stat] || stat.to_s.titleize}</abbr>} %></li>
     <% end %>
   </ul>
-  <h2>Lifepath</h2>
-  <h3>Origins and Personal Style <%= link_to image_tag("roll.png"), "#roll", data: { roll: "style" } %></h3>
-  <p>What do you look like and where do you come from?</p>
-  <%= f.input :clothes %>
-  <%= f.input :hair %>
-  <%= f.input :affections %>
-  <%= f.input :ethnicity %>
-  <%= f.input :language %>
-  <h3>Family Background <%= link_to image_tag("roll.png"), "#roll", data: { roll: "family" } %></h3>
-  <%= f.input :family_ranking %>
-  <%= f.input :parents %>
-  <%= f.input :family_status %>
-  <%= f.input :childhood_environment %>
-  <h3>Siblings <%= link_to image_tag("roll.png"), "#roll", data: { roll: "siblings" } %></h3>
-  <ul class="siblings stomp">
-    <%= f.fields_for(:siblings) do |sibling_form| %>
-      <%= render "sibling_form", sibling_form: sibling_form %>
-    <% end %>
-  </ul>
-  <a href="#" id="add_sibling" class="button add small">Add Sibling</a>
-  <h3>Motivations <%= link_to image_tag("roll.png"), "#roll", data: { roll: "motivations" } %></h3>
-  <%= f.input :personality %>
-  <%= f.input :valued_person %>
-  <%= f.input :valued_concept %>
-  <%= f.input :feelings_toward_others %>
-  <%= f.input :valued_posession %>
-  <h3>Life Events <%= link_to image_tag("roll.png"), "#roll", data: { roll: "events" } %></h3>
-  <%= f.input :age, as: :integer %>
-  <ul class="life-events">
-    <%= f.fields_for(:life_events) do |lf| %>
-      <li class="life-event">
-        <h4>Age</h4>
-        <%= lf.input :id, as: :hidden %>
-        <%= lf.input :description, as: :text %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="clear"></div>
+  <div class="lifepath">
+    <h2>Lifepath</h2>
+    <div class="style">
+      <h3>Origins and Personal Style <%= link_to die_image, "#roll", data: { roll: "style" } %></h3>
+      <%= f.input :clothes, as: :text %>
+      <%= f.input :hair, as: :text %>
+      <%= f.input :affections, as: :text %>
+      <%= f.input :ethnicity, as: :text %>
+      <%= f.input :language, as: :text %>
+    </div>
+    <div class="family">
+      <h3>Family Background <%= link_to die_image, "#roll", data: { roll: "family" } %></h3>
+      <%= f.input :family_ranking, as: :text %>
+      <%= f.input :parents, as: :text %>
+      <%= f.input :family_status, as: :text %>
+      <%= f.input :childhood_environment, as: :text %>
+    </div>
+    <div class="motivations">
+      <h3>Motivations <%= link_to die_image, "#roll", data: { roll: "motivations" } %></h3>
+      <%= f.input :personality, as: :text %>
+      <%= f.input :valued_person, as: :text %>
+      <%= f.input :valued_concept, as: :text %>
+      <%= f.input :feelings_toward_others, as: :text %>
+      <%= f.input :valued_posession, as: :text %>
+    </div>
+    <div class="clear"></div>
+    <div class="siblings stomp">
+      <h3>Siblings <%= link_to die_image, "#roll", data: { roll: "siblings" } %></h3>
+      <ul id="siblings" class="siblings stomp">
+        <%= f.fields_for(:siblings) do |sibling_form| %>
+          <%= render "sibling_form", sibling_form: sibling_form %>
+        <% end %>
+      </ul>
+      <a href="#" id="add_sibling" class="button add small">Add Sibling</a>
+    </div>
+    <div class="life-events">
+      <h3>Life Events <%= link_to die_image, "#roll", data: { roll: "events" } %></h3>
+      <%= f.input :age, as: :integer %>
+      <ul id="life-events" class="life-events">
+        <%= f.fields_for(:life_events) do |lf| %>
+          <li class="life-event">
+            <h4>Age</h4>
+            <%= lf.input :id, as: :hidden %>
+            <%= lf.input :description, as: :text %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"></div>
+
   <h2>Skills</h2>
   <div id="career-points-left-box">
-    <label for="career-points-left">Career Skill Points Left</label>
+    <label for="career-points-left" class="left">Career Skill Points Left</label>
     <output id="career-points-left"></output>
   </div>
+  <div class="clear"></div>
   <div id="pickup-points-left-box" class="stomp">
-    <label for="pickup-points-left">Pickup Skill Points Left</label>
+    <label for="pickup-points-left" class="left">Pickup Skill Points Left</label>
     <output id="pickup-points-left"></output>
   </div>
+  <div class="clear"></div>
   <%= link_to "Add Pickup / Chipped Skills", "#pickup-skills", id: "add-pickup-skill-button", class: "button add" %>
   <%= f.fields_for :skills do |skill_form| %>
     <% skill = skill_form.object %>
@@ -83,7 +101,7 @@
   <% special_abilities = { special_ability: pickup_skills.where(special_ability: true) } %>
   <% stat_based.merge(special_abilities).each do |stat, skills| %>
     <h3><%= Character.human_attribute_name(stat).titleize %></h3>
-    <ul class="pickup-skills">
+    <ul class="pickup-skills stomp">
       <% skills.sort_by(&:name).each do |skill| %>
         <% skill_data = { name: skill.name, stat: skill.stat, ip_multiplier: skill.ip_multiplier, special_ability: skill.special_ability, skill_id: skill.id.to_s } %>
         <li class="pickup-skill">

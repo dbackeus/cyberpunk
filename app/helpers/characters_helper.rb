@@ -20,6 +20,14 @@ module CharactersHelper
     }
   end
 
+  def shortened_stats
+    {
+      technical_ability: "Tech",
+      movement_allowance: "Movement",
+      attractiveness: "Attractive"
+    }
+  end
+
   def clothes_options
     [
       "Biker leathers",

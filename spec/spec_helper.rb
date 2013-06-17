@@ -55,3 +55,8 @@ end
 def seed!
   load("#{Rails.root}/db/seeds.rb")
 end
+
+def validate(model)
+  model.valid?
+  model
+end

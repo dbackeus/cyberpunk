@@ -16,4 +16,13 @@ FactoryGirl.define do
   factory :membership do
     user
   end
+
+  factory :role do
+    sequence(:name) { |n| "Solo Version #{n}" }
+  end
+
+  factory :character do
+    handle "Sweetness"
+    role
+  end
 end

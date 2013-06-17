@@ -1,9 +1,9 @@
 class Role
   include Mongoid::Document
-  
+
   field :name, type: String
-  field :preferred_stats, type: Array
-  field :career_skill_ids, type: Array
+  field :preferred_stats, type: Array, default: []
+  field :career_skill_ids, type: Array, default: []
 
   validates :name, presence: true, uniqueness: true
 

@@ -9,5 +9,9 @@ class Campaign
 
   field :name, type: String
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
+
+  def membership_for(user)
+    memberships.detect { |membership| membership.user_id == user.id }
+  end
 end

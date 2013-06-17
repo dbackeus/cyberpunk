@@ -27,6 +27,16 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def destroy
+    campaign = Campaign.find(params[:id])
+    if campaign.membership_for(current_user).admin?
+      campaign.destroy
+      redirect_to campaigns_path, notice: "The campaign #{campaign.name} was destroyed!"
+    else
+      redirect_to campaigns_path, alert: "You're not an admin of that campaign!"
+    end
+  end
+
   def add_character
     character = current_user.characters.find(params[:character_id])
     current_campaign.characters << character

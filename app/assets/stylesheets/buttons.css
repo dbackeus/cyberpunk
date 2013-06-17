@@ -1,5 +1,7 @@
 /* http://www.red-team-design.com/just-another-awesome-css3-buttons */
 
+.button:hover { color: #333; }
+
 .button { text-decoration: none; display: inline-block; margin-bottom: 1em; cursor: pointer; }
 
 .button.small { font-size: 0.8em; padding: 0 1em; }

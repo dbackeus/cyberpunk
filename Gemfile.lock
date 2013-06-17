@@ -100,6 +100,10 @@ GEM
     moped (1.5.0)
     multi_json (1.7.7)
     multipart-post (1.2.0)
+    newrelic_moped (0.0.6)
+      moped
+      newrelic_rpm (~> 3.6.0)
+    newrelic_rpm (3.6.3.111)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -194,6 +198,8 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   mongoid!
+  newrelic_moped
+  newrelic_rpm
   omniauth-google-oauth2
   rails (= 4.0.0.rc2)
   rails3_serve_static_assets!

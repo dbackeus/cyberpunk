@@ -32,6 +32,8 @@ gem 'httpi'
 gem 'devise', "3.0.0.rc"
 gem 'omniauth-google-oauth2'
 gem 'airbrake'
+gem 'newrelic_rpm'
+gem 'newrelic_moped'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

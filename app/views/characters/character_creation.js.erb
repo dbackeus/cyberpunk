@@ -56,6 +56,7 @@ $(function() {
 
   refreshCareerPoints()
   refreshPickupPoints()
+  refreshSkillLayout()
 })
 
 function refreshCareerPoints() {
@@ -83,6 +84,10 @@ function refreshPickupPoints() {
   else $("#pickup-points-left").parent().find("label").removeClass("warning")
 }
 
+function refreshSkillLayout() {
+  $("#skill-boxes").isotope({itemSelector: '.skill-list-box:visible'})
+}
+
 function roll(section) {
   if(section == "stats") rollStats()
   if(section == "style") rollStyle()
@@ -90,6 +95,7 @@ function roll(section) {
   if(section == "siblings") rollSiblings()
   if(section == "motivations") rollMotivations()
   if(section == "events") rollEvents()
+  if(section == "skills") rollSkills()
 }
 
 function rollStats() {
@@ -459,6 +465,36 @@ function rollMotivations() {
   $("textarea").trigger("autosize")
 }
 
+function rollSkills() {
+  var skillInputs = $(".skill-input.career input")
+  skillInputs.val(0)
+
+  var totalCareerPoints = 40
+  var numberOfPracticedCareerSkills = 8 + parseInt(Math.random() * 3)
+  careerSkillList = new Array()
+
+  // Set base skill points of all practiced skills to 2
+  for(var i=0; i<numberOfPracticedCareerSkills; i++) {
+    careerSkillList.push(2)
+    totalCareerPoints -= 2
+  }
+
+  while(totalCareerPoints > 0) {
+    var randomIndex = parseInt(Math.random() * careerSkillList.length)
+    if(careerSkillList[randomIndex] == 10) continue
+    careerSkillList[randomIndex] += 1
+    totalCareerPoints -= 1
+  }
+
+  var specialAbilities = $(".skill-input.career[data-special-ability=true] input").toArray()
+  var shuffledCareerSkills = $(".skill-input.career[data-special-ability=false] input").toArray().shuffle()
+  var prioritisedSkills = specialAbilities.concat(shuffledCareerSkills)
+
+  $.each(careerSkillList, function(index, points) {
+    $(prioritisedSkills[index]).val(points)
+  })
+}
+
 function addSkill(type, data) {
   var index = new Date().valueOf()
   inputOptions = {simpleformType: "hidden", inputType: "hidden"}
@@ -472,6 +508,7 @@ function addSkill(type, data) {
   var selector = data.specialAbility ? "special-ability" : data.stat
   valueInput.change(refreshPickupPoints).appendTo(".skill-list."+selector)
   $(".skill-list."+selector).parent().removeClass("hidden")
+  refreshSkillLayout()
 }
 
 function generateInput(group, attribute, index, value, options) {

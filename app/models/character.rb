@@ -62,6 +62,8 @@ class Character
   embeds_many :life_events
   accepts_nested_attributes_for :life_events
 
+  field :description, type: String
+
   validates :handle, :role, presence: true
 
   def pc?

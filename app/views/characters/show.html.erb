@@ -7,7 +7,16 @@
   })
 </script>
 
-<h1><%= @character.handle %><span class="subtitle"><%= articlerize(@character.role.name).titleize %> aged <%= @character.age %>.</span></h1>
+<h1>
+  <%= @character.handle %>
+  <span class="subtitle"><%= articlerize(@character.role.name).titleize %> aged <%= @character.age %>.</span>
+</h1>
+
+<% if @character.description.present? %>
+  <div class="description stomp" style="width: 620px; font-family: 'Droid Serif'; margin-top: -1.5em">
+    <%= simple_format @character.description %>
+  </div>
+<% end %>
 
 <h2 class="inversed">Stats</h2>
 

@@ -11,7 +11,7 @@ YAML.load_file("db/skills.yml").each do |attributes|
 end
 
 YAML.load_file("db/roles.yml").each do |attributes|
-  career_skill_names = attributes.delete('career_skills')
+  career_skill_names = attributes.delete('career_skills') || []
   career_skill_ids = Skill.where(:name.in => career_skill_names).collect(&:id)
   Role.create!(attributes.merge(career_skill_ids: career_skill_ids))
   # Role.find_by(name: attributes['name']).update_attributes(career_skill_ids: career_skill_ids)

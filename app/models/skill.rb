@@ -8,6 +8,6 @@ class Skill
   field :ip_multiplier, type: Integer, default: 1
   field :special_ability, type: Boolean, default: false
 
-  validates :name, :ip_multiplier, presence: true
+  validates :name, :ip_multiplier, presence: true, uniqueness: true
   validates_length_of :short, maximum: 20, allow_nil: true
 end

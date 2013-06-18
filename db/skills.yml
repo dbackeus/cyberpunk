@@ -456,3 +456,130 @@
   stat: intelligence
   ip_multiplier: 3
   short: Lang. Slovak
+# When Gravity Fails
+- name: Administrator Resources
+  stat: intelligence
+  short: Admin Resources
+  special_ability: true
+- name: Area Knowledge
+  stat: intelligence
+- name: Bureaucracy
+  stat: intelligence
+- name: Pilot Remote
+  stat: reflexes
+  ip_multiplier: 3
+- name: Research (Private Investigator)
+  special_ability: true
+  short: Research (P.I.)
+- name: Simper
+  stat: empathy
+- name: Chameleon (Spy)
+  special_ability: true
+- name: Tactics
+  stat: intelligence
+- name: Urban Survival
+  stat: intelligence
+- name: Vehicle Zen
+  special_ability: true
+# Near Orbit / Deep Space
+- name: Astrogation
+  stat: intelligence
+- name: Braindance Use
+  stat: intelligence
+- name: Brotherhood (Space Pilot)
+  stat: intelligence
+  special_ability: true
+  short: Brotherhood (Space)
+- name: EVA
+  stat: reflexes
+- name: Pilot OTV
+  stat: reflexes
+- name: Pilot Space Plane/Shuttle
+  stat: reflexes
+  short: Pilot Spaceplane
+- name: Space Survival
+  stat: intelligence
+- name: Zero G Combat
+  stat: reflexes
+- name: Zero G Maneuver
+  stat: reflexes
+# Solo of Fortune
+- name: Buiness Sense
+  stat: intelligence
+- name: Corporate Policy
+  stat: intelligence
+- name: Culture
+  stat: cool
+# Interface V1
+- name: Language (Cityspeak)
+  stat: intelligence
+  short: Lang. Cityspeak
+- name: Cadre Tactics
+  stat: cool
+- name: ECM
+  stat: intelligence
+- name: Street Tactics
+  special_ability: true
+- name: SCUBA
+  stat: technical_ability
+- name: Pilot Submersible
+  stat: intelligence
+  ip_multiplier: 2
+- name: Submersible Tech
+  stat: technical_ability
+  ip_multiplier: 2
+- name: Thief
+  stat: intelligence
+  special_ability: true
+- name: Underwater Combat
+  special_ability: true
+- name: Underwater Equipment
+  stat: technical_ability
+# Interface V2
+- name: Municipal Communication
+  stat: technical_ability
+  short: Municipal Comm
+# Home of the Brave
+- name: Pilot Ship
+  stat: intelligence
+  ip_multiplier: 2
+# Wildside
+- name: Con
+  stat: cool
+  special_ability: true
+- name: Gang Rank
+  stat: cool
+  special_ability: true
+- name: Hand Jive
+  stat: intelligence
+- name: Scrounge
+  stat: intelligence
+  special_ability: true
+- name: Sneak
+  special_ability: true
+- name: Vamp
+  stat: empathy
+  special_ability: true
+- name: Wetware Design
+  stat: technical_ability
+- name: Expert (entertainment)
+  stat: intelligence
+  short: Exp. Entertainment
+# Hardwired
+- name: Navigate
+  stat: intelligence
+- name: Sailpower
+  stat: intelligence
+- name: Seamanship
+  stat: intelligence
+# Maximum Metal
+- name: PA Combat Sense
+  special_ability: true
+- name: Pilot Power Armor
+  stat: reflexes
+- name: Power Armor Tech
+  stat: tech
+# Protect and Serve
+- name: Reasoning
+  stat: intelligence
+  special_ability: true

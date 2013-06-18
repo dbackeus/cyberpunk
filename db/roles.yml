@@ -174,3 +174,192 @@
   - Pharmaceuticals
   - Zoology
   - Human Perception
+# Wildside
+- name: Sleaze
+  parent_class_name: Fixer
+  preferred_stats:
+  - cool
+  - technical_ability
+  - reflexes
+  - empathy
+- name: Factor
+  parent_class_name: Fixer
+  preferred_stats:
+  - intelligence
+  - cool
+  - empathy
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Persuasion & Fast Talk
+  - Accounting
+  - Stock Market
+  - Social
+  - Interview
+  - Human Perception
+  - Education & General Knowledge
+  - Business Sense
+- name: Loan Shark
+  parent_class_name: Fixer
+  preferred_stats:
+  - cool
+  - intelligence
+  - reflexes
+  - empathy
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Intimidate
+  - Accounting
+  - Interrogation
+  - Brawling
+  - Shadow/Track
+  - Human Perception
+  - Melee
+  - Handgun
+- name: Cred Shark
+  parent_class_name: Fixer
+  preferred_stats:
+  - cool
+  - intelligence
+  - technical_ability
+  - empathy
+  - reflexes
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Intimidate
+  - Accounting
+  - Handgun
+  - Interview
+  - System Knowledge
+  - Programming
+  - Electronics
+  - Melee
+- name: Bookie
+  parent_class_name: Fixer
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Intimidate
+  - Accounting
+  - Gamble
+  - Brawling
+  - Melee
+  - Persuasion & Fast Talk
+  - Human Persuasion
+  - Handgun
+  - Mathematics
+- name: Talent Agent
+  parent_class_name: Fixer
+  preferred_stats:
+  - empathy
+  - intelligence
+  - cool
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Persuasion & Fast Talk
+  - Interview
+  - Social
+  - Intimidate
+  - Leadership
+  - Accounting
+  - Human Perception
+  - Expert (entertainment)
+  - Education & General Knowledge
+- name: Sniffer
+  parent_class_name: Fixer
+  preferred_stats:
+  - cool
+  - empathy
+  - intelligence
+  - reflexes
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Persuasion & Fast Talk
+  - Shadow/Track
+  - Intimidate
+  - Brawling
+  - Social
+  - Library Search
+  - Human Perception
+  - Handgun
+- name: Owner
+  parent_class_name: Fixer
+  preferred_stats:
+  - empathy
+  - cool
+  - intelligence
+  - attractiveness
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Persuasion & Fast Talk
+  - Interview
+  - Accounting
+  - Brawling
+  - Social
+  - Intimidate
+  - Human Perception
+  - Wardrobe & Style
+- name: Shoemaker
+  parent_class_name: Fixer
+  preferred_stats:
+  - intelligence
+  - cool
+  - technical_ability
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Forgery
+  - Programming
+  - Bureaucracy
+  - Stock Market
+  - System Knowledge
+  - Library Search
+  - Accounting
+  - Education & General Knowledge
+- name: Pusher
+  parent_class_name: Fixer
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Persuasion & Fast Talk
+  - Brawling
+  - Melee
+  - Intimidate
+  - Handgun
+  - Pharmaceuticals
+- name: Fence
+  parent_class_name: Fixer
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Persuasion & Fast Talk
+  - Brawling
+  - Melee
+  - Accounting
+  - Intimidate
+  - Handgun
+  - Forgery
+  - Basic Tech
+- name: Pimp
+  parent_class_name: Fixer
+  preferred_stats:
+  - cool
+  - empathy
+  - intelligence
+  - reflexes
+  career_skills:
+  - Streetdeal
+  - Awareness/Notice
+  - Persuasion & Fast Talk
+  - Melee
+  - Seduction
+  - Intimidate
+  - Handgun
+  - Brawling
+  - Diagnose Illness
+  - Education & General Knowledge

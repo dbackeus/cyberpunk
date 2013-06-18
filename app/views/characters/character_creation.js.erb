@@ -493,6 +493,8 @@ function rollSkills() {
   $.each(careerSkillList, function(index, points) {
     $(prioritisedSkills[index]).val(points)
   })
+
+  refreshCareerPoints()
 }
 
 function addSkill(type, data) {

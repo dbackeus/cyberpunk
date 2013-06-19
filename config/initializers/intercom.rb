@@ -33,6 +33,7 @@ IntercomRails.config do |config|
 
   config.user.custom_data = {
     :current_campaign => Proc.new { |current_user| current_user.current_campaign.name },
+    :user_id => Proc.new { |current_user| current_user.id.to_s },
   }
 
   # == User -> Company association

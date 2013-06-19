@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :join
 
   def show
     campaign = current_user.campaigns.find(params[:id])
@@ -34,6 +34,21 @@ class CampaignsController < ApplicationController
       redirect_to campaigns_path, notice: "The campaign #{campaign.name} was destroyed!"
     else
       redirect_to campaigns_path, alert: "You're not an admin of that campaign!"
+    end
+  end
+
+  def join
+    campaign = Campaign.find(params[:id])
+    if user_signed_in?
+      if campaign.membership_for(current_user)
+        redirect_to memberships_path, alert: "You are already a member of the #{campaign.name} campaign!"
+      else
+        campaign.memberships.create(user_id: current_user.id)
+        redirect_to memberships_path, notice: "You successfully joined the #{campaign.name} campaign!"
+      end
+    else
+      session["user_return_to"] = join_campaign_path(campaign)
+      redirect_to user_omniauth_authorize_path(:google_oauth2)
     end
   end
 

@@ -21,8 +21,17 @@
 <% end %>
 <% if current_membership.admin? %>
   <h3>Invite another member</h3>
+  <p class="hint">You may invite a member by sending the link below to the people you wish to join.</p>
+  <%= text_field_tag "test", join_campaign_url(current_campaign), style: "width: 380px; padding: 5px", class: "stomp", onclick: "$(this).focus().select()" %>
+  <p class="hint">Or you may enter their email and click invite.</p>
   <%= simple_form_for @new_membership, url: memberships_path do |f| %>
     <%= f.input :email, label: "Google Account Email" %>
     <%= f.submit "Invite!", class: "button" %>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    $("#join-url").focus(function() { $(this).select() })
+  })
+</script>

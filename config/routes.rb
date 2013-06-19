@@ -7,6 +7,9 @@ Cyberpunk::Application.routes.draw do
   end
 
   resources :campaigns do
+    member do
+      get :join
+    end
     post "characters/:character_id", to: "campaigns#add_character", as: "add_character"
     delete "characters/:character_id", to: "campaigns#remove_character", as: "remove_character"
   end

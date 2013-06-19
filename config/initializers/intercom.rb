@@ -32,7 +32,9 @@ IntercomRails.config do |config|
   # user object, or a Proc which will be passed the current user.
 
   config.user.custom_data = {
-    :current_campaign => Proc.new { |current_user| current_user.current_campaign.name },
+    :current_campaign => Proc.new { |current_user|
+      current_user.current_campaign ? current_user.current_campaign.name : "None"
+    },
     :user_id => Proc.new { |current_user| current_user.id.to_s },
   }
 

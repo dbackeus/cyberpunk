@@ -78,11 +78,6 @@ class Character
     player_ids.include?(user.id)
   end
 
-  def role_id=(role_id)
-    super
-    assign_career_skills if new_record? && role_id
-  end
-
   def run
     movement_allowance * 3
   end

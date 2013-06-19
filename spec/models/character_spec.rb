@@ -1,20 +1,6 @@
 require 'spec_helper'
 
 describe Character do
-  it "should auto generate career skills when assigned a role" do
-    seed!
-
-    role = Role.find_by(name: "Solo")
-
-    character = Character.new(role: role)
-    character.skills.length.should == role.career_skill_ids.length
-    character.skills.select(&:career?).collect(&:skill_id).should include(*role.career_skill_ids)
-
-    character = Character.new(role_id: role.id)
-    character.skills.length.should == role.career_skill_ids.length
-    character.skills.select(&:career?).collect(&:skill_id).should include(*role.career_skill_ids)
-  end
-
   describe "#run" do
     it "should be movement allowance times 3" do
       Character.new(movement_allowance: 6).run.should == 18

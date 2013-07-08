@@ -578,7 +578,7 @@
 - name: Pilot Power Armor
   stat: reflexes
 - name: Power Armor Tech
-  stat: tech
+  stat: technical_ability
 # Protect and Serve
 - name: Reasoning
   stat: intelligence

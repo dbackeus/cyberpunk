@@ -76,22 +76,27 @@
       <output id="pickup-points-left"></output>
     </div>
     <div class="clear"></div>
-    <%= f.fields_for :skills do |skill_form| %>
-      <% skill = skill_form.object %>
-      <%= skill_form.input :id, as: :hidden if skill_form.object.persisted? %>
-      <%= skill_form.input :skill_id, as: :hidden %>
-      <%= skill_form.input :value, as: :integer, label: skill.name, wrapper_html: { class: "skill-input hidden #{skill.type}", data: { stat: skill.stat, special_ability: skill.special_ability, skill_id: skill.id }, components: [:label_input,:placeholder] } %>
-      <%= skill_form.input :type, as: :hidden %>
-    <% end %>
     <div id="skill-boxes">
+      <% grouped_stats = @character.skills.reject(&:special_ability?).group_by(&:stat) %>
+      <% special_abilities = @character.skills.select(&:special_ability?) %>
       <% (Skill.distinct(:stat) + ["special-ability"]).each do |stat| %>
         <div class="skill-list-box">
           <h3><%= Character.human_attribute_name(stat).titleize %></h3>
-          <div class="skill-list <%= stat %>"></div>
+          <div class="skill-list <%= stat %>">
+            <% skills = stat == "special-ability" ? special_abilities : grouped_stats.fetch(stat) { [] } %>
+            <% skills.each do |skill| %>
+            <%= f.fields_for :skills, skill do |skill_form| %>
+              <%= skill_form.input :id, as: :hidden if skill.persisted? %>
+              <%= skill_form.input :skill_id, as: :hidden %>
+              <%= skill_form.input :value, as: :integer, label: skill.name, wrapper_html: { class: "skill-input hidden #{skill.type}", data: { stat: skill.stat, special_ability: skill.special_ability, skill_id: skill.id }, components: [:label_input,:placeholder] } %>
+              <%= skill_form.input :type, as: :hidden %>
+            <% end; end %>
+          </div>
         </div>
       <% end %>
     </div>
-    <%= link_to "Add Pickup / Chipped Skills", "#pickup-skills", id: "add-pickup-skill-button", class: "button add" %>
+    <div class="clear"></div>
+    <%= link_to "Add Pickup / Chipped Skills", "#pickup-skills", class: "button add fancy" %>
   </div>
   <div class="clear"></div>
   <div class="description">
@@ -99,10 +104,11 @@
     <p class="hint">The character description is the place to really flesh out all the background info of your character. Use the generated Life Path as a source of inspiration. The characters skills should also be reflected in the description. Like if your Solo has a crazy 9 point rifle skill you better back it up with how his life revolved around a passion for assault rifles. Or how about that 8 point stealth pickup skill, was your character raised by ninjas?</p>
     <%= f.input :description, as: :text, label: nil %>
   </div>
+
   <%= f.button :submit %>
 <% end %>
 
-<div id="pickup-skills" style="display:none">
+<div id="pickup-skills" class="dialogue">
   <% pickup_skills = Skill.where(:_id.nin => @character.role.career_skill_ids) %>
   <% stat_based = pickup_skills.where(special_ability: false).group_by(&:stat) %>
   <% special_abilities = { special_ability: pickup_skills.where(special_ability: true) } %>

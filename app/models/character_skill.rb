@@ -11,7 +11,7 @@ class CharacterSkill
   validates :value, numericality: true
   validates :type, inclusion: { in: %w[career pickup chip] }
 
-  delegate :name, :short, :stat, :description, :ip_multiplier, :special_ability, to: :skill
+  delegate :name, :short, :stat, :description, :ip_multiplier, :special_ability, :special_ability?, to: :skill
 
   def career?
     type == "career"

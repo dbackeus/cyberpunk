@@ -68,4 +68,5 @@ String.prototype.toI = function() {
 
 $(function() {
   $("textarea").autosize()
+  $(".fancy").fancybox()
 })

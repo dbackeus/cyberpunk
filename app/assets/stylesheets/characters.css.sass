@@ -133,6 +133,8 @@ textarea
   box-shadow: 0 0 13px 1px #999
   border-radius: 20px
   margin-bottom: 2em
+  &.weapons
+    width: 800px
 
 .stats-container
   width: 40em
@@ -145,3 +147,20 @@ textarea
   overflow: auto
   &.motivations
     max-width: 16em
+
+.weapons-list
+  width: 800px
+  td
+    text-align: center
+  .name
+    text-align: left
+    width: 200px
+  .cost
+    text-align: right
+  .damage
+    text-align: left
+    width: 140px
+  .type, .accuracy, .concealability, .availability, .reliability, .shots, .rof, .range
+    width: 35px
+  .action
+    padding-left: 20px

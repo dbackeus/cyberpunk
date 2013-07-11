@@ -1,0 +1,18 @@
+<tr class="weapon" id="weapon-<%= weapon.id %>">
+  <td class="name"><%= weapon.name %></td>
+  <td class="type"><%= weapon.type %></td>
+  <td class="accuracy"><%= weapon.accuracy %></td>
+  <td class="concealability"><%= weapon.concealability %></td>
+  <td class="availability"><%= weapon.availability %></td>
+  <td class="damage"><%= weapon.damage %> <%= weapon.ammo %></td>
+  <td class="shots"><%= weapon.shots %></td>
+  <td class="rof"><%= weapon.rof %></td>
+  <td class="reliability"><%= weapon.reliability %></td>
+  <td class="range"><%= weapon.range %></td>
+  <td class="cost"><%= weapon.cost %></td>
+  <% if can_edit?(weapon.character) %>
+  <td class="action">
+    <%= link_to "remove", character_weapon_path(weapon.character, weapon), method: :delete, remote: true, class: "remove-weapon" %>
+  </td>
+  <% end %>
+</tr>

@@ -19,6 +19,8 @@ Cyberpunk::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   resources :characters do
+    resources :weapons
+
     collection do
       get :chose_role
       get :random_name

@@ -1,0 +1,276 @@
+LIGHT PISTOLS
+BudgetArms C-13              P       -1     P     E       1d6 (5mm)               8         2           ST     50m      75       CP20
+Astra Style-6                P       -1     P     E       1d6 (5mm)               6         2           UR     50m      75       ES
+Federated Arms Impact        P       +1     J     E       1d6 (.22)               10        2           VR     50m      60       SOF
+Federated Arms .22           P       +0     J     E       1d6 (.22)               10        2           ST     50m      25-50    SOF
+Dai Lung Cybermag 15         P       -1     P     C       1d6+1 (6mm)             10        2           UR     50m      50       CP20
+Federated Arms X-22          P       +0     J     E       1d6+1 (6mm)             10        2           ST     50m      50-150   CP20
+Towa 12 Police Pistol        P       +3     J     P       1d6+1 (6mm)             8         2           VR     50m      450      PAC
+H&K P-11                     P       +0     J     P       4d6+1 (6mmRkt)          5         1           VR     50m      700      ES
+Colt .38 "Detective"         P       +1     J     C       1d6+2 (.38 C)           6         1           VR     50m      200      CP20
+Federated Arms X-38          P       +1     J     E       2d6 (.38)               10        2           ST     50m      35       SOF
+
+MEDIUM PISTOLS
+Militech Arms Avenger        P       +0 J         E       2d6+1 (9mm)             10        2           VR     50m      250      CP20
+Federated Arms X-9           P       +0 J         E       2d6+1 (9mm)             12        2           ST     50m      300      CP20
+BudgetArms Laser-9           MP      +1* J/L      P       2d6+1 (9mm)             15/35     1/3/20      ST     50m      675      Chr1
+Goncz-Taurus Pistol          P       +0 J         E       2d6+1 (9mm)             15        2           ST     50m      200+     Chr1
+Goncz-Taurus MP              MP      -1    J      C       2d6+1 (9mm)             15/30     2/10        ST     50m      300+     Chr1
+Fashion Gun 9                P       +0 P         E       2d6+1 (9mm)             7         2           UR*    25m      35-40    SOF
+Generic Wondernine           P       +1 J         E       2d6+1 (9mm)             d6+14     2           VR     50m      d6+240   SOF2
+Beretta M97P                 P       +2* J        P       2d6+1 (9mm)             18        2           Vr     50m      480      ES
+CCMMC Goaxing CM-3           P       +0 J         C       2d6+1 (9mm)             8         2           ST     50m      75       PAC
+Kang Tao Type 97             P       +1 J         E       2d6+1 (9mm)             10        2           UR     50m      35       SOF
+Sci Fi Starrior 4            P       +0 J         E       2d6+1 (9mm)             12        2           UR     50m      60       SOF
+Teen Dreem                   P       -1    J      E       2d6+1 (9mm)             10        2/10        UR*    50m      36       SOF
+Texas Arms 351 Gyrojet       P       +0 J         C/P     2d6+1 (9mm Gyro)        8         2           UR     50m      420      DS
+Calico Assault Pistol        P       +0/-1 L      C       2d6+1 (9mm C)           50/100    2           VR     50m      450      NEO
+Beretta Plas 9 Fashion       P       -1    P      P       2d6+1 (9mm)             10        1           ST     50m      200      UK
+FN High Power                P       +1 J         C       2d6+1 (9mmC)            14        2           VR     50m      150      UK
+Towa 14 Pistol               MP      +2 J         P       2d6+1 (9mm)             16        3/16        VR     50m      520      PAC
+BudgetArms C-41              P       +1 J         E       2d6+1 (.41 C)           10        3           VR     50m      600      SOF
+Colt .45 "Peacemaker"        P       +0 J         R       2d6+2 (.45 C)           6         1           VR     50m      100      CP20
+Colt Alpha-Omega .45         P       +2 J         C       2d6+2 (.45 ACP)         10        2           VR     50m      500      Chr1
+Dai Lung Streetmaster        P       +0 J         E       2d6+3 (10mm)            12        2           UR     50m      250      CP20
+Colt Alpha-Omega 10          P       +2 J         C       2d6+3 (10mm)            10        2           VR     50m      500      Chr1
+Glock 30 MP                  MP      +2 P/J       C       2d6+3 (10mm)            20/30     1/3         VR     50m      705      Chr1
+IMI Gamad                    P       0/+1* P/J    E       2d6+3 (10mm)            7/15      2           VR     50m      575      SOF2
+Colt Enforcement 10          P       +1 J         C       2d6+3 (10mm)            14        2           VR     50m      550+     CB3
+FN Browning "3-Spot"         MP      +1 J         C       2d6+3 (10mm)            24        3           ST     50m      425      UK
+LeRoi Maxi-10                P       -1    J      E       2d6+3 (10mm)            10        2           UR     50m      150      ET
+Arasaka WSA                  P       +0 J         C       2d6+3 (10mm)            15        2           VR     50m      400      CB1
+Sternmeyer P-41              P       +0 J         C       2d6+3 (10mm)            12        2           VR     50m      425      CB1
+Stolbovoy St-2 Pistol        P       +0 J         C/R     2d6+3 (10mm)            14        2           VR*    50m      450      CB3
+Surprising Stranger          P       +0 P         E       2d6+3 (10mm)            4         2           ST     25m      15-50    SOF
+Towa 13 Police Pistol        P       +2 J         P       2d6+3 (10mm)            12        2           VR     50m      500      PAC
+S&W Combat Magnum            P       +1 J         C       2d6+3 (.357 C)          6         2           VR     50m      125      CP20
+C.O.P. Derringer             P       +0 P         C       2d6+3 (.357 C)          4         2           VR     50m      250      CP20
+.357Mag Revolver             P       +0 J         C       2d6+3 (.357mag)         6         2           VR     50m      250      NEO
+.357Mag Autoloader           P       +0 J         C       2d6+3 (.357mag)         8         2           VR     50m      300      NEO
+S&W "Tri-Star"               P       +0 J         C       2d6x3 (.410ga)          6         2           ST     50m      275      Chr2
+Tsunami Express              P       +3 L         P       2d6+3 (5.2mm ET)        24        3           VR     75m      5300     SOF2
+Hammer M-11 Bolt Pistol      P       +2 J         P       1d6+2 (9mm Bolt*)       10        2           ST     30m      320      DS
+Militech Black Widow         P       +1 J         P       1/2d6 (Flec)            10        2           ST     30m      400      DS
+Militech Silver Shadow       P       +0 J         P       d6/2+2x1d6/3(Flec)      8         2           ST     30m      300      DS
+
+HEAVY PISTOLS
+Malorian Hvy Flechette       P       +1     J     C       1d6+1* (4mm)            25        2           ST     50m      595      Chr1
+Espinoza One Shot            P       -1     J     E       3d6 (.50 short)         1         1           UR*    50m      75       SOF
+BudgetArms Auto 3            P       -1     J     E       3d6 (11mm)              8         2           UR*    50m      350      CP20
+Sternmeyer Type 35           P       +0     J     C       3d6 (11mm)              8         2           VR     50m      400      CP20
+Mustang Arms "Mark II"       P       +1    J/L    C       3d6 (11mm)              12/20     3           VR*    50m      425      SOF2
+"Decker Gun"                 P       -1    J      E       3d6 (11mm)              10        2           VR     50m      500      CGen
+Nova 757 Cityhunter          P       +2    J      P       3d6 (11mm)              18        2           ST     50m      480      BH
+Nova 338 Citygun             P       +1    J      P       3d6 (.338)              7         3           VR     50m      460      Chr2
+Dai Lung Magnum              P       +1    J      E       3d6+1 (.357 Mag)        10        2           UR*    50m      60       SOF
+S&W Handcannon .44           P       +0    J/L    P       4d6 (.44 Mag)           6         2           UR     50m      850      SOF2
+S&W Handcannon .45           P       +1    J/L    P       2d6+2 (.45 ACP)         10        2           UR     50m      850      SOF2
+Tsunami Raimei Ramjet        P       +2    L      P       5d6-7d6+1* (10rj)       6         2           VR     100m     1100     SOF2
+
+VERY HEAVY PISTOLS
+Llama Commanche              P       +0 J         C       4d6 (.44C)              6         1           ST     50m      200      CP20
+.44 Mag Revolver             P       +0 J         P       4d6 (.44)               6         1           VR     50m      375      NEO
+Armalite 44                  P       +0 J         E       4d6+1 (12mm)            8         1           ST     50m      450      CP20
+Colt AMT Model 2000          P       +0 J         C       4d6+1 (12mm)            8         1           VR     50m      500      CP20
+Enfield Spitfire             P       +1 J         P       4d6+1 (12mm)            12        1           VR     50m      550      UK
+Enfield Spitfire doubletap   P       +1 J         R       4d6+1 (12mm)            12        2           VR     50m      700      UK
+Constitution Arms MAP        P       +0 J         P       Varies (12mm C)         5         1           VR     50m      525      P&S
+454 Magnum Disposable        P       -2    P      R       4d6+3 (.454)            2         1           VR     40m      100      I1.1
+Ameritech Magnum             P       +1 J         R       4d6+3 (.454)            5         2           VR     50m      1000     I1.1
+Fed Arms "Super Chief"       P       +0 J         P       4d6+3 (.454C) (B9)      5         1           VR     50m      375      Chr1
+Nova Arms "Stallone"         P       +1 J         P       4d6 (.357ET)            6         2           VR     60m      999      SOF2
+Nova Arms "Bronson"          P       +1 J         P       5d6 (.41ET)             6         2           VR     80m      1199     SOF2
+Nova Arms "Eastwood"         P       +1 J         P       6d6 (.44ET)             6         2           VR     80m      1499     SOF2
+Nova Arms "Arno"             P       +1 J         P       6d6+3 (.454ET)          6         2           VR     100m     1799     SOF2
+Militech Boomer-Buster       P       +1/-1 L/J    P       5d6@ (.477)             4         1           VR     50m      450      SOF
+Malorian Arms 3516           P       -1    J      R       6d6 (14mm) (B12)        6         1           VR     50m      4525     Chr1
+
+LIGHT SUBMACHINEGUNS
+Fed.Arms Tech Assault   SMG          +1     J     E       1d6 (.22)               30        10/30       UR*    100m     160      SOF
+Militech Mini-Gat       SMG          +0     L     P       1d6 (.22/5mm)           120       40          ST     150m     695      Chr1
+Vz61 Skorpion           SMG          +2     J     P       1d6 (.25C)              20        25          VR     150m     150      CP20
+Fed.Arms Tech Assault 2 SMG          +1     J     C       1d6+1 (6mm)             50        25          ST     150m     400      CP20
+Setsuko-Arasaka PMS     SMG          +1     L     P       1d6+2 (7mm)             40        20          ST     150m     950+     Chr1
+Surnam Machine Pistol   SMG          +0     J/L   C       1d6+4 (.177)            25/50     50          UR*    150m     375      SOF2
+Uzi Miniauto 9          SMG          +1     J     E       2d6+1 (9mm)             30        35          VR     150m     475      CP20
+H&K MPK-9               SMG          +1     J     C       2d6+1 (9mm)             35        25          ST     150m     520      CP20
+Uzi                     SMG          +2     J     C       2d6+1 (9mmC)            30        20          VR     200m     250      CP20
+
+MEDIUM SUBMACHINEGUNS
+Malorian Sub-Flechette SMG           +2     J     C       1d6x1d6 (flec)          10/30     3/35        VR     200m     795      Chr1
+"Sten"                 SMG           -2     L     E       (.22 to 12mm)           30        3/30        ST     100m     200      NEO
+Beretta M-24 SMG       SMG           +2     L     P       2d6+1 (9mm)             50        25          VR     200m     950+     Chr1
+L2A3 Sterling          SMG           +0     L     C       2d6+1 (9mmC)            10/34     20          VR     200m     200      UK
+Calico Submachinegun   SMG           +0     L     C       2d6+1 (9mmC)            50/100    3/20        ST     200m     750      NEO
+Ingram MAC 10          SMG           -1     J     C       2d6+2 (.45C)            30        5           UR     200m     225      CP20
+Militech-10 .45        SMG           +1     J     E       2d6+2 (.45 ACP)         30        20          ST     200m     455      Chr1
+Arasaka Minami 10      SMG           +0     J     E       2d6+3 (10mm)            40        20          VR     200m     500      CP20
+Militech Viper         SMG           +0     J     P       2d6+3 (10mm)            40        30          VR     200m     600      HoB
+Arasaka WMA [Silenced] SMG           -1     L     E       2d6+3 (10mm)            40        20          VR     200m     700      CB1
+Stolbovoy StS SMG      SMG           -1     J     C/R     2d6+3 (10mm)            35        30          VR*    100m     600      CB3
+Medusa 2000            SMG           +0     N     P       2d6+3 (10mm)            40        20          VR     200m     2500     I2.1
+Beretta 1010 MP        SMG           +0     J/P   C       2d6+3 (10mm)            30/15     15          ST     100m     475      UK
+H&K MP-2013            SMG           +1     J     C       2d6+3 (10mm)            35        32          ST     200m     450      CP20
+IMI "Gamdaii" 10mm     SMG           +2     N     E       2d6+3 (10mm)            35x2      25          VR     200m     950      SOF2
+IMI "Gamdaii" GL       HVY           +0     N     E       (25mm/10ga)             1         1           ST     100m     950      SOF2
+Militech-10            SMG           +1     J     E       2d6+3 (10mmC)           30        20          ST     200m     455      Chr1
+Mustang Arms ARS-5C SMG              +1     J     C       2d6+3 (10mm)            40        3/40        VR     100m     600      CB3
+
+HEAVY SUBMACHINEGUNS
+Thompson M1         SMG              +2      N      C     2d6+2 (.45C)            30/50     20          ST     200m     300      CP20
+Sternmeyer SMG 21   SMG              -1/0    L      E     3d6 (11mm)              30        3/15        VR     200m     500      CP20
+CCMMC Tuzi-7        SMG              -2      J      P     3d6 (11mm)              30        15          ST     100m     125      PAC
+Chadran City Reaper SMG              +0      L      P     3d6 (11mm)              40        20          VR     200m     950      I1.3
+Bushmaster          SMG              +0      L      R     4d6 (5.56C)             30        20          ST     200m     300      CP20
+H&K MPK-11          SMG              +0      L      C     4d6+1 (12mm)            30        20          ST     200m     700      CP20
+Ingram Mac 14       SMG              -2      L      E     4d6+1 (12mm)            40        10          ST     200m     650      CP20
+H&K MPK-2020        SMG              +2*     L      P     4d6+1 (12mm)            60        30          ST     200m     750      UK
+H&K MPK-20          SMG              +2      L      P     4d6+1 (12mm)            60        30          ST     200m     775      UK
+
+SHOTGUNS
+Militech Crusher SSG      SHT        -1/-3   J   C        3d6 (20ga) (B9)         6         2           ST     12/25m   450      Chr1
+Mustang Arms Close 20 SHT            -1      N   P        3d6 (20ga)              15        2           ST     50m      350      SOF2
+Arasaka WCAA Rapid 12 SHT            -1      N   C        4d6 (12ga)              20        2/10        ST     50m      900      CP20
+CCMMC Qi-15               SHT        -2      N   P        4d6 (12ga)              15        2/10        ST     50m      150      PAC
+Enfield LastChance        SHT        +0      J   C        4d6 (12ga)              1         1           UR     25m      60       ES
+Luigi Franchi P.16        SHT        +1      L   R        4d6 (12ga)              20        2/10        ST     50m      980      ES
+M-12 Close Assault        SHT        +0      N   P        4d6 (12ga)              20        3/10        VR     50m      950      HoB
+Militech Bulldog          SHT        +0      L   P        4d6 (12ga)              21        3/10        ST     50m      1000     CB2
+Militech Military/Police  SHT        0/-1    N/L C        4d6 (12ga)              8         2           ST     50m      300      Chr1
+Mustang Arms "Raider"     SHT        +0      L/N C        4d6 (12ga)              5/9       2           ST     50m      400      CB3
+Sternmeyer Stakeout 10    SHT        -2      L   R        4d6 (12ga)              10        2           ST     50m      450      CP20
+Tsunami "Ragnarok"        SHT        +0      N   R        6d6 (12ga ET)           40        2/20        ST     70m      4500     PAC
+CAWS                      SHT        +0      N   R        4d6 (12ga)              10        10          ST     50m      500      CP20
+H&K CAWS 11               SHT        +1      N   R        4d6(12ga)               30        10          ST     50m      800      UK
+"Whippet" Scattergun      SHT        -3      J   P        4d6 (12ga)              2         2           VR     15m      200      NEO
+Constitution Hurricane    SHT        +0      N   P        4d6 (12ga)              40        4/20        ST     70m      1000     P&S
+Double Barrel Shotgun     SHT        +0      N   C        4d6 (12ga)              2         2           VR     50m      200      UK
+Sawn-off Shotgun          SHT        -1      J   C        4d6 (12ga)              2         2           VR     10m      100      UK
+Meta Warhammer            SHT        -1      N   P        (12ga mag)              16        1/3         VR     75m      700      NEO
+Luigi Franchi "King Buck" SHT        -1      N   P        6d6 (10ga)              4         2/4         VR     50m      800      Chr2
+
+ASSAULT RIFLES
+Militech M-31a1 AICW     RIF         +2      N   R        4d6 (4.5mm)             150       3/30        ST     400m     1695     Chr1
+Militech M-31a1 AICW GL  HVY         -1      N   R        (25mm)                  4         2           ST     150m     1695     Chr1
+AKR-20 Medium Assault    RIF         +0      N   C        5d6 (5.45)              30        1/30        ST     400m     500      CP20
+Stolbovoy St-5           RIF         -1      N   C/R      5d6 (5.45)              30        1/30        VR*    400m     900      CB3
+Darra-Polytechnic M-9    RIF         0/-1    N/L P        4d6+2 (5.5mm)           40        2/25        ST     200m     300      Chr1
+M-16A                    RIF         +2      N   C        4d6 (5.56C)             30        25          UR     400m     200      CP20
+Steyr AUG                RIF         +2      L   P        4d6 (5.56C)             30        20          VR     400m     400      CP20
+L85A1                    RIF         +1      N   C        5d6 (5.56)              30        20          VR     500m     500      UK
+SA-80                    RIF         +2      N   P        5d6 (5.56)              30        20          VR     400m     600      ES
+Arasaka WAA Bullpup      RIF         +1      N   C        5d6 (5.56)              15/30     3/30        VR     400m     800      CB1
+Chadran Jungle Reaper    RIF         +1      N   P        5d6 (5.56)              60        20          VR     400m     1550     I1.3
+Chadran Jungle Reaper GL HVY         -2      N   P        (25mm)                  6         2           ST     200m     1550     I1.3
+Colt M-18 Assault Rifle RIF          +1      N   C        5d6 (5.56)              35        3/30        VR     400m     750+     CB3
+Militech Ronin Light     RIF         +1      N   C        5d6 (5.56)              35        3/30        VR     400m     450      CP20
+Sternmeyer M-95A4        RIF         +1      N   R        5d6 (5.56)              90        3/30        VR     400m     750      CB1
+Towa Type-20 AICW        RIF         +2      N   P        5d6 (5.56)              100       3/45        VR     400m     4200     PAC
+Towa Type-20 AICW GL     HVY         +0      N   P        (25mm)                  4         2           ST     150m     4200     PAC
+Towa Type-99 Rifle       RIF         +1      N   P        5d6 (5.56)              35        3/30        ST     400m     1500     PAC
+Fabrica Armes M-2012     RIF         +2      N   P        5d6+3 (6.5mm)           30        1/4         VR     400m     1400     SOF
+Fed Arms Light 15        RIF         +0*     N   C        5d6+3 (7mm)             30        3/25        VR     400m     400+     Chr1
+Militech Dragon          RIF         +0      L   C        6d6-1 (6.5 H)           35        30          VR     400m     700      CB2
+Militech Mk IV (revised) RIF         +1      N   C        6d6-1/5d6               35        3/30        VR     400m     800      CB2
+Militech Mk V            RIF         +1      N   P        9d6 (6.5mm ET)          20        2/4         ST     600m     1500     SW
+Enfield LPA1             RIF         +1      N   R        2d6+1-6d6 (7.5)         2x45      1/3/20      VR     500m     1800     UK
+FN-FAL                   RIF         +0      N   C        6d6+2 (7.56C)           20        20          VR     400m     450      UK
+AK-47 Medium Assault     RIF         +0      N   E        5d6 (7.56C)             30        20          VR     400m     200      CP20
+CCMMC Jinhua M-9         RIF         +0 N        P        6d6+2 (7.62)            35        1/25        ST     400m     125      PAC
+FN-RAL Heavy Assault     RIF         -1/-2   N/L C        6d6+2 (7.62)            30        3/30        VR     400m     600      CP20
+Kalashnikov A-80         RIF         -1      N   E        6d6+2 (7.62)            35        3/25        ST     400m     550      CP20
+
+SNIPER RIFLES
+Arasaka WSSA              RIF        +5*    N      P      6d6 (3.5mm FF)          40        2           VR     600m     2400     SOF2
+FR-F6                     RIF        +3     N      P      6d6+2 (7.62)            10        2           ST     500m     1100     ES
+WA 2001 Sniper Rifle      RIF        +3     N      R      6d6+2 (7.62C)           10        1           VR     1000m    900      UK
+Towa Type-00-Kai          RIF        +3     N      R      9d6+3AP (7.62 ET)       6         1           VR     1200m    3000     PAC
+Set-Arasaka WSE Kajiya    RIF        +1     N      R      9d6+3AP (7.62 ET)       5         1           VR     500m     1000     SW
+Barrett-Arasaka 20mm      HVY        +0     N      R      4d10@ (20mm)(B4)        10        1           VR     450m     2000     CP20
+Arasaka Sniper Rifle      HVY        0/+2   N      R      4d10@ (20mm)            10        1           VR     450m     2800     PAC
+Barrett M-90 Sniper Rifle RIF        +3     N      R      6d10 (12.7 BMG)         10        1           VR     1000m    1500     HoB
+Nomad "Long Rifle"        RIF        +1     N      P      7d10 (15mm BMG)         9         1           ST     900m     3000     NEO
+Remington Gyro-Rifle      RIF        +2     N      P      7d6API (18mm GJ)        6         1           ST     600m     1000     P&S
+Barrett-Arasaka WSSE      RIF        +1     N      R      8d10+3 (.50 ET)         10        1           VR     1000m    2500     SW
+Arasaka 12.7 WSSE/R       RIF        +2     N      R      9d10 (.50 ET)           5         1           VR     1200m    2000     SW
+
+OTHER RIFLES
+Militech Ninja               RIF     +1     L      C      1d6 (5mm/.22)           30        3/30        VR     250m     650      SOF
+Nomad .357 Mag Lever         RIF     +2     L      C      2d6+3 (.357 C)          9         2           VR     100m     300      NEO
+Nomad .357 Mag Auto          RIF     +0/1   L      C      2d6+3 (.357 C)          30        2/3         VR     100m     400      NEO
+Tsunami Arms Ramjet          RIF     +4     N      P      Varies (8.5 RJ)         9         3           VR     800m     1230     Chr2
+NorWolf Hunting Rifle        RIF     +2     N      C      2d6+1 (9mm)             8         1           VR     400m     600      CGen
+NorBear Hunting Rifle        RIF     +3     N      C      2d6+1 (9mm)             10        1           VR     500m     1000     CGen
+Calico 9mm Rifle             RIF     +1     L/N    C      2d6+1 (9mm C)           50/100    2           VR     400m     650      NEO
+H&K HK77UK                   RIF     +1     L      P      2d6+4 (9mm Long)        30        3/30        VR     250m     750+     SOF2
+"Personal Weapon"            RIF     +1     L      P      (10mm to 12mm)          50        2/3         VR     200m     500      NEO
+Nomad .44 Mag Lever          RIF     +1     L      C      4d6+2 (.44 C)           8         2           VR     200m     650      NEO
+Winchester M70               RIF     +3     N      C      5d6+1 (30-06)           5         1           VR     500m     250      CP20
+M-99 EVAW                    RIF     +5     N      R      6d6AP (12mm R)          30        2           ST     400m     5000     HoB
+M-99 EVAW GL                 HVY     +0     N      R      2d6+1 (25mm HE)         10        1           ST     2000m    5000     HoB
+Polymer 1-Shot Cannon        RIF     -2     L      C      4d6+2 (13mm)            1         1           UR     100m     90       Chr2
+S&W "Cyborg Assault"         RIF     +0     L      P      Varies (13mm)           8         1           VR     100m     1650     Chr1
+Nomad 7.62 Bolt-Action       RIF     +2     N      C      6d6+2 (7.62 C)          6         1           VR     400m     500      NEO
+Militech Cyborg Rifle        RIF     +1     N      P      7d6+3 (.300Mag)         30        20          ST     500m     800      Chr2
+Hughes Rocket Rifle          RIF     -1     N      R      3d10[HEAT] (18mm)       3         1           ST     500m     750      HoB
+Militech XR-1 Mag Pulse      RIF     +2     N      P      3d10AP (EAP)            20        1           UR     800m     8000     SW
+
+MACHINEGUNS
+Constitution Deluge          HVY     +0     N      P      1-2pts+Drugs            400     35            ST     60m      800      P&S
+Arasaka "Crowd Control"      HVY     +0     N      E      1d3+1 (1d3 hits)        500     50            St     200m     1000     LD
+Militech High Power 15       RIF     +2     N      P      2d6+4 (9mm Long)        180     20/60         ST     200m     1600     SOF
+Dover GA-1112 Autogun        HVY     +1     N      R      4d6+4 (12mm Long)       400     80            ST     400m     1110+    SOF2
+FN MG-6 "One-on-One"         HVY     +1     N      P      5d6 (5.56)              100     40            VR     450m     1800     ES
+Militech M-232 SAW           HVY     +0     N      P      5d6 (5.56)              100/35  20            VR     400m     1000     HoB
+5.56mm Machinegun            HVY     +1     N      P      5d6 (5.56)              100     10            VR     450m     1200     MM
+H&K G-6 SAW                  HVY     +1     N      P      5d6AP (6mm)             100     30            VR     450m     2050     Chr1
+Fabrica M-2012HB SAW         HVY     +2     N      P      5d6+3 (6.5mm)           100     30            VR     450m     1600     SOF
+Militech Renegade SAW        HVY     +0     N      R      6d6-1 (6.5mm H)         200/35  20            ST     400m     1100     CB2
+Constitution Cyclone         HVY     +1     N      P      6d6+2 (7.62)            100     35            VR     500m     1200     P&S
+M-60D Machine Gun            HVY     +1     N      P      6d6+2 (7.62)            100     20            VR     500m     1000     HoB
+FN-MAG Machine gun           HVY     +0     N      R      6d6+2 (7.62C)           100/250 30            VR     1000m    1500     UK
+Sternmeyer M-5A SAW          HVY     -1     N      R      6d6+2 (7.62)            200     20            ST     500m     1000     CB1
+Towa Type-8                  HVY     +1     N      P      6d6+2 (7.62)            100     35            VR     500m     2500     PAC
+7.62mm Machinegun            HVY     +0     N      P      6d6+2 (7.62)            100     10            VR     500m     1200     MM
+Militech RRCR Archer         HVY     +1     L      P      6d6+2 (7.62)            100+    33            ST     400m     3300     SW
+M2A5HB Browning .50          HVY     +0     N      P      6d10 (12.7)             100     10            VR     600m     2000     HoB
+12.7mm/50. Machinegun        HVY     +0     N      P      6d10 (12.7)             100     10            VR     600m     2000     MM
+14.5mm Machinegun            HVY     +0     N      P      7d10 (14.5)             100     10            VR     550m     2500     MM
+Militech 20L Autocannon      HVY     +0     N      R      8d10 (20mm)             100     10            VR     500m     3000     HoB
+
+HEAVY WEAPONS
+5.56mm Minigun               HVY     +0 N         P       5d6 (5.56)              1000      100         ST     450m     2000     MM
+7.62mm Minigun               HVY     +0 N         P       6d6+2 (7.62)            2000      100         VR     500m     4000     MM
+KA F-253 Flamethrower        HVY     -2 N         R       2d10                    10        1           ST     50m      1500     CP20
+Barrett-Arasaka 20mm         HVY     +0 N         R       4d10@ (20mm)(B4)        10        1           VR     450m     2000     CP20
+S-Arasaka Nova Photon        HVY     +4 N         R       4d10 (laser)            1         1           UR     500m     50,000   SW
+Enfield 25mm Cockerill       HVY     +1 N         R       5d10+10AP (25mm)        12        1           ST     1500m    7400     UK
+12.7mm/50. Gatling           HVY     +0 N         R       6d10 (12.7) (B18)       1000      100         ST     500m     6000     MM
+30mm Gatling                 HVY     +0 N         R       6d10@ (30 DPU)          1200      30          VR     600m     25,000   MM
+LATG 37mm                    HVY     +3 N         R       6d10@ (37 DPU)          10        1           VR     800m     10,000   MM
+Barrett-Arasaka ET 20        HVY     +1 N         R       6d10@ (20mm ET)         10        1           VR     750m     3800     SOF2
+60mm Light Mortar            HVY     +0 N         P       8d10{5m} (60mm)         1         2           VR     1000m    750      HoB
+Colt-Mauser M2X              HVY     +0 N         R       8d10 (20mm)             8         1           ST     600m     3050     Chr2
+20-25mm Autocannon           HVY     +0 N         R       8d10 (20-25) (B14)      100       10          VR     500m     3000     MM
+Vulcan 20mm Gatling          HVY     +0 N         R       8d10 (20)               1000      100         VR     500m     6000     MM
+Tsunami Arms Type-17         HVY     +1 N         R       8d10AP (20mm)           12        1           ST     1200m    7500     PAC
+Militech Anti-Matter Rifle   HVY     0/+1 N       R       9d10 (30mm)             5         1           ST     1600m    6000     Chr2
+Militech 7-Barrel Gatling    HVY     +0 N         R       9d10AP (30 DPU)         1000      100         VR     2000m    10,000   SW
+27-30mm Autocannon           HVY     +0 N         R       9d10 (27-30) (B16)      100       10          VR     600m     4000     MM
+Militech BMFG 30mm           HVY     +0 N         R       9d10 (30 ET) (B9)       5         1           ST     600m     4500     SW
+30mm ET Gatling              HVY     +0 N         R       9d10@ (30 ET)           1200      30          VR     900m     37,500   SOF2
+LATG ET 37mm                 HVY     +3 N         R       9d10@ (37 ET)           10        1           VR     1200m    15,000   SOF2
+
+GRENADE LAUNCHERS
+Militech "Cowboy" U-55  HVY          +0     N     P       (25mm)                  12        3           ST     150m     900      CB2
+Militech Mini-GL Pump   HVY          -1     L     C       (25mm/10ga) (B4)        4         2           ST     150m     225      Chr1
+Militech Mini-GL Drum   HVY          +0     N     P       (25mm/10ga) (B4)        16        2           ST     150m     475      Chr1
+Tsunami Type-18 AGL     HVY          -1     N     P       (25mm) (B10+)           30        10          ST     200m     2000     PAC
+Arasaka WCCA Susano     HVY          +0     N     P       (25mm)                  9         2-9         VR     200m     450      SW
+Commercial 40mm GL      HVY          +0     L     R       (30-40mm) (B6)          1         1           ST     225m     150      CP20
+M-32 Auto GL            HVY          +0     N     R       (40mm) (B16-18)         50        20          VR     1600m    2500     HoB
+M-205 Underbarrel GL    HVY          +1     L     P       (40mm) (B6)             1         1           VR     200m     250      HoB
+M-212 Grenade launcher  HVY          +1     M     P       (40mm)                  8         2           VR     200m     500      HoB
+Towa Type-9 GL          HVY          +0     N     P       (40mm)                  8         2           VR     200m     750      PAC
+Militech RPG-A          HVY          -2     N     R       6d10[HEAT]{4m}          1         1           VR     750m     1500     MM
+Militech RPG-B          HVY          -2     N     R       9d10[HEAT]{4m}          1         1           VR     500m     1500     MM

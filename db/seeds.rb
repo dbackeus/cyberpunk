@@ -16,3 +16,14 @@ YAML.load_file("db/roles.yml").each do |attributes|
   Role.create!(attributes.merge(career_skill_ids: career_skill_ids))
   # Role.find_by(name: attributes['name']).update_attributes(career_skill_ids: career_skill_ids)
 end
+
+require 'csv'
+
+csv_data = CSV.read 'db/weapons.csv'
+headers = csv_data.shift.collect(&:to_s)
+string_data = csv_data.collect { |row| row.collect(&:to_s) }
+weapons = string_data.map { |row| Hash[*headers.zip(row).flatten] }
+
+weapons.each do |attributes|
+  WeaponBlueprint.create!(attributes)
+end

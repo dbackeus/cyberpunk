@@ -14,8 +14,6 @@ $(function() {
     return false
   })
 
-  $("#add-pickup-skill-button").fancybox()
-
   <% Skill.distinct(:stat).each do |stat| %>
     $(".skill-input[data-stat=<%= stat %>]").appendTo(".skill-list.<%= stat %>").show()
   <% end %>

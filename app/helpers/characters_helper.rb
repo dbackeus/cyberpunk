@@ -1,4 +1,8 @@
 module CharactersHelper
+  def can_edit?(character)
+    character.played_by?(current_user) || current_membership.referee? || character.creator_id == current_user.id
+  end
+
   def sibling_form_template(form)
     fields = form.fields_for(:siblings, Sibling.new, child_index: Time.now.to_i) do |sf|
       render("sibling_form", sibling_form: sf)

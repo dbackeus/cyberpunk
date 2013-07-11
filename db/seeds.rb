@@ -27,3 +27,7 @@ weapons = string_data.map { |row| Hash[*headers.zip(row).flatten] }
 weapons.each do |attributes|
   WeaponBlueprint.create!(attributes)
 end
+
+YAML.load_file("db/armors.yml").each do |attributes|
+  ArmorBlueprint.create!(attributes)
+end

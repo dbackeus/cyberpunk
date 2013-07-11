@@ -152,6 +152,10 @@ textarea
   width: 800px
   td
     text-align: center
+    padding: 4px
+  tbody
+    tr:nth-child(odd)
+      background: #F6F6F6
   .name
     text-align: left
     width: 200px
@@ -161,6 +165,24 @@ textarea
     text-align: left
     width: 140px
   .type, .accuracy, .concealability, .availability, .reliability, .shots, .rof, .range
-    width: 35px
+    width: 40px
   .action
     padding-left: 20px
+
+.armors-list
+  width: 800px
+  tbody
+    tr:nth-child(odd)
+      background: #F6F6F6
+  td
+    min-width: 40px
+    text-align: center
+    padding: 4px
+  .name
+    text-align: left
+    width: 200px
+  .cost
+    text-align: right
+  .action
+    padding-left: 20px
+

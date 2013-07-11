@@ -20,6 +20,7 @@ Cyberpunk::Application.routes.draw do
 
   resources :characters do
     resources :weapons
+    resources :armors
 
     collection do
       get :chose_role

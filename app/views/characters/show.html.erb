@@ -58,10 +58,48 @@
 <div class="weapons-list box weapons">
   <h3>Weapons</h3>
   <table id="weapons-table" class="weapons stomp">
-    <%= render @character.weapons %>
+    <thead>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="accuracy">WA</th>
+      <th class="concealability">Con.</th>
+      <th class="availability">Avail.</th>
+      <th class="damage">Damage/Ammo</th>
+      <th class="shots">#Shots</th>
+      <th class="rof">ROF</th>
+      <th class="reliability">Rel.</th>
+      <th class="range">Range</th>
+      <th class="cost">Cost</th>
+    </thead>
+    <tbody>
+     <%= render @character.weapons %>
+    </tbody>
   </table>
 
   <%= link_to "Add Weapon", "#weapons-dialogue", class: "button add fancy" if can_edit?(@character) %>
+</div>
+
+<div class="armors-list box armors">
+  <h3>Armor / Clothing</h3>
+  <table id="armors-table" class="armors stomp">
+    <thead>
+      <tr>
+        <th class="name">Name</th>
+        <th class="type">Type</th>
+        <th class="hsp">Head</th>
+        <th class="tsp">Torso</th>
+        <th class="lasp">Arms</th>
+        <th class="llsp">Legs</th>
+        <th class="ev">EV</th>
+        <th class="cost">Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @character.armors %>
+    </tbody>
+  </table>
+
+  <%= link_to "Add Armor", "#armors-dialogue", class: "button add fancy" if can_edit?(@character) %>
 </div>
 
 <h2 class="inversed">Life Path</h2>
@@ -136,36 +174,38 @@
       <li>
         <h3><%= category.titleize %></h3>
         <table class="weapons-list stomp">
-          <% weapons.each do |weapon| %>
-            <tr class="weapon">
-              <td class="name"><%= weapon.name %></td>
-              <td class="type"><%= weapon.type %></td>
-              <td class="accuracy"><%= weapon.accuracy %></td>
-              <td class="concealability"><%= weapon.concealability %></td>
-              <td class="availability"><%= weapon.availability %></td>
-              <td class="damage"><%= weapon.damage %> <%= weapon.ammo %></td>
-              <td class="shots"><%= weapon.shots %></td>
-              <td class="rof"><%= weapon.rof %></td>
-              <td class="reliability"><%= weapon.reliability %></td>
-              <td class="range"><%= weapon.range %></td>
-              <td class="cost"><%= weapon.cost %></td>
-              <td>
-                <%= link_to "add", character_weapons_path(@character, weapon_blueprint_id: weapon.id.to_s), class: "add-weapon", method: :post, remote: true %>
-              </td>
-            </tr>
-          <% end %>
+          <tbody>
+            <%= render partial: "weapons/weapon", collection: weapons %>
+          </tbody>
         </table>
       </li>
     <% end %>
   </ul>
 </div>
 
-<script type="text/javascript">
-  $(function() {
-    $(".add-weapon").click(function() {
-      $.fancybox.close()
-      addWeapon($(this).data())
-      return false
-    })
-  })
-</script>
+<div id="armors-dialogue" class="dialogue">
+  <ul class="armor-categories">
+    <% ArmorBlueprint.all.group_by(&:category).each do |category, armors| %>
+      <li>
+        <h3><%= category.titleize %></h3>
+        <table class="armors-list stomp">
+          <thead>
+            <tr>
+              <th class="name">Name</th>
+              <th class="type">Type</th>
+              <th class="hsp">Head</th>
+              <th class="tsp">Torso</th>
+              <th class="lasp">Arms</th>
+              <th class="llsp">Legs</th>
+              <th class="ev">EV</th>
+              <th class="cost">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "armors/armor", collection: armors %>
+          </tbody>
+        </table>
+      </li>
+    <% end %>
+  </ul>
+</div>

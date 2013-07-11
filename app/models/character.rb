@@ -27,7 +27,7 @@ class Character
   embeds_many :skills, class_name: "CharacterSkill"
   accepts_nested_attributes_for :skills
   embeds_many :weapons
-  accepts_nested_attributes_for :weapons
+  embeds_many :armors
 
   field :sex, type: String
   field :handle, type: String

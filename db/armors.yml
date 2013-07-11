@@ -1,0 +1,197 @@
+---
+- category: Body Armor
+  name: Heavy Leather Shirt
+  type: soft
+  ev: 0
+  hsp: 0
+  tsp: 4
+  lasp: 4
+  rasp: 4
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 50
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Heavy Leather Vest
+  type: soft
+  ev: 0
+  hsp: 0
+  tsp: 4
+  lasp: 0
+  rasp: 0
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 50
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Heavy Leather Pants
+  type: soft
+  ev: 0
+  hsp: 0
+  tsp: 0
+  lasp: 0
+  rasp: 0
+  llsp: 4
+  rlsp: 4
+  rsp: 0
+  cost: 50
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Kevlar T-Shirt
+  type: soft
+  ev: 0
+  hsp: 0
+  tsp: 10
+  lasp: 0
+  rasp: 0
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 90
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Steel Helmet
+  type: hard
+  ev: 0
+  hsp: 14
+  tsp: 0
+  lasp: 0
+  rasp: 0
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 20
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Kevlar Vest
+  type: soft
+  ev: 0
+  hsp: 0
+  tsp: 10
+  lasp: 0
+  rasp: 0
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 90
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Light Armor Jacket
+  type: soft
+  ev: 0
+  hsp: 0
+  tsp: 14
+  lasp: 14
+  rasp: 14
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 150
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Medium Armor Jacket
+  type: soft
+  ev: 1
+  hsp: 0
+  tsp: 18
+  lasp: 18
+  rasp: 18
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 200
+  availability: C
+  source: CP20
+- category: Body Armor
+  name: Flack Vest
+  type: hard
+  ev: 1
+  hsp: 0
+  tsp: 20
+  lasp: 0
+  rasp: 0
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 200
+  availability: C
+  source: CP20
+- category: Body Armor
+  name: Flack Pants
+  type: hard
+  ev: 1
+  hsp: 0
+  tsp: 0
+  lasp: 0
+  rasp: 0
+  llsp: 20
+  rlsp: 20
+  rsp: 0
+  cost: 200
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Nylon Helmet
+  type: hard
+  ev: 0
+  hsp: 20
+  tsp: 0
+  lasp: 0
+  rasp: 0
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 100
+  availability: E
+  source: CP20
+- category: Body Armor
+  name: Heavy Armor Jacket
+  type: soft
+  ev: 2
+  hsp: 0
+  tsp: 20
+  lasp: 20
+  rasp: 20
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 250
+  availability: C
+  source: CP20
+- category: Body Armor
+  name: Door Gunner's Vest
+  type: hard
+  ev: 3
+  hsp: 0
+  tsp: 20
+  lasp: 20
+  rasp: 20
+  llsp: 0
+  rlsp: 0
+  rsp: 0
+  cost: 250
+  availability: C
+  source: CP20
+- category: Body Armor
+  name: MetalGear™
+  type: hard
+  ev: 2
+  hsp: 25
+  tsp: 25
+  lasp: 25
+  rasp: 25
+  llsp: 25
+  rlsp: 25
+  rsp: 0
+  cost: 250
+  availability: C
+  source: CP20

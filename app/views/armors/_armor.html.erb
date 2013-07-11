@@ -1,0 +1,17 @@
+<tr class="armor" id="armor-<%= armor.id %>">
+  <td class="name"><%= armor.name %></td>
+  <td class="type"><%= armor.type %></td>
+  <td class="hsp"><%= armor.hsp %></td>
+  <td class="tsp"><%= armor.tsp %></td>
+  <td class="lasp"><%= armor.lasp %></td>
+  <td class="llsp"><%= armor.llsp %></td>
+  <td class="ev"><%= armor.ev %></td>
+  <td class="cost"><%= armor.cost %></td>
+  <td class="action">
+    <% if armor.is_a?(ArmorBlueprint) %>
+      <%= link_to "add", character_armors_path(@character, armor_blueprint_id: armor.id.to_s), class: "add-armor", method: :post, remote: true %>
+    <% elsif can_edit?(armor.character) %>
+        <%= link_to "remove", character_armor_path(armor.character, armor), method: :delete, remote: true %>
+    <% end %>
+  </td>
+</tr>

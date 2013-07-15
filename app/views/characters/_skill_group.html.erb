@@ -11,7 +11,7 @@
           <abbr class="value actual" title="Skill Value"><%= skill.value %></abbr>
           /
           <abbr class="value modified" title="Skill Value + <%= skill.stat ? Character.human_attribute_name(skill.stat) : '' %> Stat">
-            <%= skill.value + (skill.stat ? @character.send(skill.stat) : 0) %>
+            <%= skill.value + (skill.stat ? @character.send("actual_#{skill.stat}") : 0) %>
           </abbr>
         </span>
         <span class="name">

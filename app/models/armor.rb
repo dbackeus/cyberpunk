@@ -9,6 +9,10 @@ class Armor
     delegate field_name, to: :armor_blueprint
   end
 
+  def ev
+    armor_blueprint.ev.to_i
+  end
+
   embedded_in :character
 
   belongs_to :armor_blueprint

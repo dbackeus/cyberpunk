@@ -35,6 +35,7 @@ class Character
 
   BASIC_ATTRIBUTES.each do |attribute|
     field attribute, type: Integer, default: 2
+    define_method("actual_#{attribute}") { send(attribute) }
     validates attribute, numericality: { greater_than: 1, less_than_or_equal_to: 10 }, presence: true
   end
 
@@ -89,8 +90,12 @@ class Character
     run / 4
   end
 
-  def humanity
+  def base_humanity
     empathy * 10
+  end
+
+  def humanity
+    base_humanity - cyberwares.sum(&:hl)
   end
 
   def carry
@@ -110,6 +115,16 @@ class Character
       when 10 then -4
       when 11 then -5
     end
+  end
+
+  def actual_empathy
+    reduction = (base_humanity - humanity) / 10
+    empathy - reduction
+  end
+
+  def actual_reflexes
+    reduction = armors.sum(&:ev)
+    reflexes - reduction
   end
 
   private

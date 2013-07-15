@@ -536,10 +536,3 @@ function himHer(sex) { return sex == "male" ? "him" : "her" }
 function heShe(sex) { return sex == "male" ? "he" : "she" }
 
 function manWoman(sex) { return sex == "male" ? "man" : "woman" }
-
-function dice(number, options) {
-  options = options || {rerollIf: function(result) { return false }}
-  var result = parseInt(Math.random() * number) + 1
-  if(options.rerollIf(result)) result = dice(number, options)
-  return result
-}

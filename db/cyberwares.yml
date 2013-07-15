@@ -1,0 +1,62 @@
+---
+- name: Biomonitor
+  category: Fashionware
+  surgery_level: N
+  description: +2 to Resist Torture & Drugs
+  cost: 100
+  hl: 1
+- name: Skinwatch
+  category: Fashionware
+  surgery_level: N
+  description: Subdermal timepiece
+  cost: 50
+  hl: 1
+- name: Light Tattoo
+  category: Fashionware
+  surgery_level: N
+  description: Decorative tatoo
+  cost: 1-20
+  hl: 0.5
+- name: Shift-tacts
+  category: Fashionware
+  surgery_level: N
+  description: Color changing contact lenses
+  cost: 1-200
+  hl: 0.5
+- name: Chemskins
+  category: Fashionware
+  surgery_level: N
+  description: Color/pattern changing skin tints
+  cost: 200
+  hl: 1D6/2
+- name: Synthskins
+  category: Fashionware
+  surgery_level: N
+  description: Color/pattern changing artificial skin
+  cost: 400
+  hl: 1D6
+- name: Techhair
+  category: Fashionware
+  surgery_level: M
+  description: Color/light emitting artificial hair
+  cost: 1-200
+  hl: 2
+- name: Neuralware Processor
+  category: Neuralware
+  surgery_level: M
+  description: Basic processor. Must have for all systems.
+  cost: 1000
+  hl: 1D6
+  has_options: true
+- name: Nasal Filters
+  category: Implants
+  surgery_level: M
+  description: Stops toxic gases, fumes. 70% effective.
+  cost: 60
+  hl: 2
+- name: Gills
+  category: Implants
+  surgery_level: MA
+  description: Water breathing system, good for 4 hours.
+  cost: 60
+  hl: 3D6

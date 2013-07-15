@@ -1,0 +1,78 @@
+- name: Kerenzikov Boosterware
+  category: Neuralware
+  surgery_level: N
+  description: Adds +1 to Initiative rolls.
+  cost: 500
+  hl: 1D6
+- name: Kerenzikov Boosterware 2
+  category: Neuralware
+  surgery_level: N
+  description: Adds +2 to Initiative rolls.
+  cost: 500
+  hl: 2D6
+- name: Speedware (Sandevistan)
+  category: Neuralware
+  surgery_level: N
+  description: Adds +3 to Initiative rolls for 5 turns.
+  cost: 1600
+  hl: 1D6/2
+- name: Tactile Boost
+  category: Neuralware
+  surgery_level: N
+  description: Increased sensitivity. +2 on any touch Awareness check.
+  cost: 100
+  hl: 2
+- name: Olifactory Boost
+  category: Neuralware
+  surgery_level: N
+  description: Increase Awareness via smell by +2. Allows scent tracking.
+  cost: 100
+  hl: 2
+- name: Pain Editor
+  category: Neuralware
+  surgery_level: N
+  description: Tunes out hot, cold, pain.
+  cost: 200
+  hl: 2D6
+- name: Cybermodem Link
+  category: Neuralware
+  surgery_level: N
+  description: Allows direct connection to a cybermodem.
+  cost: 100
+  hl: 1
+- name: Vehicle Link
+  category: Neuralware
+  surgery_level: N
+  description: For direct vehicle operation only.
+  cost: 100
+  hl: 3
+- name: Smartgun Link
+  category: Neuralware
+  surgery_level: N
+  description: For direct smartweapon operationonly.
+  cost: 100
+  hl: 2
+- name: Machine/Tech Link
+  category: Neuralware
+  surgery_level: N
+  description: Allows control of autofactories, large & small machines.
+  cost: 100
+  hl: 2
+- name: DataTerm Link
+  category: Neuralware
+  surgery_level: N
+  description: Allows downloading from DataTerms to internal memory.
+  cost: 100
+  hl: 2
+- name: Interface plugs
+  category: Neuralware
+  surgery_level: M
+  description: Allows direct connection to smart weapons, vehicles.
+  cost: 200
+  hl: 1D6
+- name: Chipware Socket
+  category: Neuralware
+  surgery_level: N
+  description: Allows up to 10 chips to be loaded.
+  cost: 200
+  hl: 1D6/2

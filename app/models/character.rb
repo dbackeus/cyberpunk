@@ -28,6 +28,7 @@ class Character
   accepts_nested_attributes_for :skills
   embeds_many :weapons
   embeds_many :armors
+  embeds_many :cyberwares
 
   field :sex, type: String
   field :handle, type: String

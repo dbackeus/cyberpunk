@@ -6,9 +6,10 @@ class ItemBlueprint
   field :name, type: String
   field :description, type: String
   field :category, type: String
-  field :availability, type: String
+  field :availability, type: String, default: "E"
   field :cost, type: String
-  field :source, type: String
+  field :source, type: String, default: "CP20"
 
-  validates :name, presence: true
+  validates :name, :category, presence: true
+  validates_uniqueness_of :name, scope: :_type
 end

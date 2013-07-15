@@ -15,6 +15,13 @@
 //= require turbolinks
 //= require_directory .
 
+function dice(number, options) {
+  options = options || {rerollIf: function(result) { return false }}
+  var result = parseInt(Math.random() * number) + 1
+  if(options.rerollIf(result)) result = dice(number, options)
+  return result
+}
+
 Array.prototype.sample = function() {
   return this[Math.floor((Math.random()*this.length))]
 }
@@ -46,12 +53,28 @@ Array.prototype.shuffle = function() {
   return this
 }
 
+Array.prototype.first = function() {
+  return this[0]
+}
+
+Array.prototype.last = function() {
+  return this[this.length-1]
+}
+
 Array.prototype.isEmpty = function() {
   return this.length == 0
 }
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1)
+}
+
+String.prototype.toI = function() {
+  return parseInt(this) || 0
+}
+
+String.prototype.include = function(substring) {
+  return this.indexOf(substring) >= 0
 }
 
 Number.prototype.isEven = function() {
@@ -62,8 +85,10 @@ Number.prototype.isOdd = function() {
   return this % 2 == 1
 }
 
-String.prototype.toI = function() {
-  return parseInt(this) || 0
+Number.prototype.times = function(callback) {
+  for(var i=0; i<this; i++) {
+    callback(i)
+  }
 }
 
 $(function() {

@@ -20,6 +20,6 @@ class CyberwareBlueprint < ItemBlueprint
 
   field :surgery_level, type: String # N(egligible) M(inor) MA(jor) CR(itical)
   field :hl, type: String # humanity loss
-  field :has_options, type: Mongoid::Boolean, default: false
+  field :option_categories, type: Array, default: []
   field :option_limit, type: Integer # 4
 end

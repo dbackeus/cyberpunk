@@ -9,7 +9,7 @@ class Cyberware
     delegate field_name, to: :blueprint
   end
 
-  field :hl, type: Integer
+  field :hl, type: Float
   field :cost, type: Integer
 
   embedded_in :character

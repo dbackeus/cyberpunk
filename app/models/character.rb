@@ -119,7 +119,7 @@ class Character
 
   def actual_empathy
     reduction = (base_humanity - humanity) / 10
-    empathy - reduction
+    empathy - reduction.to_i
   end
 
   def actual_reflexes

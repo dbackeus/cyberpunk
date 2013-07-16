@@ -1,33 +1,18 @@
-<tr class="cyberware" id="cyberware-<%= cyberware.id %>" data-blueprint-id="<%= cyberware.id %>">
-  <td class="name"><%= cyberware.name %></td>
-  <td class="description"><%= cyberware.description %></td>
-  <td class="surgery_level"><%= cyberware.surgery_level %></td>
-  <td class="hl">
-    <input class="hidden" type="number"></input>
-    <span class="hint"><%= cyberware.hl %></span>
-  </td>
-  <td class="cost">
-    <input class="hidden" type="number"></input>
-    <span class="hint"><%= cyberware.cost %></span>
-  </td>
-  <td class="action">
+<li class="cyberware" id="cyberware-<%= cyberware.id %>" data-blueprint-id="<%= cyberware.id %>">
+  <span class="name"><%= cyberware.name %></span>
+  <span class="description"><%= cyberware.description %></span>
+  <span class="surgery_level"><%= cyberware.surgery_level %></span>
+  <input class="hl hidden" type="number" value="<%= cyberware.hl %>"></input>
+  <span class="hl"><%= cyberware.hl % 1 == 0 ? cyberware.hl.to_i : cyberware.hl %></span>
+  <input class="cost hidden" type="number"></input>
+  <span class="cost"><%= cyberware.cost %></span>
+  <span class="action">
     <% if cyberware.is_a?(CyberwareBlueprint) %>
       <%= link_to "select", "#", class: "select-cyberware" %>
       <%= link_to "add", "#", class: "add-cyberware hidden" %>
     <% elsif can_edit?(cyberware.character) %>
       <%= link_to "remove", character_cyberware_path(cyberware.character, cyberware), method: :delete, remote: true, class: "remove-cyberware" %>
     <% end %>
-  </td>
-</tr>
-<% if cyberware.is_a?(CyberwareBlueprint) %>
-  <tr class="hidden form-row">
-    <td colspan="6">
-      <%= simple_form_for Cyberware.new(blueprint: cyberware), url: character_cyberwares_path(@character) do |f| %>
-        <%= f.input :blueprint_id, as: :hidden %>
-        <%= f.input :hl %>
-        <%= f.input :cost %>
-        <%= f.button :submit %>
-      <% end %>
-    </td>
-  </tr>
-<% end %>
+  </span>
+  <div class="clear"></div>
+</li>

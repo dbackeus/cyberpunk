@@ -1,20 +1,21 @@
-<tr class="weapon" id="weapon-<%= weapon.id %>">
-  <td class="name"><%= weapon.name %></td>
-  <td class="type"><%= weapon.type %></td>
-  <td class="accuracy"><%= weapon.accuracy %></td>
-  <td class="concealability"><%= weapon.concealability %></td>
-  <td class="availability"><%= weapon.availability %></td>
-  <td class="damage"><%= weapon.damage %> <%= weapon.ammo %></td>
-  <td class="shots"><%= weapon.shots %></td>
-  <td class="rof"><%= weapon.rof %></td>
-  <td class="reliability"><%= weapon.reliability %></td>
-  <td class="range"><%= weapon.range %></td>
-  <td class="cost"><%= weapon.cost %></td>
-  <td class="action">
+<li class="weapon" id="weapon-<%= weapon.id %>">
+  <span class="name"><%= weapon.name %></span>
+  <span class="type"><%= weapon.type %></span>
+  <span class="accuracy"><%= weapon.accuracy %></span>
+  <span class="concealability"><%= weapon.concealability %></span>
+  <span class="availability"><%= weapon.availability %></span>
+  <span class="damage"><%= weapon.damage %> <%= weapon.ammo %></span>
+  <span class="shots"><%= weapon.shots %></span>
+  <span class="rof"><%= weapon.rof %></span>
+  <span class="reliability"><%= weapon.reliability %></span>
+  <span class="range"><%= weapon.range %></span>
+  <span class="cost"><%= weapon.cost %></span>
+  <span class="action">
     <% if weapon.is_a?(WeaponBlueprint) %>
       <%= link_to "add", character_weapons_path(@character, weapon_blueprint_id: weapon.id.to_s), class: "add-weapon", method: :post, remote: true %>
     <% elsif can_edit?(weapon.character) %>
       <%= link_to "remove", character_weapon_path(weapon.character, weapon), method: :delete, remote: true, class: "remove-weapon" %>
     <% end %>
-  </td>
-</tr>
+  </span>
+  <div class="clear"></div>
+</li>

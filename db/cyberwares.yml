@@ -47,7 +47,7 @@
   description: Basic processor. Must have for all systems.
   cost: 1000
   hl: 1D6
-  has_options: true
+  option_categories: ["Neuralware"]
 - name: Nasal Filters
   category: Implants
   surgery_level: M
@@ -58,5 +58,260 @@
   category: Implants
   surgery_level: MA
   description: Water breathing system, good for 4 hours.
-  cost: 60
+  cost: 400
+  hl: 3D6
+- name: Independent Air Supply
+  category: Implants
+  surgery_level: MA
+  description: Good for 25 minutes.
+  cost: 300
+  hl: 2D6
+- name: Mr Studd™ Sexual Implant
+  category: Implants
+  surgery_level: MA
+  description: All night, every night. And she'll never know.
+  cost: 300
+  hl: 2D6
+- name: Contraceptive Implant
+  category: Implants
+  surgery_level: N
+  description: Good for 5 years. 98% effective.
+  cost: 100
+  hl: 0.5
+- name: Subdermal Pocket
+  category: Implants
+  surgery_level: M
+  description: 2"x4" space with Realskinn™ zipper.
+  cost: 200
+  hl: 2D6
+- name: Adrenal Booster
+  category: Implants
+  surgery_level: M
+  description: Boosts REF by +1 for 1D6+2 turns, 3x per day.
+  cost: 400
+  hl: 2D6
+- name: Subdermal Armor
+  category: Implants
+  surgery_level: CR
+  description: Armors torso to SP 18.
+  cost: 1200
+  hl: 2D6
+- name: Motion Detector
+  category: Implants
+  surgery_level: M
+  description: Detects motion in a 20sq/m area. 70% effectiveness.
+  cost: 200
+  hl: 2D6
+- name: Digital Recorder
+  category: Implants
+  surgery_level: M
+  description: 2 hrs torage from any digital source.
+  cost: 200
+  hl: 2
+- name: Audio/Video Tape Recorder
+  category: Implants
+  surgery_level: M
+  description: 2 hrs storage from video, audio links.
+  cost: 300
+  hl: 2
+- name: Radar Sensor
+  category: Implants
+  surgery_level: M
+  description: 100m range radar. Must have cyberoptic. 70% effective.
+  cost: 200
+  hl: 2
+- name: Sonar Implant
+  category: Implants
+  surgery_level: M
+  description: 50m range sonar. For water only. 70% effective.
+  cost: 300
+  hl: 2
+- name: Radiation Detector
+  category: Implants
+  surgery_level: M
+  description: 10m range. 80% detection effectiveness.
+  cost: 200
+  hl: 2
+- name: Chemical Analyser
+  category: Implants
+  surgery_level: M
+  description: 5m range. 70% effectiveness.
+  cost: 200
+  hl: 2
+- name: Voice Synthesizer
+  category: Implants
+  surgery_level: M
+  description: 5m range. 70% effectiveness.
+  cost: 200
+  hl: 1D6
+- name: AudioVox
+  category: Implants
+  surgery_level: M
+  description: Vocal synthesizer for special effects. +2 to Performance.
+  cost: 700
+  hl: 2D6
+- name: Grafted Muscle
+  category: Bioware
+  surgery_level: MA
+  description: +1 to Body Type.
+  cost: 1000
+  hl: 2D6
+- name: Grafted Muscle 2
+  category: Bioware
+  surgery_level: MA
+  description: +2 to Body Type.
+  cost: 2000
+  hl: 2D6
+- name: Muscle and Bone Lace
+  category: Bioware
+  surgery_level: N
+  description: Raises Body Type by +2.
+  cost: 1500
+  hl: 1D6/2
+- name: Skin Weave
+  category: Bioware
+  surgery_level: N
+  description: Armors body to SP12.
+  cost: 2000
+  hl: 2D6
+- name: Enhanced Antibodies
+  category: Bioware
+  surgery_level: N
+  description: Improved Healing by +1 points per day.
+  cost: 3000
+  hl: 1D6/2
+- name: Toxin Binders
+  category: Bioware
+  surgery_level: N
+  description: Improve Poison, Drug Saves by +4
+  cost: 3000
+  hl: 1D6/2
+- name: Nanosurgeons
+  category: Bioware
+  surgery_level: N
+  description: Doubles healing rate.
+  cost: 6000
+  hl: 1D6/2
+- name: Scratchers
+  category: Cyberweapons
+  surgery_level: N
+  description: Body Weapon (hands). 1D6/2 damage.
+  cost: 100
+  hl: 2D6
+- name: Implanted Fangs (Vampires)
+  category: Cyberweapons
+  surgery_level: N
+  description: Body Weapon (mouth). 1D6/3 damage.
+  cost: 200
+  hl: 3D6
+- name: Rippers
+  category: Cyberweapons
+  surgery_level: M
+  description: Body Weapon (hands). 1D6+3 damage (AP=knife).
+  cost: 400
+  hl: 3D6
+- name: Wolvers
+  category: Cyberweapons
+  surgery_level: M
+  description: Body Weapon (hands). 3D6 damage (AP=knife).
+  cost: 600
+  hl: 3D6+1
+- name: Big Knucks
+  category: Cyberweapons
+  surgery_level: M
+  description: Body Weapon (hands). 1D6+2 damage.
+  cost: 500
+  hl: 3D6
+- name: Slice N' Dice
+  category: Cyberweapons
+  surgery_level: M
+  description: Body Weapon (hands). 2D6 damage.
+  cost: 700
+  hl: 3D6
+- name: Cybersnake
+  category: Cyberweapons
+  surgery_level: MA
+  description: Cyberweapon, self controlling. 1D6 damage.
+  cost: 1200
+  hl: 4D6
+- name: Cyberoptic
+  category: Cyberoptic
+  surgery_level: MA
+  description: Basic eye module. Add up to 4 options per eye.
+  cost: 500
+  hl: 2D6
+  option_categories: ["Cyberoptic"]
+  option_limit: 4
+- name: Cyberaudio
+  category: Cyberaudio
+  surgery_level: M
+  description: Basic hearing module. No option limit.
+  cost: 500
+  hl: 2D6
+  option_categories: ["Cyberaudio"]
+- name: Cyberarm
+  category: Cyberlimb
+  surgery_level: CR
+  description: Standard arm replacement. 4 options allowed.
+  cost: 3000
+  hl: 2D6
+  option_categories: ["Cyberlimb", "Cyberarm", "Built Ins", "Cyberweapons"]
+  option_limit: 4
+- name: Cyberleg
+  category: Cyberlimb
+  surgery_level: CR
+  description: Standard leg replacement. 3 options allowed.
+  cost: 2000
+  hl: 2D6
+  option_categories: ["Cyberlimb", "Cyberleg", "Built Ins", "Cyberweapons"]
+  option_limit: 3
+- name: Frame Σ
+  category: Linear Frames
+  surgery_level: MA
+  description: Strength = 12.
+  cost: 6000
+  hl: 2D6
+- name: Frame β
+  category: Linear Frames
+  surgery_level: MA
+  description: Strength = 14.
+  cost: 8000
+  hl: 2D6
+- name: Frame Ω
+  category: Linear Frames
+  surgery_level: MA
+  description: Strength = 16.
+  cost: 10000
+  hl: 3D6
+- name: Cowl
+  category: Body Plating
+  surgery_level: MA
+  description: Skullcap, covers head in SP25.
+  cost: 200
+  hl: 1D6
+- name: Faceplate
+  category: Body Plating
+  surgery_level: CR
+  description: Protective facemask SP25.
+  cost: 400
+  hl: 4D6
+- name: Torso Plate
+  category: Body Plating
+  surgery_level: MA
+  description: Torso protection SP25.
+  cost: 2000
+  hl: 3D6
+- name: Front Optic Mount
+  category: Body Plating
+  surgery_level: MA
+  description: Allows up to 5 optics to be monuted on face.
+  cost: 1000
+  hl: 4D6
+  option_categories: ["Cyberoptic"]
+  option_limit: 5
+- name: Sensory Extensions
+  category: Body Plating
+  surgery_level: MA
+  description: Head mounted extensors for audio, optics, etc.
+  cost: 500
   hl: 3D6

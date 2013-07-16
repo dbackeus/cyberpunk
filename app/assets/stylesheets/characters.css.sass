@@ -134,7 +134,7 @@ textarea
   border-radius: 20px
   margin-bottom: 2em
   &.gear
-    width: 800px
+    width: 900px
 
 .stats-container
   width: 44em
@@ -150,22 +150,42 @@ textarea
 
 .gear-table
   width: 100%
-  td, th
+  &.header
+    font-weight: bold
+  td, th, span, input
     min-width: 40px
     text-align: center
-    padding: 4px
+    margin: 4px
+    float: left
   tbody
     tr:nth-child(odd)
       background: #F6F6F6
+  li:nth-child(odd)
+    background: #F6F6F6
   .name
     text-align: left
-    width: 200px
+    width: 190px
   .description
     text-align: left
+    width: 350px
   .cost
     text-align: right
+    width: 70px
   .damage
     text-align: left
-    width: 140px
+    width: 130px
+  .shots
+    width: 50px
+  .range
+    width: 45px
+  .surgery_level
+    width: 60px
+    margin-right: 20px
+  .hl
+    width: 56px
   .action
     padding-left: 20px
+
+.dialogue
+  &.cyberware, &.weapons
+    width: 900px

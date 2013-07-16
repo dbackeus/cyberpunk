@@ -6,35 +6,33 @@
     $('#skill-groups-container').isotope({itemSelector : '.skill-group'})
 
     $(".select-cyberware").click(function() {
-      var row = $(this).closest('tr')
+      var row = $(this).closest('li')
 
-      var costSuggestion = costFromHint(row.find(".cost .hint").html())
-      row.find('.cost input').val(costSuggestion).show()
+      var costSuggestion = costFromHint(row.find("span.cost").html())
+      row.find('input.cost').val(costSuggestion).show()
+      var hlSuggestion = hlFromHint(row.find("span.hl").html())
+      row.find('input.hl').val(hlSuggestion).show()
 
-      var hlSuggestion = hlFromHint(row.find(".hl .hint").html())
-      row.find('.hl input').val(hlSuggestion).show()
-
-      row.find(".hint").hide()
-
+      row.find("span.cost, span.hl").hide()
       $(this).hide()
-
       row.find(".add-cyberware").show()
 
       return false
     })
 
     $(".add-cyberware").click(function() {
-      var row = $(this).closest('tr')
+      var row = $(this).closest('li')
 
       var params = {
-        cost: row.find('.cost input').val(),
-        hl: row.find('.hl input').val(),
+        cost: row.find('input.cost').val(),
+        hl: row.find('input.hl').val(),
         blueprint_id: row.data().blueprintId
       }
 
       $.post("<%= character_cyberwares_path(@character) %>", {cyberware: params}, function() {
-        row.find(".hint, .select-cyberware").show()
-        row.find("input, .add-cyberware").hide()
+        $.fancybox.close()
+        row.find("span.cost, span.hl, .select-cyberware").show()
+        row.find("input.cost, input.hl, .add-cyberware").hide()
       })
 
       return false
@@ -53,15 +51,16 @@
   function hlFromHint(hint) {
     if(hint.include("D")) {
       var divider = hint.include("/") ? hint.split("/").last().toI() : 1
+      var addition = hint.include("+") ? hint.split("+").last().toI() : 0
       var numberOfDice = hint.split("D").first().toI()
-      var result = 0
+      var result = addition
       numberOfDice.times(function() {
         result += dice(6)
       })
-      return result
+      return result / divider
     }
     else {
-      return hint.toI()
+      return hint.toF()
     }
   }
 </script>
@@ -119,67 +118,60 @@
 
 <div class="gear box weapons">
   <h3>Weapons</h3>
-  <table id="weapons-table" class="gear-table weapons stomp">
-    <thead class="<%= "hidden" if @character.weapons.blank? %>">
-      <th class="name">Name</th>
-      <th class="type">Type</th>
-      <th class="accuracy">WA</th>
-      <th class="concealability">Con.</th>
-      <th class="availability">Avail.</th>
-      <th class="damage">Damage/Ammo</th>
-      <th class="shots">#Shots</th>
-      <th class="rof">ROF</th>
-      <th class="reliability">Rel.</th>
-      <th class="range">Range</th>
-      <th class="cost">Cost</th>
-    </thead>
-    <tbody>
-     <%= render @character.weapons %>
-    </tbody>
-  </table>
+  <div class="gear-table weapons header <%= "hidden" if @character.weapons.blank? %>">
+    <span class="name">Name</span>
+    <span class="type">Type</span>
+    <span class="accuracy">WA</span>
+    <span class="concealability">Con.</span>
+    <span class="availability">Avail.</span>
+    <span class="damage">Damage/Ammo</span>
+    <span class="shots">#Shots</span>
+    <span class="rof">ROF</span>
+    <span class="reliability">Rel.</span>
+    <span class="range">Range</span>
+    <span class="cost">Cost</span>
+    <div class="clear"></div>
+  </div>
+  <ul id="weapons-table" class="gear-table weapons stomp">
+   <%= render @character.weapons %>
+  </ul>
 
   <%= link_to "Add Weapon", "#weapons-dialogue", class: "button add fancy" if can_edit?(@character) %>
 </div>
 
 <div class="gear box armors">
   <h3>Armor / Clothing</h3>
-  <table id="armors-table" class="gear-table armors stomp">
-    <thead class="<%= "hidden" if @character.armors.blank? %>">
-      <tr>
-        <th class="name">Name</th>
-        <th class="type">Type</th>
-        <th class="hsp">Head</th>
-        <th class="tsp">Torso</th>
-        <th class="lasp">Arms</th>
-        <th class="llsp">Legs</th>
-        <th class="ev">EV</th>
-        <th class="cost">Cost</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @character.armors %>
-    </tbody>
-  </table>
+  <div class="gear-table armors header <%= "hidden" if @character.armors.blank? %>">
+    <span class="name">Name</span>
+    <span class="type">Type</span>
+    <span class="hsp">Head</span>
+    <span class="tsp">Torso</span>
+    <span class="lasp">Arms</span>
+    <span class="llsp">Legs</span>
+    <span class="ev">EV</span>
+    <span class="cost">Cost</span>
+    <div class="clear"></div>
+  </div>
+  <ul id="armors-table" class="gear-table armors stomp">
+    <%= render @character.armors %>
+  </ul>
 
   <%= link_to "Add Armor", "#armors-dialogue", class: "button add fancy" if can_edit?(@character) %>
 </div>
 
-<div class="gear box cyberwares">
+<div class="gear box cyberware">
   <h3>Cyberware</h3>
-  <table id="cyberwares-table" class="cyberwares gear-table stomp">
-    <thead class="<%= "hidden" if @character.cyberwares.blank? %>">
-      <tr>
-        <th class="name">Name</th>
-        <th class="description">Description</th>
-        <th class="surgery_level">Surgery</th>
-        <th class="hl">H.Loss</th>
-        <th class="cost">Cost</th>
-      </tr>
-    </thead>
-    <tbody>
+    <ul class="gear-table cyberware header <%= "hidden" if @character.cyberwares.blank? %>">
+      <span class="name">Name</span>
+      <span class="description">Description</span>
+      <span class="surgery_level">Surgery</span>
+      <span class="hl">H.Loss</span>
+      <span class="cost">Cost</span>
+      <div class="clear"></div>
+    </ul>
+    <ul id="cyberwares-table" class="gear-table cyberware stomp">
       <%= render @character.cyberwares %>
-    </tbody>
-  </table>
+    </ul>
 
   <%= link_to "Add Cyberware", "#cyberwares-dialogue", class: "button add fancy" if can_edit?(@character) %>
 </div>
@@ -233,7 +225,6 @@
   <% end %>
 </div>
 
-
 <div class="life-path-entry box life-events">
   <h3>Life Events</h3>
   <% if @character.life_events.any? %>
@@ -250,68 +241,62 @@
   <% end %>
 </div>
 
-<div id="weapons-dialogue" class="dialogue">
-  <ul class="weapon-categories">
-    <% WeaponBlueprint.all.group_by(&:category).each do |category, weapons| %>
-      <li>
-        <h3><%= category.titleize %></h3>
-        <table class="gear-table weapons stomp">
-          <tbody>
+<% cache do %>
+  <div id="weapons-dialogue" class="dialogue weapons">
+    <ul class="weapon-categories">
+      <% WeaponBlueprint.all.group_by(&:category).each do |category, weapons| %>
+        <li>
+          <h3><%= category.titleize %></h3>
+          <ul class="gear-table weapons stomp">
             <%= render partial: "weapons/weapon", collection: weapons %>
-          </tbody>
-        </table>
-      </li>
-    <% end %>
-  </ul>
-</div>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<div id="armors-dialogue" class="dialogue">
-  <ul class="armor-categories">
-    <% ArmorBlueprint.all.group_by(&:category).each do |category, armors| %>
-      <li>
-        <h3><%= category.titleize %></h3>
-        <table class="gear-table armors stomp">
-          <thead>
-            <tr>
-              <th class="name">Name</th>
-              <th class="type">Type</th>
-              <th class="hsp">Head</th>
-              <th class="tsp">Torso</th>
-              <th class="lasp">Arms</th>
-              <th class="llsp">Legs</th>
-              <th class="ev">EV</th>
-              <th class="cost">Cost</th>
-            </tr>
-          </thead>
-          <tbody>
+  <div id="armors-dialogue" class="dialogue armors">
+    <ul class="armor-categories">
+      <% ArmorBlueprint.all.group_by(&:category).each do |category, armors| %>
+        <li>
+          <h3><%= category.titleize %></h3>
+          <div class="gear-table armors header">
+            <span class="name">Name</span>
+            <span class="type">Type</span>
+            <span class="hsp">Head</span>
+            <span class="tsp">Torso</span>
+            <span class="lasp">Arms</span>
+            <span class="llsp">Legs</span>
+            <span class="ev">EV</span>
+            <span class="cost">Cost</span>
+            <div class="clear"></div>
+          </div>
+          <ul class="gear-table armors">
             <%= render partial: "armors/armor", collection: armors %>
-          </tbody>
-        </table>
-      </li>
-    <% end %>
-  </ul>
-</div>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<div id="cyberwares-dialogue" class="dialogue">
-  <ul class="cyberware-categories">
-    <% CyberwareBlueprint.all.group_by(&:category).each do |category, cyberwares| %>
-      <li>
-        <h3><%= category.titleize %></h3>
-        <table class="gear-table cyberwares stomp">
-          <thead>
-            <tr>
-              <th class="name">Name</th>
-              <th class="description">Description</th>
-              <th class="type">Surgery</th>
-              <th class="hl">H.Loss</th>
-              <th class="cost">Cost</th>
-            </tr>
-          </thead>
-          <tbody>
+  <div id="cyberwares-dialogue" class="dialogue cyberware">
+    <ul class="cyberware-categories">
+      <% CyberwareBlueprint.all.group_by(&:category).each do |category, cyberwares| %>
+        <li>
+          <h3><%= category.titleize %></h3>
+          <div class="gear-table cyberware header">
+            <span class="name">Name</span>
+            <span class="description">Description</span>
+            <span class="surgery_level">Surgery</span>
+            <span class="hl">H.Loss</span>
+            <span class="cost">Cost</span>
+            <div class="clear"></div>
+          </div>
+          <ul class="gear-table cyberware stomp">
             <%= render partial: "cyberwares/cyberware", collection: cyberwares %>
-          </tbody>
-        </table>
-      </li>
-    <% end %>
-  </ul>
-</div>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

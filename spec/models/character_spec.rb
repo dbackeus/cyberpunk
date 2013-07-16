@@ -61,4 +61,20 @@ describe Character do
       end
     end
   end
+
+  describe "#actual_empathy" do
+    it "reduces empathy by 1 for every 10 loss to base humanity" do
+      character = Character.new(empathy: 8)
+      character.actual_empathy.should == 8
+
+      character.stub(:humanity).and_return(79.5)
+      character.actual_empathy.should == 8
+
+      character.stub(:humanity).and_return(70.4)
+      character.actual_empathy.should == 8
+
+      character.stub(:humanity).and_return(70)
+      character.actual_empathy.should == 7
+    end
+  end
 end

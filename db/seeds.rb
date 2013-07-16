@@ -32,10 +32,12 @@ YAML.load_file("db/armors.yml").each do |attributes|
   ArmorBlueprint.create!(attributes)
 end
 
+CyberwareBlueprint.destroy_all
 YAML.load_file("db/cyberwares.yml").each do |attributes|
   CyberwareBlueprint.create!(attributes)
 end
 
-YAML.load_file("db/cyberware_options.yml") do |attributes|
+CyberwareOptionBlueprint.destroy_all
+YAML.load_file("db/cyberware_options.yml").each do |attributes|
   CyberwareOptionBlueprint.create!(attributes)
 end

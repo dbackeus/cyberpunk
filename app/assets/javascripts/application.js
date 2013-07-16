@@ -73,6 +73,10 @@ String.prototype.toI = function() {
   return parseInt(this) || 0
 }
 
+String.prototype.toF = function() {
+  return parseFloat(this) || 0
+}
+
 String.prototype.include = function(substring) {
   return this.indexOf(substring) >= 0
 }

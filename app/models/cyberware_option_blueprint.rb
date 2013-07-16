@@ -1,4 +1,4 @@
-class CyberwareOptionBlueprint
+class CyberwareOptionBlueprint < ItemBlueprint
   include Mongoid::Document
 
   field :surgery_level, type: String # N(egligible) M(inor) MA(jor) CR(itical)

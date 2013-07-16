@@ -2,37 +2,43 @@
 <% @title = @character.handle %>
 
 <script type="text/javascript">
+  var characterId = "<%= @character.id %>"
+
   $(function() {
     $('#skill-groups-container').isotope({itemSelector : '.skill-group'})
 
-    $(".select-cyberware").click(function() {
+    $(".select-gear").click(function() {
       var row = $(this).closest('li')
 
       var costSuggestion = costFromHint(row.find("span.cost").html())
       row.find('input.cost').val(costSuggestion).show()
-      var hlSuggestion = hlFromHint(row.find("span.hl").html())
-      row.find('input.hl').val(hlSuggestion).show()
+
+      if(row.find("span.hl").length > 0) {
+        var hlSuggestion = hlFromHint(row.find("span.hl").html())
+        row.find('input.hl').val(hlSuggestion).show()
+      }
 
       row.find("span.cost, span.hl").hide()
       $(this).hide()
-      row.find(".add-cyberware").show()
+      row.find(".add-gear").show()
 
       return false
     })
 
-    $(".add-cyberware").click(function() {
+    $(".add-gear").click(function() {
       var row = $(this).closest('li')
 
       var params = {
         cost: row.find('input.cost').val(),
-        hl: row.find('input.hl').val(),
         blueprint_id: row.data().blueprintId
       }
 
-      $.post("<%= character_cyberwares_path(@character) %>", {cyberware: params}, function() {
+      if(hl = row.find('input.hl').val()) params.hl = hl
+
+      $.post("/characters/"+characterId+"/"+row.data().itemResource, {item: params}, function() {
         $.fancybox.close()
-        row.find("span.cost, span.hl, .select-cyberware").show()
-        row.find("input.cost, input.hl, .add-cyberware").hide()
+        row.find("span.cost, span.hl, .select-gear").show()
+        row.find("input.cost, input.hl, .add-gear").hide()
       })
 
       return false
@@ -246,6 +252,20 @@
       <% WeaponBlueprint.all.group_by(&:category).each do |category, weapons| %>
         <li>
           <h3><%= category.titleize %></h3>
+          <div class="gear-table armors header">
+            <span class="name">Name</span>
+            <span class="type">Type</span>
+            <span class="accuracy">WA</span>
+            <span class="concealability">Con.</span>
+            <span class="availability">Avail.</span>
+            <span class="damage">Damage/Ammo</span>
+            <span class="shots">#Shots</span>
+            <span class="rof">ROF</span>
+            <span class="reliability">Rel.</span>
+            <span class="range">Range</span>
+            <span class="cost">Cost</span>
+            <div class="clear"></div>
+          </div>
           <ul class="gear-table weapons stomp">
             <%= render partial: "weapons/weapon", collection: weapons %>
           </ul>

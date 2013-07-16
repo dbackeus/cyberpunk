@@ -1,4 +1,4 @@
-<li class="weapon" id="weapon-<%= weapon.id %>">
+<li class="weapon" id="weapon-<%= weapon.id %>" data-blueprint-id="<%= weapon.id %>" data-item-resource="weapons">
   <span class="name"><%= weapon.name %></span>
   <span class="type"><%= weapon.type %></span>
   <span class="accuracy"><%= weapon.accuracy %></span>
@@ -9,10 +9,12 @@
   <span class="rof"><%= weapon.rof %></span>
   <span class="reliability"><%= weapon.reliability %></span>
   <span class="range"><%= weapon.range %></span>
+  <input class="cost hidden" type="number"></input>
   <span class="cost"><%= weapon.cost %></span>
   <span class="action">
     <% if weapon.is_a?(WeaponBlueprint) %>
-      <%= link_to "add", character_weapons_path(@character, blueprint_id: weapon.id.to_s), class: "add-weapon", method: :post, remote: true %>
+      <%= link_to "select", "#", class: "select-gear" %>
+      <%= link_to "add", "#", class: "add-gear hidden" %>
     <% elsif can_edit?(weapon.character) %>
       <%= link_to "remove", character_weapon_path(weapon.character, weapon), method: :delete, remote: true, class: "remove-weapon" %>
     <% end %>

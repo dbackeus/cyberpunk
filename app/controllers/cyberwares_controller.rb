@@ -2,7 +2,7 @@ class CyberwaresController < ApplicationController
   before_filter :authenticate_user!, except: :show
 
   def create
-    @cyberware = character.cyberwares.create!(params.require(:cyberware).permit!)
+    @cyberware = character.cyberwares.create!(params.require(:item).permit!)
   end
 
   def destroy

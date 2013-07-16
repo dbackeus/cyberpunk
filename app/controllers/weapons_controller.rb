@@ -2,8 +2,7 @@ class WeaponsController < ApplicationController
   before_filter :authenticate_user!, except: :show
 
   def create
-    blueprint = WeaponBlueprint.find(params[:blueprint_id])
-    @weapon = character.weapons.create!(blueprint: blueprint)
+    @weapon = character.weapons.create!(params.require(:item).permit!)
   end
 
   def destroy

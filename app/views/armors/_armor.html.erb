@@ -1,4 +1,4 @@
-<li class="armor" id="armor-<%= armor.id %>">
+<li class="armor" id="armor-<%= armor.id %>" data-blueprint-id="<%= armor.id %>" data-item-resource="armors">
   <span class="name"><%= armor.name %></span>
   <span class="type"><%= armor.type %></span>
   <span class="hsp"><%= armor.hsp %></span>
@@ -7,9 +7,11 @@
   <span class="llsp"><%= armor.llsp %></span>
   <span class="ev"><%= armor.ev %></span>
   <span class="cost"><%= armor.cost %></span>
+  <input name="cost" class="cost hidden" type="number"></input>
   <span class="action">
     <% if armor.is_a?(ArmorBlueprint) %>
-      <%= link_to "add", character_armors_path(@character, blueprint_id: armor.id.to_s), class: "add-armor", method: :post, remote: true %>
+      <%= link_to "select", "#", class: "select-gear" %>
+      <%= link_to "add", "#", class: "add-gear hidden" %>
     <% elsif can_edit?(armor.character) %>
         <%= link_to "remove", character_armor_path(armor.character, armor), method: :delete, remote: true %>
     <% end %>

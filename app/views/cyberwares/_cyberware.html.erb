@@ -1,15 +1,15 @@
-<li class="cyberware" id="cyberware-<%= cyberware.id %>" data-blueprint-id="<%= cyberware.id %>">
+<li class="cyberware" id="cyberware-<%= cyberware.id %>" data-blueprint-id="<%= cyberware.id %>" data-item-resource="cyberwares">
   <span class="name"><%= cyberware.name %></span>
   <span class="description"><%= cyberware.description %></span>
   <span class="surgery_level"><%= cyberware.surgery_level %></span>
-  <input class="hl hidden" type="number" value="<%= cyberware.hl %>"></input>
+  <input name="hl" class="hl hidden" type="number" value="<%= cyberware.hl %>"></input>
   <span class="hl"><%= cyberware.hl % 1 == 0 ? cyberware.hl.to_i : cyberware.hl %></span>
-  <input class="cost hidden" type="number"></input>
+  <input name="cost" class="cost hidden" type="number"></input>
   <span class="cost"><%= cyberware.cost %></span>
   <span class="action">
     <% if cyberware.is_a?(CyberwareBlueprint) %>
-      <%= link_to "select", "#", class: "select-cyberware" %>
-      <%= link_to "add", "#", class: "add-cyberware hidden" %>
+      <%= link_to "select", "#", class: "select-gear" %>
+      <%= link_to "add", "#", class: "add-gear hidden" %>
     <% elsif can_edit?(cyberware.character) %>
       <%= link_to "remove", character_cyberware_path(cyberware.character, cyberware), method: :delete, remote: true, class: "remove-cyberware" %>
     <% end %>

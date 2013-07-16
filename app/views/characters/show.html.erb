@@ -241,7 +241,6 @@
   <% end %>
 </div>
 
-<% cache do %>
   <div id="weapons-dialogue" class="dialogue weapons">
     <ul class="weapon-categories">
       <% WeaponBlueprint.all.group_by(&:category).each do |category, weapons| %>
@@ -299,4 +298,3 @@
       <% end %>
     </ul>
   </div>
-<% end %>

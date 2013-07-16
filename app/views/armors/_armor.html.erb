@@ -9,7 +9,7 @@
   <span class="cost"><%= armor.cost %></span>
   <span class="action">
     <% if armor.is_a?(ArmorBlueprint) %>
-      <%= link_to "add", character_armors_path(@character, armor_blueprint_id: armor.id.to_s), class: "add-armor", method: :post, remote: true %>
+      <%= link_to "add", character_armors_path(@character, blueprint_id: armor.id.to_s), class: "add-armor", method: :post, remote: true %>
     <% elsif can_edit?(armor.character) %>
         <%= link_to "remove", character_armor_path(armor.character, armor), method: :delete, remote: true %>
     <% end %>

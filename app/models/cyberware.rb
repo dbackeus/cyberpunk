@@ -1,11 +1,11 @@
 class Cyberware
   include Mongoid::Document
 
-  def self.delegateable_fields
-    @delegateable_fields ||= CyberwareBlueprint.fields.keys - %w[_id _type cost hl]
+  def self.delegatable_fields
+    @delegatable_fields ||= CyberwareBlueprint.fields.keys - %w[_id _type cost hl]
   end
 
-  delegateable_fields.each do |field_name|
+  delegatable_fields.each do |field_name|
     delegate field_name, to: :blueprint
   end
 

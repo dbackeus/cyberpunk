@@ -12,7 +12,7 @@
   <span class="cost"><%= weapon.cost %></span>
   <span class="action">
     <% if weapon.is_a?(WeaponBlueprint) %>
-      <%= link_to "add", character_weapons_path(@character, weapon_blueprint_id: weapon.id.to_s), class: "add-weapon", method: :post, remote: true %>
+      <%= link_to "add", character_weapons_path(@character, blueprint_id: weapon.id.to_s), class: "add-weapon", method: :post, remote: true %>
     <% elsif can_edit?(weapon.character) %>
       <%= link_to "remove", character_weapon_path(weapon.character, weapon), method: :delete, remote: true, class: "remove-weapon" %>
     <% end %>

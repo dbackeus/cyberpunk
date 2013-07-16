@@ -192,6 +192,6 @@
   llsp: 25
   rlsp: 25
   rsp: 0
-  cost: 250
+  cost: 600
   availability: C
   source: CP20

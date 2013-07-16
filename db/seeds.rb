@@ -28,6 +28,7 @@ weapons.each do |attributes|
   WeaponBlueprint.create!(attributes)
 end
 
+ArmorBlueprint.destroy_all
 YAML.load_file("db/armors.yml").each do |attributes|
   ArmorBlueprint.create!(attributes)
 end

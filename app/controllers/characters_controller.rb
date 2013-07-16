@@ -25,7 +25,7 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params.merge(creator: current_user))
 
     if @character.save
-      redirect_to characters_path, notice: "Character added!"
+      redirect_to character_path(@character), notice: "Character added! Please scroll down to add gear / cyberware etc..."
     else
       render :new
     end

@@ -3,8 +3,12 @@ class Character
   include Mongoid::Timestamps
 
   scope :editable_by, ->(user) {
-    refereeing = Campaign.where("memberships.user_id" => user.id, "memberships.referee" => true).distinct(:id)
-    any_of({creator_id: user.id}, {:player_ids.in => [user.id]}, {:campaign_ids.in => refereeing})
+    if user.admin?
+      all
+    else
+      refereeing = Campaign.where("memberships.user_id" => user.id, "memberships.referee" => true).distinct(:id)
+      any_of({creator_id: user.id}, {:player_ids.in => [user.id]}, {:campaign_ids.in => refereeing})
+    end
   }
 
   BASIC_ATTRIBUTES = %i(

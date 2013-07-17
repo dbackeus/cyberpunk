@@ -36,6 +36,7 @@ class Character
 
   field :sex, type: String
   field :handle, type: String
+  field :cash, type: Integer
 
   BASIC_ATTRIBUTES.each do |attribute|
     field attribute, type: Integer, default: 2

@@ -1,5 +1,14 @@
-var preferredRoleStats = <%= Hash[Role.all.collect { |role| [role.id, role.preferred_stats] }].to_json.html_safe %>
-var careerSkills = <%= Hash[Role.all.collect { |role| [role.id, role.career_skills.collect(&:id)] }].to_json.html_safe %>
+<% roles = Role.all.entries %>
+
+var preferredRoleStats = <%=
+  Hash[roles.collect { |role| [role.id, role.preferred_stats] }].to_json.html_safe
+%>
+var careerSkills = <%=
+  Hash[roles.collect { |role| [role.id, role.career_skills.collect(&:id)] }].to_json.html_safe
+%>
+var startingFunds = <%=
+  Hash[roles.collect { |role| [role.id, role.starting_funds] }].to_json.html_safe
+%>
 
 $(function() {
   $("a[data-roll]").click(function() {
@@ -94,6 +103,7 @@ function roll(section) {
   if(section == "motivations") rollMotivations()
   if(section == "events") rollEvents()
   if(section == "skills") rollSkills()
+  if(section == "cash") rollCash()
 }
 
 function rollStats() {
@@ -493,6 +503,27 @@ function rollSkills() {
   })
 
   refreshCareerPoints()
+}
+
+function rollCash() {
+  var selectedRole = $("#character_role_id").val()
+  var currentLevel = $(".special-ability .career input").val()
+
+  if(currentLevel.toI() == 0) {
+    alert("You need to put some points into your characters special ability to have a salary...")
+    return
+  }
+
+  var salary = startingFunds[selectedRole][currentLevel]
+  var monthsEmployed = Math.ceil(dice(6) / 3)
+  var cash = salary * monthsEmployed
+  var stillEmployed = dice(6) <= 4
+
+  var description = "Based on "+monthsEmployed+" months employment at salary of "+salary+"eb. "
+  description += stillEmployed ? "The character is still employed." : "The character just got unemployed."
+
+  $("#job-description").html(description)
+  $("#character_cash").val(cash)
 }
 
 function addSkill(type, data) {

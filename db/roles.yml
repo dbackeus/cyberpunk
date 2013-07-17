@@ -25,6 +25,17 @@
   - Martial Arts (Tae Kwon Do)
   - Martial Arts (Thai Kick Boxing)
   - Martial Arts (Wrestling)
+  starting_funds:
+    1: 2000
+    2: 2000
+    3: 2000
+    4: 2000
+    5: 2000
+    6: 3000
+    7: 4500
+    8: 7000
+    9: 9000
+    10: 12000
 - name: Rocker
   preferred_stats:
   - attractiveness
@@ -42,6 +53,17 @@
   - Streetwise
   - Persuasion & Fast Talk
   - Seduction
+  starting_funds:
+    1: 1000
+    2: 1000
+    3: 1000
+    4: 1000
+    5: 1000
+    6: 1500
+    7: 2000
+    8: 5000
+    9: 8000
+    10: 12000
 - name: Netrunner
   preferred_stats:
   - intelligence
@@ -57,6 +79,17 @@
   - Composition
   - Electronics
   - Programming
+  starting_funds:
+    1: 1000
+    2: 1000
+    3: 1000
+    4: 1000
+    5: 1000
+    6: 2000
+    7: 3000
+    8: 5000
+    9: 7000
+    10: 10000
 - name: Media
   preferred_stats:
   - attractiveness
@@ -74,6 +107,17 @@
   - Streetwise
   - Photo & Film
   - Interview
+  starting_funds:
+    1: 1000
+    2: 1000
+    3: 1000
+    4: 1000
+    5: 1000
+    6: 1200
+    7: 3000
+    8: 5000
+    9: 7000
+    10: 10000
 - name: Nomad
   preferred_stats:
   - reflexes
@@ -91,6 +135,17 @@
   - Wilderness Survival
   - Brawling
   - Athletics
+  starting_funds:
+    1: 1000
+    2: 1000
+    3: 1000
+    4: 1000
+    5: 1000
+    6: 1500
+    7: 2000
+    8: 3000
+    9: 4000
+    10: 5000
 - name: Fixer
   preferred_stats:
   - cool
@@ -108,6 +163,17 @@
   - Pick Pocket
   - Intimidate
   - Persuasion & Fast Talk
+  starting_funds:
+    1: 1500
+    2: 1500
+    3: 1500
+    4: 1500
+    5: 1500
+    6: 3000
+    7: 5000
+    8: 7000
+    9: 8000
+    10: 10000
 - name: Cop
   preferred_stats:
   - reflexes
@@ -125,6 +191,17 @@
   - Melee
   - Interrogation
   - Streetwise
+  starting_funds:
+    1: 1000
+    2: 1000
+    3: 1000
+    4: 1000
+    5: 1000
+    6: 1200
+    7: 3000
+    8: 5000
+    9: 7000
+    10: 9000
 - name: Corp
   preferred_stats:
   - intelligence
@@ -141,6 +218,17 @@
   - Stock Market
   - Wardrobe & Style
   - Personal Grooming
+  starting_funds:
+    1: 1500
+    2: 1500
+    3: 1500
+    4: 1500
+    5: 1500
+    6: 3000
+    7: 5000
+    8: 7000
+    9: 9000
+    10: 12000
 - name: Techie
   preferred_stats:
   - technical_ability
@@ -158,6 +246,17 @@
   - Electronic Security
   - Gyro Tech
   - Weaponsmith
+  starting_funds:
+    1: 1000
+    2: 1000
+    3: 1000
+    4: 1000
+    5: 1000
+    6: 2000
+    7: 3000
+    8: 4000
+    9: 5000
+    10: 8000
 - name: Medtechie
   preferred_stats:
   - technical_ability
@@ -174,6 +273,17 @@
   - Pharmaceuticals
   - Zoology
   - Human Perception
+  starting_funds:
+    1: 1600
+    2: 1600
+    3: 1600
+    4: 1600
+    5: 1600
+    6: 3000
+    7: 5000
+    8: 7000
+    9: 10000
+    10: 15000
 # Wildside
 - name: Sleaze
   parent_class_name: Fixer

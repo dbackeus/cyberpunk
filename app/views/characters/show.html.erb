@@ -151,7 +151,7 @@
         For expenses prefix value with minus, ie -300 instead of 300.
       </p>
     <% end %>
-    <h3>Latest Transactions</h3>
+    <h3>5 Last Transactions</h3>
     <div class="transactions header">
       <span class="time">Date</span>
       <span class="description">Description</span>
@@ -160,7 +160,7 @@
     <ul id="transactions-list" class="transactions zebra">
       <%= render @character.transactions.limit(10).order_by(_id: -1) %>
     </ul>
-    <%= link_to "View all transactions", character_transactions_path(@character) %>
+    <%= link_to "View all transactions", character_transactions_path(@character) if @character.transactions.count > 5 %>
   </div>
 </div>
 

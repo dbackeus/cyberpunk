@@ -1,0 +1,6 @@
+<li id="transaction-<%= transaction.id %>">
+  <span class="time"><%= transaction.created_at.strftime("%D") %></span>
+  <span class="description"><%= transaction.description %></span>
+  <span class="amount format-currency"><%= transaction.amount %></span>
+  <span class="action"><%= link_to "cancel", character_transaction_path(transaction.character_id, transaction), method: :delete, remote: true if transaction.created_at > 1.day.ago %></span>
+</li>

@@ -99,10 +99,14 @@
     <%= link_to "Add Pickup / Chipped Skills", "#pickup-skills", class: "button add fancy" %>
   </div>
   <div class="clear"></div>
-  <div class="job-and-cash">
-    <h2>Starting Funds <%= link_to die_image, "#roll", data: { roll: "cash" } %></h2>
+  <div class="job-and-money">
+    <% if @character.new_record? %>
+      <h2>Starting Funds <%= link_to die_image, "#roll", data: { roll: "money" } %></h2>
+    <% else %>
+      <h2>Money</h2>
+    <% end %>
     <p id="job-description"></p>
-    <%= f.input :cash, as: :integer %>
+    <%= f.input :money, as: :integer, label: false %>
   </div>
 
   <div class="description">

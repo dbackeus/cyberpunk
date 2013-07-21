@@ -1,0 +1,2 @@
+$("#transaction-<%= params[:id] %>").fadeOut(function() { $(this).remove() })
+$("#character-money").html("<%= @transaction.character.money %>").formatCurrency().hide().fadeIn()

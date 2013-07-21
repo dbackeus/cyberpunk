@@ -10,7 +10,7 @@
   <span class="reliability"><%= weapon.reliability %></span>
   <span class="range"><%= weapon.range %></span>
   <input class="cost hidden" type="number"></input>
-  <span class="cost"><%= weapon.cost %></span>
+  <span class="cost"><%= eb weapon.cost %></span>
   <span class="action">
     <% if weapon.is_a?(WeaponBlueprint) %>
       <%= link_to "select", "#", class: "select-gear" %>

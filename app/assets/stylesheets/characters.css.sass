@@ -49,15 +49,18 @@ form
     padding: 20px
     .input
       margin-bottom: 2px
+    input
+      width: 3em
     label
       width: 220px
       display: block
       float: left
+      line-height: 28px
   .description
     width: 600px
     textarea
       width: 100%
-  #character_cash
+  #character_money
     width: 60px
 
 .sibling
@@ -137,6 +140,25 @@ textarea
   margin-bottom: 2em
   &.gear
     width: 900px
+  &.money
+    width: 680px
+    p.money
+      em
+        font-size: 2em
+        font-weight: normal
+        font-style: normal
+    .transactions
+      .time
+        width: 100px
+      .description
+        width: 380px
+      .amount
+        text-align: right
+        width: 110px
+      .action
+        margin-left: 10px
+      li
+        padding: 4px
 
 .stats-container
   width: 44em
@@ -150,20 +172,20 @@ textarea
   &.motivations
     max-width: 16em
 
+.header
+  font-weight: bold
+
+.zebra
+  li:nth-child(odd)
+    background: #F6F6F6
+
 .gear-table
   width: 100%
-  &.header
-    font-weight: bold
-  td, th, span, input
+  span, input
     min-width: 40px
     text-align: center
     margin: 4px
     float: left
-  tbody
-    tr:nth-child(odd)
-      background: #F6F6F6
-  li:nth-child(odd)
-    background: #F6F6F6
   .name
     text-align: left
     width: 190px
@@ -193,3 +215,6 @@ textarea
     width: 900px
   &.armors
     width: 750px
+
+input[type=number].amount
+  width: 80px

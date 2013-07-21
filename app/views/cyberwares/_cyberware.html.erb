@@ -5,7 +5,7 @@
   <input name="hl" class="hl hidden" type="number" value="<%= cyberware.hl %>"></input>
   <span class="hl"><%= cyberware.hl % 1 == 0 ? cyberware.hl.to_i : cyberware.hl %></span>
   <input name="cost" class="cost hidden" type="number"></input>
-  <span class="cost"><%= cyberware.cost %></span>
+  <span class="cost"><%= eb cyberware.cost %></span>
   <span class="action">
     <% if cyberware.is_a?(CyberwareBlueprint) %>
       <%= link_to "select", "#", class: "select-gear" %>

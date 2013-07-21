@@ -1,0 +1,24 @@
+<% @gray_style = true %>
+<% @title = "Transactions of #{@character.handle}" %>
+
+<h1><%= @title %></h1>
+
+<div class="box money">
+  <h3>Money</h3>
+  <p class="money stomp">
+    <em class="format-currency" id="character-money"><%= @character.money %></em>
+  </p>
+
+  <div id="transactions-container">
+    <h3>Transactions</h3>
+    <div class="transactions header">
+      <span class="time">Date</span>
+      <span class="description">Description</span>
+      <span class="amount">Amount</span>
+    </div>
+    <ul id="transactions-list" class="transactions zebra">
+      <%= render @character.transactions.order_by(_id: -1) %>
+    </ul>
+  </div>
+</div>
+

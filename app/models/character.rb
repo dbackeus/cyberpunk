@@ -27,6 +27,7 @@ class Character
   belongs_to :role
   has_and_belongs_to_many :campaigns
   has_and_belongs_to_many :players, class_name: "User", inverse_of: :player_characters
+  has_many :transactions, dependent: :destroy
 
   embeds_many :skills, class_name: "CharacterSkill"
   accepts_nested_attributes_for :skills
@@ -36,7 +37,7 @@ class Character
 
   field :sex, type: String
   field :handle, type: String
-  field :cash, type: Integer
+  field :money, type: Integer
 
   BASIC_ATTRIBUTES.each do |attribute|
     field attribute, type: Integer, default: 2

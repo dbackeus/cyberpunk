@@ -1,0 +1,4 @@
+var partial = $("<%=j render @transaction %>")
+partial.find(".format-currency").formatCurrency()
+partial.hide().prependTo("#transactions-list").fadeIn()
+$("#character-money").html("<%= @transaction.character.money %>").formatCurrency().hide().fadeIn()

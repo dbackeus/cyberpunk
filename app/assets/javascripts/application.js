@@ -95,7 +95,11 @@ Number.prototype.times = function(callback) {
   }
 }
 
-$(function() {
+$(document).bind("page:load", ready)
+$(ready)
+
+function ready() {
   $("textarea").autosize()
   $(".fancy").fancybox()
-})
+  $(".format-currency").formatCurrency()
+}

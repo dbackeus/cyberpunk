@@ -16,10 +16,7 @@ $(function() {
     return false
   })
   $("#random-name-button").click(function() {
-    var sex = $("#character_sex option:selected").text()
-    $.get("/characters/random_name?sex="+sex, function(data) {
-      $("#character_handle").val(data)
-    })
+    randomName()
     return false
   })
 
@@ -96,14 +93,32 @@ function refreshSkillLayout() {
 }
 
 function roll(section) {
-  if(section == "stats") rollStats()
-  if(section == "style") rollStyle()
-  if(section == "family") rollFamily()
-  if(section == "siblings") rollSiblings()
-  if(section == "motivations") rollMotivations()
-  if(section == "events") rollEvents()
-  if(section == "skills") rollSkills()
-  if(section == "cash") rollCash()
+  if(section == "everything") {
+    randomSex()
+    randomName()
+  }
+
+  if(section == "everything" || section == "stats") rollStats()
+  if(section == "everything" || section == "style") rollStyle()
+  if(section == "everything" || section == "family") rollFamily()
+  if(section == "everything" || section == "siblings") rollSiblings()
+  if(section == "everything" || section == "motivations") rollMotivations()
+  if(section == "everything" || section == "events") rollEvents()
+  if(section == "everything" || section == "skills") rollSkills()
+  if(section == "everything" || section == "money") rollStartingFunds()
+}
+
+function randomSex() {
+  var options = $("#character_sex option")
+  var random = Math.floor(options.length * (Math.random() % 1))
+  $("#character_sex option").attr("selected",false).eq(random).attr("selected",true)
+}
+
+function randomName() {
+  var sex = $("#character_sex option:selected").text()
+  $.get("/characters/random_name?sex="+sex, function(data) {
+    $("#character_handle").val(data)
+  })
 }
 
 function rollStats() {
@@ -251,7 +266,7 @@ function makePowerfulConnection() {
 
 function bigProblem() {
   switch(dice(10)) {
-    case 1: return "You made a debt of "+(dice(10) * 100)+"eb (pay now or when you have the cash)."
+    case 1: return "You made a debt of "+(dice(10) * 100)+"eb (pay now or when you have the money)."
     case 2: return "You were imprisoned or held hostage (your choice) for "+dice(10)+" months."
     case 3: return "You contracted either an illness or a drug habit. Lost 1pt of Reflexes permanently as a result."
     case 4: return betrayal()
@@ -505,7 +520,7 @@ function rollSkills() {
   refreshCareerPoints()
 }
 
-function rollCash() {
+function rollStartingFunds() {
   var selectedRole = $("#character_role_id").val()
   var currentLevel = $(".special-ability .career input").val()
 
@@ -516,14 +531,14 @@ function rollCash() {
 
   var salary = startingFunds[selectedRole][currentLevel]
   var monthsEmployed = Math.ceil(dice(6) / 3)
-  var cash = salary * monthsEmployed
+  var money = salary * monthsEmployed
   var stillEmployed = dice(6) <= 4
 
   var description = "Based on "+monthsEmployed+" months employment at salary of "+salary+"eb. "
   description += stillEmployed ? "The character is still employed." : "The character just got unemployed."
 
   $("#job-description").html(description)
-  $("#character_cash").val(cash)
+  $("#character_money").val(money)
 }
 
 function addSkill(type, data) {

@@ -24,6 +24,9 @@
   font-family: HeavyFrank
   src: asset-url("franklin_gothic_heavy.ttf", font)
 
+span
+  display: inline-block
+
 textarea
   border-color: #CCC
   padding: 4px 4px 2px 4px
@@ -114,8 +117,9 @@ div.input
     background: #e5b8b8
     border-color: #b74343
 
-input[type=number]
-  width: 3em
+input
+  min-width: 30px
+  padding: 4px
 
 .error
   color: red

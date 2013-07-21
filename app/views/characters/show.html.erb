@@ -69,6 +69,12 @@
       return hint.toF()
     }
   }
+
+  function manageMoney() {
+    $("#transactions-container").slideToggle()
+    $("#transactions-button").hide()
+    $("#transaction_amount").focus()
+  }
 </script>
 
 <h1>
@@ -121,6 +127,42 @@
 </div>
 
 <h2 class="inversed">Gear</h2>
+
+<div class="box money">
+  <h3>Money</h3>
+  <p class="money stomp">
+    <em class="format-currency" id="character-money"><%= @character.money %></em><br>
+    <%= link_to_function "manage", "manageMoney()", id: "transactions-button" if can_edit?(@character) %>
+  </p>
+
+  <div id="transactions-container" class="hidden">
+    <h3>Add Transaction</h3>
+    <p class="hint">
+      To better keep track of a characters finances add transactions whenever you receive or lose money.<br>
+      If you'd rather just edit the current money value go to the <%= link_to_function "edit page", edit_character_path(@character) %>.
+    </p>
+    <%= simple_form_for Transaction.new(character: @character), url: character_transactions_path(@character), remote: true do |f| %>
+      <%= f.input :character_id, as: :hidden %>
+      <%= f.input :amount, as: :integer, wrapper_html: { class: "left" }, input_html: { class: "amount" } %>
+      <%= f.input :description, wrapper_html: { class: "left" }, input_html: { style: "width: 380px;" } %>
+      <%= f.button :submit, "Create", class: "add stomp", style: "margin-top: 22px" %>
+      <div class="clear"></div>
+      <p class="hint stomp" style="margin-top: -10px">
+        For expenses prefix value with minus, ie -300 instead of 300.
+      </p>
+    <% end %>
+    <h3>Latest Transactions</h3>
+    <div class="transactions header">
+      <span class="time">Date</span>
+      <span class="description">Description</span>
+      <span class="amount">Amount</span>
+    </div>
+    <ul id="transactions-list" class="transactions zebra">
+      <%= render @character.transactions.limit(10).order_by(_id: -1) %>
+    </ul>
+    <%= link_to "View all transactions", character_transactions_path(@character) %>
+  </div>
+</div>
 
 <div class="gear box weapons">
   <h3>Weapons</h3>

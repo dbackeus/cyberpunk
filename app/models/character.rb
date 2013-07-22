@@ -37,7 +37,7 @@ class Character
 
   field :sex, type: String
   field :handle, type: String
-  field :money, type: Integer
+  field :money, type: Integer, default: 0
 
   BASIC_ATTRIBUTES.each do |attribute|
     field attribute, type: Integer, default: 2
@@ -75,6 +75,7 @@ class Character
   field :description, type: String
 
   validates :handle, :role, presence: true
+  validates_numericality_of :money
 
   def pc?
     player_ids.any?

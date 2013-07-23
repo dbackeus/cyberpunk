@@ -167,7 +167,6 @@ Sniper Rifles,FR-F6,RIF,+3,N,P,6d6+2,(7.62),10,2,ST,500m,1100,ES
 Sniper Rifles,WA 2001 Sniper Rifle,RIF,+3,N,R,6d6+2,(7.62C),10,1,VR,1000m,900,UK
 Sniper Rifles,Towa Type-00-Kai,RIF,+3,N,R,9d6+3AP,(7.62 ET),6,1,VR,1200m,3000,PAC
 Sniper Rifles,Set-Arasaka WSE Kajiya,RIF,+1,N,R,9d6+3AP,(7.62 ET),5,1,VR,500m,1000,SW
-Sniper Rifles,Barrett-Arasaka 20mm,HVY,+0,N,R,4d10@,(20mm)(B4),10,1,VR,450m,2000,CP20
 Sniper Rifles,Arasaka Sniper Rifle,HVY,0/+2,N,R,4d10@,(20mm),10,1,VR,450m,2800,PAC
 Sniper Rifles,Barrett M-90 Sniper Rifle,RIF,+3,N,R,6d10,(12.7 BMG),10,1,VR,1000m,1500,HoB
 Sniper Rifles,"Nomad ""Long Rifle""",RIF,+1,N,P,7d10,(15mm BMG),9,1,ST,900m,3000,NEO
@@ -182,7 +181,6 @@ Other Rifles,NorWolf Hunting Rifle,RIF,+2,N,C,2d6+1,(9mm),8,1,VR,400m,600,CGen
 Other Rifles,NorBear Hunting Rifle,RIF,+3,N,C,2d6+1,(9mm),10,1,VR,500m,1000,CGen
 Other Rifles,Calico 9mm Rifle,RIF,+1,L/N,C,2d6+1,(9mm C),50/100,2,VR,400m,650,NEO
 Other Rifles,H&K HK77UK,RIF,+1,L,P,2d6+4,(9mm Long),30,3/30,VR,250m,750+,SOF2
-Other Rifles,"""Personal Weapon""",RIF,+1,L,P,,(10mm to 12mm),50,2/3,VR,200m,500,NEO
 Other Rifles,Nomad .44 Mag Lever,RIF,+1,L,C,4d6+2,(.44 C),8,2,VR,200m,650,NEO
 Other Rifles,Winchester M70,RIF,+3,N,C,5d6+1,(30-06),5,1,VR,500m,250,CP20
 Other Rifles,M-99 EVAW,RIF,+5,N,R,6d6AP,(12mm R),30,2,ST,400m,5000,HoB
@@ -247,3 +245,85 @@ Grenade Launchers,M-212 Grenade launcher,HVY,+1,M,P,,(40mm),8,2,VR,200m,500,HoB
 Grenade Launchers,Towa Type-9 GL,HVY,+0,N,P,,(40mm),8,2,VR,200m,750,PAC
 Grenade Launchers,Militech RPG-A,HVY,-2,N,R,6d10[HEAT]{4m},,1,1,VR,750m,1500,MM
 Grenade Launchers,Militech RPG-B,HVY,-2,N,R,9d10[HEAT]{4m},,1,1,VR,500m,1500,MM
+Exotic Weapons,APEX Mobile Defense,HVY,X,N,P,2d6+4,(9mm LC),400,40,ST,200m,"10,000",Chr1
+Exotic Weapons,"Arasaka ""Nauseator""",EX,+0,N,P,BODv25,,10,1,ST,15m,1900,Chr2
+Exotic Weapons,Arasaka Restraint Caster,P,-1,J,P,Tangle,(15mm),4,1,ST,25m,200,P&S
+Exotic Weapons,Arasaka WXA Sentry,HVY,+0,N,R,6d6+2,(7.62mm),500,20,VR,400m,3000,CB1
+Exotic Weapons,Arasaka EMF Launcher,HVY,-2,L,P,10d10,(special),1,1,ST,100m,550,SW
+Exotic Weapons,Avante Needlegun,P,+0,P,P,Drugs,(Needle),15,2,ST,40m,200,CP20
+Exotic Weapons,Dynatech Hand Taser,EX,+0,P,E,Stun-2/1d10mins,,12,1,VR,Touch,50,DS
+Exotic Weapons,Enertex Power Squirt,P,-2,J,C,Drugs,,50,1,VR,10m,15,CP20
+Exotic Weapons,Kendachi Dragon,EX,+0,J,P,2d6x2/1d6x1,,4,1,ST,4m,660,Chr1
+Exotic Weapons,Kendachi Flamer v2,EX,+0,N,P,3d6x2/1d6x1,,8,1,ST,8m,990,MM
+Exotic Weapons,Malorian Sliver Gun,P,+0,J,P,2d6x1d6/2*,(Sliver),7,2,UR,40m,372,Chr1
+Exotic Weapons,Militech Cap-Laser,SMG,+0,J,R,1-5d6,,8,2,UR,150m,6000,CGen
+Exotic Weapons,Militech Laser Cannon,RIF,+0,N,R,1-5d6,,10,2,UR,200m,8000,CP20
+Exotic Weapons,Militech Stun Knuks,EX,+0,P,C,Stun-2,,6,1,ST,1m,100,Chr4
+Exotic Weapons,Militech Taser,P,-1,J,C,Stun-2,,10,1,ST,10m,60,CP20
+Exotic Weapons,Militech Taser 2,EX,+0,P,C,Stun-3,,4,2,VR,Touch,100,Chr2
+Exotic Weapons,Mitsubishi Taser,P,+0,J,P,Stun-1/2d6mins,,12,1,ST,5m,100,DS
+Exotic Weapons,Mystic Tech Arrow Gun,RIF,+1,J/L,C,3d6*,,1,1,ST,70m,1000,SOF2
+Exotic Weapons,"Nelspot ""Wombat""",P,-1,J,C,Drugs,,20,2,UR,40m,200,CP20
+Exotic Weapons,Nomad Boomerang,EX,-1,L,P,2d6,,1,1,VR,30m,20,NEO
+Exotic Weapons,Nomad Sling,EX,+0,P,P,1/2d6,,1,1,VR,20m,10,NEO
+Exotic Weapons,Petrochem Drug-A-Thug,EX,+0,P,C,Chemical,,5,1,VR,Touch,150,Chr2
+Exotic Weapons,Pneumatic Bolt Gun,EX,-1,N,R,3d6AP,(Bolt),4,1,ST,25m,350,NEO
+Exotic Weapons,Polymer Slingshot,EX,-1,P,E,1d6/2,(ball),20,1,ST,25m,10,CGen
+Exotic Weapons,Pursuit Beanbag Gun,P,-2,J,E,Stun,,1,1,ST,3m,100,SOF2
+Exotic Weapons,Pursuit Stundart Pistol,P,-1,J,C,Stun-1,(.45 LVD),2,2,VR,50m,109,Chr1
+Exotic Weapons,Pursuit Webgun,RIF,+1,N,C,Entangle,,1,1,ST,30m,250,Chr2
+Exotic Weapons,Pursuit Taser Webgun,RIF,+0,N,C,Entangle+Stun-2,,1,1,ST,25m,350,Chr2
+Exotic Weapons,Pursuit Det-Webgun,RIF,+0,N,C,Entangle+40AP,,1,1,ST,25m,450,Chr2
+Exotic Weapons,Shock Touch Gloves,EX,+0,P,C,Stun,,4,1,ST,1m,120,Chr4
+Exotic Weapons,Skunker,EX,-1,P,E,Gas,,4,1,VR,2m,70,Chr2
+Exotic Weapons,Splatman Airpistol,EX,+0,J,C,Special,,20,2,ST,40m,200,CGen
+Exotic Weapons,"Streettech ""Burst""",SHT,-1/-3,P,E,2d6+1,(28ga),1,1,VR,3m,33/40,P&S
+Exotic Weapons,Techtron 15 Microwaver,P,+0,J,P,1d6+special,,10,2,VR,20m,400,CP20
+Exotic Weapons,Techtron 20 Microwaver,P,+0,J,P,1d6+special,,15,2,VR,25m,500,Chr2
+Exotic Weapons,Techtronica Black-Zap,EX,+0,P,C,Stun-2,,6,1,ST,1m,90,Chr1
+Exotic Weapons,"Techtronica M40 ""Pulse""",RIF,+0,N,R,EMP,(SW),6,0.5,ST,50m,3500,Chr2
+Exotic Weapons,Techtronica Volt Pistol,P,+1,J,R,3d6+special,,6,1,ST,25m,960,Chr2
+Exotic Weapons,"Tsunami ""Airhammer""",P,+1,J,Var,Special,(5.3mm),5/7,2,ST,50m,325/400,Chr2
+Exotic Weapons,Tsunami UB CapLaser,RIF,+2,-,R,3d6,,2,2,UR,25m,950,Chr2
+Exotic Weapons,Tsunami UB Microwaver,EX,+0,-,P,1d6+special,,4,2,ST,20m,500,Chr2
+Exotic Weapons,"UrbanTech ""Lance""",HVY,+2,P,C,4d6HEAT,(Missile),1,1,UR,300m,100,SOF2
+Exotic Weapons,Urban Tech â€œStakerâ€,RIF,+0,N,R,4d10,(special),10,1,VR,50m,1000,NE
+Exotic Weapons,U-barrel Sharpwire Net,EX,+2,N,P,Net,,1,1,ST,10m,430,Chr2
+Exotic Weapons,Zapman Taser Pistol,P,+0,J,P,Stun-1,,10,2,VR,50m,60,CGen
+Exotic Weapons,Gauss Field Projector,HVY,+2,N,R,Magnetic,,10,1,ST,-,10000,Chr2
+Exotic Weapons,Hypo Speargun,EX,+0,N,P,1d6*+gas,,1,1,VR,40m,200,SA
+Exotic Weapons,Soundwand,EX,+0,P,P,Special,,-,1,VR,20ft,600,SA
+Exotic Weapons,Cinder Flamer,RIF,-1,N,R,3d10/2turns,,2,1,ST,25m,600,NE
+Bows & Crossbows,Arasaka Arms Half-Bow,BOW,-1,L,P,3d6,,12,1,VR,100m,100,SOF2
+Bows & Crossbows,"Eagletech ""WIldcat""",BOW,+0,N,E,3d6,,12,1,VR,100m,35,SOF2
+Bows & Crossbows,"Eagletech ""Tomcat""",BOW,+0,N,C,4d6,,12,1,VR,150m,150,SOF2
+Bows & Crossbows,Cougar Lamilar Hunting,BOW,+1,N,C,5d6,,12,1,VR,150m,150,CGen
+Bows & Crossbows,"Eagletech ""Tigercat""",BOW,+1,N,P,6d6,,12,1,VR,150m,500,SOF2
+Bows & Crossbows,"Eagletech ""Bearcat""",BOW,+1,N,P,6d6,,12,1,VR,150m,500,SOF2
+Bows & Crossbows,Nomad Hand Crossbow,XBO,+0,N,R,1d6+1AP,,1,1,ST,20m,100,NEO
+Bows & Crossbows,"Eagletech ""Handbow""",XBO,-1,J,E,1d6+2,,12,1,VR,25m,75,SOF2
+Bows & Crossbows,"Eagletech ""Stryker""",XBO,-1,N,C,3d6+3,,12,1,VR,50m,220,SOF2
+Bows & Crossbows,"Eagletech ""Arbelest""",XBO,+0,N,P,5d6,,12,1/2,VR,150m,500,SOF2
+Bows & Crossbows,"Eagletech ""Scorpion""",XBO,+0,N,P,7d6,,6,1/2,VR,200m,1500,SOF2
+Melee Weapons,Switchblade,MEL,+0,P,C,1d6/2*,,-,-,-,1m,15,CP20
+Melee Weapons,Club,MEL,+0,L,C,1d6,,-,-,-,1m,2,CP20
+Melee Weapons,Knife,MEL,+0,P,C,1d6*,,-,-,-,Throw,1-20,CP20
+Melee Weapons,Bayonet/Survival Knife,MEL,+0,J,C,1d6*,,-,-,VR,0.5m,50,NEO
+Melee Weapons,Mystic Tech Spring Knife,MEL,+0,P,C,1d6*,,-,-,ST,5m,125,Chr2
+Melee Weapons,Smartwhip,MEL,+0,J,C,1d6+2,,-,-,ST,1m,600,NEO
+Melee Weapons,Combat Knife,MEL,+1,J,P,1d6+3*,,-,-,-,1m,70,PAC
+Melee Weapons,Kendachi Monowhip,MEL,+0,J,P,2d6#,,-,-,ST,1-3m,350,Chr2
+Melee Weapons,"IMI ""Chainknife""",MEL,+0,J,P,2d6+1*,,-,-,VR,1m,120,Chr2
+Melee Weapons,Sword,MEL,+0,N,C,2d6+2*,,-,-,-,1m,20-200,CP20
+Melee Weapons,Excalibur Nightstick,MEL,+0,J,P,2d6+3,,-,-,VR,1m,80,P&S
+Melee Weapons,Axe,MEL,-1,N,C,2d6+3*,,-,-,-,1m,20,CP20
+Melee Weapons,Machete,MEL,+0,L,C,3d6*,,-,-,VR,1m,30,NE
+Melee Weapons,Monosword Cane,MEL,+1,L,P,3d6#,,-,-,VR,1m,255,SOF2
+Melee Weapons,Monowire,MEL,+0,P,R,3d6#,,-,-,VR,1m,60/m,Chr2
+Melee Weapons,Sledgehammer,MEL,-1,N,C,4d6,,-,-,-,1m,20,CP20
+Melee Weapons,Chainsaw,MEL,-3,N,C,4d6*,,-,-,-,2m,80,CP20
+Melee Weapons,Kendachi Monoknife,MEL,+1,P,P,2d6#,,-,-,VR,1m,200,CP20
+Melee Weapons,Nunchaku,MEL,+0,L,C,3d6,,-,-,-,1m,15,CP20
+Melee Weapons,Naginata,MEL,+0,N,P,3d6*,,-,-,-,2m,100,CP20
+Melee Weapons,Kendachi MonoNaginata,MEL,+0,N,R,4d6#,,-,-,VR,2m,400,CP20
+Melee Weapons,Kendachi MonoKatana,MEL,+1,N,R,4d6#,,-,-,VR,1m,600,CP20

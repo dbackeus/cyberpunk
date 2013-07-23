@@ -24,6 +24,7 @@ headers = csv_data.shift.collect(&:to_s)
 string_data = csv_data.collect { |row| row.collect(&:to_s) }
 weapons = string_data.map { |row| Hash[*headers.zip(row).flatten] }
 
+WeaponBlueprint.destroy_all
 weapons.each do |attributes|
   WeaponBlueprint.create!(attributes)
 end

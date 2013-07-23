@@ -1,6 +1,7 @@
 <% resource_name = @resource.class.to_s.underscore.pluralize %>
 var partial = $("<%=j render @resource %>")
 $("#<%= resource_name %>-table .header").fadeIn()
+partial.find(".format-currency").formatCurrency()
 partial.hide().appendTo("#<%= resource_name %>-table").fadeIn()
-$.fancybox.close()
 $("#character-money").html("<%= @resource.character.money %>").formatCurrency().hide().fadeIn()
+$.fancybox.close()

@@ -337,25 +337,25 @@ Eagletech "Arbelest"         XBO     +0      N      P     5d6                   
 Eagletech "Scorpion"         XBO     +0      N      P     7d6                     6         1/2         VR     200m     1500     SOF2
 
 MELEE WEAPONS
-Switchblade                  MEL     +0     P     C       1d6/2*                  -         -           -      1m       15       CP20
-Club                         MEL     +0     L     C       1d6                     -         -           -      1m       2        CP20
-Knife                        MEL     +0     P     C       1d6*                    -         -           -      Throw    1-20     CP20
-Bayonet/Survival Knife       MEL     +0     J     C       1d6*                    -         -           VR     0.5m     50       NEO
-Mystic Tech Spring Knife     MEL     +0     P     C       1d6*                    -         -           ST     5m       125      Chr2
-Smartwhip                    MEL     +0     J     C       1d6+2                   -         -           ST     1m       600      NEO
-Combat Knife                 MEL     +1     J     P       1d6+3*                  -         -           -      1m       70       PAC
-Kendachi Monowhip            MEL     +0     J     P       2d6#                    -         -           ST     1-3m     350      Chr2
-IMI "Chainknife"             MEL     +0     J     P       2d6+1*                  -         -           VR     1m       120      Chr2
-Sword                        MEL     +0     N     C       2d6+2*                  -         -           -      1m       20-200   CP20
-Excalibur Nightstick         MEL     +0     J     P       2d6+3                   -         -           VR     1m       80       P&S
-Axe                          MEL     -1     N     C       2d6+3*                  -         -           -      1m       20       CP20
-Machete                      MEL     +0     L     C       3d6*                    -         -           VR     1m       30       NE
-Monosword Cane               MEL     +1     L     P       3d6#                    -         -           VR     1m       255      SOF2
-Monowire                     MEL     +0     P     R       3d6#                    -         -           VR     1m       60/m     Chr2
-Sledgehammer                 MEL     -1     N     C       4d6                     -         -           -      1m       20       CP20
-Chainsaw                     MEL     -3     N     C       4d6*                    -         -           -      2m       80       CP20
-Kendachi Monoknife           MEL     +1     P     P       2d6#                    -         -           VR     1m       200      CP20
-Nunchaku                     MEL     +0     L     C       3d6                     -         -           -      1m       15       CP20
-Naginata                     MEL     +0     N     P       3d6*                    -         -           -      2m       100      CP20
-Kendachi MonoNaginata        MEL     +0     N     R       4d6#                    -         -           VR     2m       400      CP20
-Kendachi MonoKatana          MEL     +1     N     R       4d6#                    -         -           VR     1m       600      CP20
+Switchblade                  MEL     +0     P     C       1d6/2*                  -         1           -      1m       15       CP20
+Club                         MEL     +0     L     C       1d6                     -         1           -      1m       2        CP20
+Knife                        MEL     +0     P     C       1d6*                    -         1           -      Throw    1-20     CP20
+Bayonet/Survival Knife       MEL     +0     J     C       1d6*                    -         1           VR     0.5m     50       NEO
+Mystic Tech Spring Knife     MEL     +0     P     C       1d6*                    -         1           ST     5m       125      Chr2
+Smartwhip                    MEL     +0     J     C       1d6+2                   -         1           ST     1m       600      NEO
+Combat Knife                 MEL     +1     J     P       1d6+3*                  -         1           -      1m       70       PAC
+Kendachi Monowhip            MEL     +0     J     P       2d6#                    -         1           ST     1-3m     350      Chr2
+IMI "Chainknife"             MEL     +0     J     P       2d6+1*                  -         1           VR     1m       120      Chr2
+Sword                        MEL     +0     N     C       2d6+2*                  -         1           -      1m       20-200   CP20
+Excalibur Nightstick         MEL     +0     J     P       2d6+3                   -         1           VR     1m       80       P&S
+Axe                          MEL     -1     N     C       2d6+3*                  -         1           -      1m       20       CP20
+Machete                      MEL     +0     L     C       3d6*                    -         1           VR     1m       30       NE
+Monosword Cane               MEL     +1     L     P       3d6#                    -         1           VR     1m       255      SOF2
+Monowire                     MEL     +0     P     R       3d6#                    -         1           VR     1m       60/m     Chr2
+Sledgehammer                 MEL     -1     N     C       4d6                     -         1           -      1m       20       CP20
+Chainsaw                     MEL     -3     N     C       4d6*                    -         1           -      2m       80       CP20
+Kendachi Monoknife           MEL     +1     P     P       2d6#                    -         1           VR     1m       200      CP20
+Nunchaku                     MEL     +0     L     C       3d6                     -         1           -      1m       15       CP20
+Naginata                     MEL     +0     N     P       3d6*                    -         1           -      2m       100      CP20
+Kendachi MonoNaginata        MEL     +0     N     R       4d6#                    -         1           VR     2m       400      CP20
+Kendachi MonoKatana          MEL     +1     N     R       4d6#                    -         1           VR     1m       600      CP20

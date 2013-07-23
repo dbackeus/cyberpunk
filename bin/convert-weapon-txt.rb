@@ -4,6 +4,7 @@
 #line = "H&K P-11                     P       +0     J     P       4d6+1 (6mmRkt)          5         1           VR     50m      700      ES"
 #line = 'IMI "Gamdaii" GL       HVY           +0     N     E       (25mm/10ga)             1         1           ST     100m     950      SOF2'
 
+require 'csv'
 
 weapons = File.open("db/weapons.txt") do |file|
   current_category = ""

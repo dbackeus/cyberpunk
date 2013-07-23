@@ -2,11 +2,14 @@ class ArmorsController < ApplicationController
   before_filter :authenticate_user!, except: :show
 
   def create
-    @armor = character.armors.create!(params.require(:item).permit!)
+    @resource = character.armors.create!(params.require(:item).permit!)
+    render "shared/item_create"
   end
 
   def destroy
-    character.armors.find(params[:id]).destroy
+    @resource = character.armors.find(params[:id])
+    @resource.destroy
+    render "shared/item_destroy"
   end
 
   private

@@ -10,7 +10,7 @@
     $(".select-gear").click(function() {
       var row = $(this).closest('li')
 
-      var costSuggestion = costFromHint(row.find("span.cost").html())
+      var costSuggestion = costFromHint(row.data().cost.toString())
       row.find('input.cost').val(costSuggestion).show()
 
       if(row.find("span.hl").length > 0) {
@@ -342,7 +342,7 @@
 
   <div id="cyberwares-dialogue" class="dialogue cyberware">
     <ul class="cyberware-categories">
-      <% CyberwareBlueprint.all.group_by(&:category).each do |category, cyberwares| %>
+      <% CyberwareBlueprint.all.group_by(&:category).sort.each do |category, cyberwares| %>
         <li>
           <h3><%= category.titleize %></h3>
           <div class="gear-table cyberware header">

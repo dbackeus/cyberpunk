@@ -1,5 +1,6 @@
 class Armor
   include Mongoid::Document
+  include Mixins::Purchesable
 
   def self.delegatable_fields
     @delegatable_fields ||= ArmorBlueprint.fields.keys - %w[_id _type cost]

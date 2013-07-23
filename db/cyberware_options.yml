@@ -1,506 +1,507 @@
+---
 - name: Kerenzikov Boosterware
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Adds +1 to Initiative rolls.
   cost: 500
   hl: 1D6
 - name: Kerenzikov Boosterware 2
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Adds +2 to Initiative rolls.
   cost: 500
   hl: 2D6
 - name: Speedware (Sandevistan)
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Adds +3 to Initiative rolls for 5 turns.
   cost: 1600
   hl: 1D6/2
 - name: Tactile Boost
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Increased sensitivity. +2 on any touch Awareness check.
   cost: 100
   hl: 2
 - name: Olifactory Boost
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Increase Awareness via smell by +2. Allows scent tracking.
   cost: 100
   hl: 2
 - name: Pain Editor
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Tunes out hot, cold, pain.
   cost: 200
   hl: 2D6
 - name: Cybermodem Link
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Allows direct connection to a cybermodem.
   cost: 100
   hl: 1
 - name: Vehicle Link
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: For direct vehicle operation only.
   cost: 100
   hl: 3
 - name: Smartgun Link
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: For direct smartweapon operationonly.
   cost: 100
   hl: 2
 - name: Machine/Tech Link
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Allows control of autofactories, large & small machines.
   cost: 100
   hl: 2
 - name: DataTerm Link
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Allows downloading from DataTerms to internal memory.
   cost: 100
   hl: 2
 - name: Interface plugs
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: M
   description: Allows direct connection to smart weapons, vehicles.
   cost: 200
   hl: 1D6
 - name: Chipware Socket
-  category: Neuralware
+  category: Neuralware Options
   surgery_level: N
   description: Allows up to 10 chips to be loaded.
   cost: 200
   hl: 1D6/2
 - name: Color Shift
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: Allows color changes, special fashion effects.
   cost: 300
   hl: 0.5
 - name: Image Enhancement
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: +2 Awareness when using visual search.
   cost: 300
   hl: 1
 - name: Targeting Scope
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: +1 on all smartgun attacks.
   cost: 400
   hl: 2
 - name: Times Square Marquee
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: LED Screen in vision field for messages.
   cost: 300
   hl: 1
 - name: Teleoptics
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: Telescope ability to 20x
   cost: 150
   hl: 0.5
 - name: Micro-optics
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: Microscope.
   cost: 150
   hl: 0.5
 - name: Anti Dazzle
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: Immune to flash, laser blinding.
   cost: 200
   hl: 0.5
 - name: LowLite™
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: See in dim light, almost total darkness.
   cost: 200
   hl: 0.5
 - name: Thermograph Sensor
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: See heat patterns, temperature readings.
   cost: 200
   hl: 1
 - name: Infrared
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: See in total darkness, using heat emissions.
   cost: 200
   hl: 1
 - name: Ultraviolet
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: See in darkness, using UV flash.
   cost: 200
   hl: 1
 - name: MicroVideo Optic
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: Video record up to 20min.
   cost: 300
   hl: 0.5
   size: 2
 - name: Digital Camera
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: Digital Camera, shoots up to 20 images.
   cost: 300
   hl: 0.5
   size: 2
 - name: Dartgun
-  category: Cyberoptic
+  category: Cyberoptic Options
   surgery_level: N
   description: Poison weapon. Holds 1 dart.
   cost: 200
   hl: 2
   size: 3
 - name: Amplified Hearing
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: +1 Awareness when using auditory cues.
   cost: 200
   hl: 1
 - name: Radio Link
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Radio communication up to 1 mile.
   cost: 100
   hl: 1
 - name: Phone Splice
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Full Cellular communication (large city only).
   cost: 150
   hl: 1
 - name: Scrambler
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Cannot overhear communications w/o descrambler.
   cost: 100
   hl: 0.5
 - name: Bug Detector
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Detect taps, bugs up to 3m. 60% effective.
   cost: 200
   hl: 0.5
 - name: Voice Stress Analyser
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Lie detector. +2 to Human Perception, Interrogation skills.
   cost: 200
   hl: 1
 - name: Sound Editing
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: +2 to Awareness to overhear one specific conversation.
   cost: 150
   hl: 0.5
 - name: Enhanced Hearing Range
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Ability to hear supersonic, subsonic ranges.
   cost: 150
   hl: 2
 - name: Wearman™
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Stereo music system.
   cost: 100
   hl: 0.5
 - name: Radar Detector
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Beeps if radar beam is encountered, fixes source (40%).
   cost: 150
   hl: 0.5
 - name: Homing Tracer
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Can follow tracer up to 1km distant.
   cost: 200
   hl: 0.5
 - name: Tight Beam Radio Link
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Allows untappable radio communication within line of sight.
   cost: 200
   hl: 1
 - name: Wide Band Radio Scanner
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Will pick up all transmissions on all bands. A scanner.
   cost: 100
   hl: 2
 - name: Micro-recorder Link
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Transmits to recorder in body or via plugs.
   cost: 100
   hl: 0.5
 - name: Digital Recording Link
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Transmits sounds to a digital recorder.
   cost: 100
   hl: 0.5
 - name: Level Damper
-  category: Cyberaudio
+  category: Cyberaudio Options
   surgery_level: N
   description: Automatic noise compensation.
   cost: 300
   hl: 0.5
 - name: Quick Change Mount
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Allows 1 turn changing of cyberwear.
   cost: 200
   hl: 2
 - name: Hydraulic Rams
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Increase limb SDP to 30, 3x normal damages.
   cost: 200
   hl: 3
 - name: Thickened Myomar
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Increase limb SDP to 25, 2x normal damage. +50% on leaps.
   cost: 250
   hl: 2
 - name: Reinforced Joints
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Increase limb SDP by +5.
   cost: 200
   hl: 1
 - name: Artificial Shoulder Mount
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: CR
   description: Mount extra arms (2) below first set. 1 only.
   cost: 1500
   hl: 2D6
 - name: Microwave / EMP Shielding
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Limb is unaffected by Microwave side effects.
   cost: 300
   hl: 1
 - name: Plastic Covering
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: In colors, transparent, etc.
   cost: 1-200
   hl: 1
 - name: RealSkinn™
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Limb looks real. Lowers HC by 1D6/2.
   cost: 200
   hl: -1D6/2
 - name: Superchrome®
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Highgloss metallic covering.
   cost: 200
   hl: 3
 - name: Armor
-  category: Cyberlimb
+  category: Cyberlimb Options
   surgery_level: N
   description: Armors Cyberlimb to SP20.
   cost: 200
   hl: 1D6
 - name: Standard Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Resembles normal hand.
   cost: 150
   hl: 0
 - name: Ripper Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Standard hand with rippers built in.
   cost: 600
   hl: 2D6
 - name: Hammer Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Hydraulic Ram fist does 1D10 damage.
   cost: 600
   hl: 2D6
 - name: Buzz Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Wire circular saw. 2D6+2 damage, soft armor reduced.
   cost: 600
   hl: 2D6
 - name: Tool Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Fingers contain screwdriver, wrench, small drill, etc.
   cost: 200
   hl: 2
 - name: Grapple Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Extends rocket-propelled grapple, 100' line.
   cost: 350
   hl: 3
 - name: Extension Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Hand extends on collapsable sleeve up to 1m.
   cost: 350
   hl: 2
 - name: Spike Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Palm spike extends through fingers. 1D6+3 AP damage.
   cost: 500
   hl: 2D6
 - name: Modular Hand
-  category: Cyberarm
+  category: Cyberlimb Options
   surgery_level: N
   description: Choose any 4 modular tools.
   cost: 600
   hl: 2
 - name: Standard Foot
-  category: Cyberleg
+  category: Cyberlimb Options
   surgery_level: N
   description: Resembles normal foot.
   cost: 200
   hl: 0
 - name: Talon Foot
-  category: Cyberleg
+  category: Cyberlimb Options
   surgery_level: N
   description: Extends toe blades. 1D6 damage (AP=knife).
   cost: 600
   hl: 2D6
 - name: Tool Foot
-  category: Cyberleg
+  category: Cyberlimb Options
   surgery_level: N
   description: Toes contain scredriver, wrench, small drill, etc.
   cost: 300
   hl: 2
 - name: Web Foot
-  category: Cyberleg
+  category: Cyberlimb Options
   surgery_level: N
   description: Double swimming speed. +3 to swim skill.
   cost: 500
   hl: 2
 - name: Grip Foot
-  category: Cyberleg
+  category: Cyberlimb Options
   surgery_level: N
   description: Designed for better gripping strength. +2 to Climb
   cost: 500
   hl: 2
 - name: Spike Heel Foot
-  category: Cyberleg
+  category: Cyberlimb Options
   surgery_level: N
   description: Heel spike for climbing or lethal kicks. 2D6 AP damage.
   cost: 500
   hl: 2D6
 - name: AV Tape Recorder
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: 2 hour micro casette storage, needs external pickup.
   cost: 250
   hl: 1
 - name: Cybermodem
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Built in cyberdeck.
   cost: 3000
   hl: 1
 - name: Cybermodem (cellular)
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Built in cellular cyberdeck.
   cost: 5000
   hl: 1
 - name: Digital recorder
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Digital Chip recorder. Must download or erase chip.
   cost: 300
   hl: 1
 - name: Storage Space
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: 2"x6" storage space. Can be locked.
   cost: 50
   hl: 0.5
 - name: MiniCam
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Pop up Digital Camera (20 shots).
   cost: 200
   hl: 2
 - name: MiniVid
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Pop up Mini video (30 minutes).
   cost: 400
   hl: 2
 - name: Hidden Holster
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Weapon size based on Body Type.
   cost: 100
   hl: 1
 - name: LCD Screen Readout
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Can be linked to any output devise.
   cost: 200
   hl: 1
 - name: Techscanner
-  category: Built Ins
+  category: Cyberlimb Built Ins
   surgery_level: N
   description: Similar to regular techscanner item.
   cost: 400
   hl: 3
 - name: Grenade Launcher
-  category: Cyberweapons
+  category: Cyberlimb Weapons
   surgery_level: N
   description: Weapon. Carries 1 grenade of any type.
   cost: 500
   hl: 2D6
 - name: Micro-Missile Launcher
-  category: Cyberweapons
+  category: Cyberlimb Weapons
   surgery_level: N
   description: Weapon. Fires 4 mini-missiles, 4D6 damage each.
   cost: 900
   hl: 2D6
 - name: Popup Gun
-  category: Cyberweapons
+  category: Cyberlimb Weapons
   surgery_level: N
   description: Weapon. Size based on Body Type.
   cost: 2-800
   hl: 2D6
 - name: Flame Thrower
-  category: Cyberweapons
+  category: Cyberlimb Weapons
   surgery_level: N
   description: Weapon. Damage 2D6 1st turn, 1D6/2 2 turns after.
   cost: 600
   hl: 2D6
 - name: Weapon Mount & Link
-  category: Cyberweapons
+  category: Cyberlimb Weapons
   surgery_level: N
   description: Mounting plate plus neural link for 1 weapon.
   cost: 100
   hl: 3
 - name: 2 shot Capacitor Laser
-  category: Cyberweapons
+  category: Cyberlimb Weapons
   surgery_level: N
   description: Shoulder mounted. As a laser, only smaller. 3D6 damage.
   cost: 800

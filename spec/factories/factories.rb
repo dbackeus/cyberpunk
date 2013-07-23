@@ -25,4 +25,10 @@ FactoryGirl.define do
     handle "Sweetness"
     role
   end
+
+  factory :weapon_blueprint do
+    name
+    category "Small Pistols"
+    type "P"
+  end
 end

@@ -22,4 +22,6 @@ class CyberwareBlueprint < ItemBlueprint
   field :hl, type: String # humanity loss
   field :option_categories, type: Array, default: []
   field :option_limit, type: Integer # 4
+  field :is_option, type: Boolean, default: false
+  field :size, type: Integer, default: 1 # if option - amount of option spaces used
 end

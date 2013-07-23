@@ -1,11 +1,11 @@
-<li class="cyberware" id="cyberware-<%= cyberware.id %>" data-blueprint-id="<%= cyberware.id %>" data-item-resource="cyberwares">
+<li class="cyberware" id="cyberware-<%= cyberware.id %>" data-blueprint-id="<%= cyberware.id %>" data-item-resource="cyberwares" data-cost="<%= cyberware.cost %>">
   <span class="name"><%= cyberware.name %></span>
   <span class="description"><%= cyberware.description %></span>
   <span class="surgery_level"><%= cyberware.surgery_level %></span>
   <input name="hl" class="hl hidden" type="number" value="<%= cyberware.hl %>"></input>
   <span class="hl"><%= cyberware.hl % 1 == 0 ? cyberware.hl.to_i : cyberware.hl %></span>
   <input name="cost" class="cost hidden" type="number"></input>
-  <span class="cost"><%= eb cyberware.cost %></span>
+  <span class="cost format-currency"><%= cyberware.cost %></span>
   <span class="action">
     <% if cyberware.is_a?(CyberwareBlueprint) %>
       <%= link_to "select", "#", class: "select-gear" %>

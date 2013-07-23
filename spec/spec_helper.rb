@@ -13,7 +13,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
 
   # ## Mock Framework
@@ -39,7 +39,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  config.before(:each) do
+  config.before do
     Mongoid.default_session.collections.each do |collection|
       collection.find.remove_all unless collection.name == "system.indexes"
     end

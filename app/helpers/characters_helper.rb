@@ -1,5 +1,6 @@
 module CharactersHelper
   def can_edit?(character)
+    return false unless user_signed_in?
     character.played_by?(current_user) || current_membership.referee? || character.creator_id == current_user.id
   end
 

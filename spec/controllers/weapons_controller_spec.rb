@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe WeaponsController do
-  render_views
-
   let(:campaign) { create(:campaign) }
   let(:user) { campaign.memberships.first.user }
   let(:character) { create(:character, creator: user) }

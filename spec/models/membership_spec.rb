@@ -9,7 +9,7 @@ describe Membership do
   end
 
   specify "#created_at should default to now" do
-    Time.stub!(:now).and_return(Time.at(0).utc)
+    allow(Time).to receive(:now).and_return(Time.at(0).utc)
     Membership.new.created_at.should == Time.at(0).utc
   end
 

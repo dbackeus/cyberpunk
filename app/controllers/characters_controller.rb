@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
   before_filter :authenticate_user!, except: :show
+  skip_before_action :verify_authenticity_token, only: :character_creation
 
   def index
     @user_characters = Character.where(creator: current_user)

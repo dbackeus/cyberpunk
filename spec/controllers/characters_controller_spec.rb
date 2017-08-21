@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe CharactersController do
-  render_views
-
   let(:character) { create(:character) }
 
   describe "GET #show" do

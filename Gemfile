@@ -38,6 +38,10 @@ group :development, :test do
   gem "factory_girl_rails"
 end
 
+group :test do
+  gem "database_cleaner"
+end
+
 group :production do
   # needed for heroku https://devcenter.heroku.com/articles/rails4
   gem "rails_12factor"

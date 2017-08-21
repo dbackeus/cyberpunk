@@ -48,7 +48,7 @@ class CampaignsController < ApplicationController
       end
     else
       session["user_return_to"] = join_campaign_path(campaign)
-      redirect_to user_omniauth_authorize_path(:google_oauth2)
+      redirect_to user_google_oauth2_omniauth_authorize_path
     end
   end
 

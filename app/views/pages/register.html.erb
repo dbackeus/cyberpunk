@@ -5,7 +5,7 @@
     Cyberpunk.NET is an open source community driven site to help <%= link_to "Cyberpunk 2020", "https://en.wikipedia.org/wiki/Cyberpunk_2020", target: "_blank" %> players run their campaigns.
   </p>
 
-  <%= link_to "Sign in with your Google Account", user_omniauth_authorize_path(:google_oauth2), class: "button stomp" %>
+  <%= link_to "Sign in with your Google Account", user_google_oauth2_omniauth_authorize_path, class: "button stomp" %>
 
   <p>
     Oh, and if you're a netrunner and you think you can contribute; check out the <%= link_to "source code", "https://github.com/dbackeus/cyberpunk", target: "_blank" %> at Github.

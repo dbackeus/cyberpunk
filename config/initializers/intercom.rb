@@ -1,56 +1,78 @@
 IntercomRails.config do |config|
   # == Intercom app_id
   #
-  config.app_id = ENV["INTERCOM_APP_ID"]
+  config.app_id = ENV["INTERCOM_APP_ID"] || "md3aw760"
 
+  # == Intercom session_duration
+  #
+  # config.session_duration = 300000
   # == Intercom secret key
-  # This is required to enable secure mode, you can find it on your Intercom
-  # "security" configuration page.
+  # This is required to enable secure mode, you can find it on your Setup
+  # guide in the "Secure Mode" step.
   #
-  config.api_secret = ENV["INTERCOM_API_SECRET"]
+  # config.api_secret = "..."
 
-  # == Intercom API Key
-  # This is required for some Intercom rake tasks like importing your users;
-  # you can generate one at https://www.intercom.io/apps/api_keys.
+  # == Enabled Environments
+  # Which environments is auto inclusion of the Javascript enabled for
   #
-  config.api_key = ENV["INTERCOM_API_KEY"]
+  config.enabled_environments = ["development", "production"]
 
-  # == Curent user name
+  # == Current user method/variable
   # The method/variable that contains the logged in user in your controllers.
   # If it is `current_user` or `@user`, then you can ignore this
   #
   # config.user.current = Proc.new { current_user }
+  # config.user.current = [Proc.new { current_user }]
+
+  # == Include for logged out Users
+  # If set to true, include the Intercom messenger on all pages, regardless of whether
+  # The user model class (set below) is present. Only available for Apps on the Acquire plan.
+  # config.include_for_logged_out_users = true
 
   # == User model class
   # The class which defines your user model
   #
   # config.user.model = Proc.new { User }
 
+  # == Lead/custom attributes for non-signed up users
+  # Pass additional attributes to for potential leads or
+  # non-signed up users as an an array.
+  # Any attribute contained in config.user.lead_attributes can be used
+  # as custom attribute in the application.
+  # config.user.lead_attributes = %w(ref_data utm_source)
+
+  # == Exclude users
+  # A Proc that given a user returns true if the user should be excluded
+  # from imports and Javascript inclusion, false otherwise.
+  #
+  # config.user.exclude_if = Proc.new { |user| user.deleted? }
+
   # == User Custom Data
   # A hash of additional data you wish to send about your users.
   # You can provide either a method name which will be sent to the current
   # user object, or a Proc which will be passed the current user.
-
-  config.user.custom_data = {
-    :current_campaign => Proc.new { |current_user|
-      current_user.current_campaign ? current_user.current_campaign.name : "None"
-    },
-    :user_id => Proc.new { |current_user| current_user.id.to_s },
-  }
-
-  # == User -> Company association
-  # A Proc that given a user returns an array of companies
-  # that the user belongs to.
   #
-  # config.user.company_association = Proc.new { |user| user.companies.to_a }
-  # config.user.company_association = Proc.new { |user| [user.company] }
+  # config.user.custom_data = {
+  #   :plan => Proc.new { |current_user| current_user.plan.name },
+  #   :favorite_color => :favorite_color
+  # }
 
-  # == Current company name
+  # == Current company method/variable
   # The method/variable that contains the current company for the current user,
   # in your controllers. 'Companies' are generic groupings of users, so this
   # could be a company, app or group.
   #
-  # config.company.current = Proc.new { @app }
+  # config.company.current = Proc.new { current_company }
+  #
+  # Or if you are using devise you can just use the following config
+  #
+  # config.company.current = Proc.new { current_user.company }
+
+  # == Exclude company
+  # A Proc that given a company returns true if the company should be excluded
+  # from imports and Javascript inclusion, false otherwise.
+  #
+  # config.company.exclude_if = Proc.new { |app| app.subdomain == 'demo' }
 
   # == Company Custom Data
   # A hash of additional data you wish to send about a company.
@@ -74,21 +96,19 @@ IntercomRails.config do |config|
   # config.company.monthly_spend = Proc.new { |current_company| current_company.plan.price }
   # config.company.monthly_spend = Proc.new { |current_company| (current_company.plan.price - current_company.subscription.discount) }
 
-  # == Inbox Style
-  # This enables the Intercom inbox which allows your users to read their
-  # past conversations with your app, as well as start new ones. It is
-  # disabled by default.
-  #   * :default shows a small tab with a question mark icon on it
-  #   * :custom attaches the inbox open event to an anchor with an
-  #             id of #Intercom.
+  # == Custom Style
+  # By default, Intercom will add a button that opens the messenger to
+  # the page. If you'd like to use your own link to open the messenger,
+  # uncomment this line and clicks on any element with id 'Intercom' will
+  # open the messenger.
   #
-  # config.inbox.style = :default
   # config.inbox.style = :custom
-
-  # == Inbox Counter
-  # If you're using the custom inbox style, you can request that Intercom
-  # insert an `em` element into your anchor with the count of unread messages
   #
-  # config.inbox.counter = true
-
+  # If you'd like to use your own link activator CSS selector
+  # uncomment this line and clicks on any element that matches the query will
+  # open the messenger
+  # config.inbox.custom_activator = '.intercom'
+  #
+  # If you'd like to hide default launcher button uncomment this line
+  # config.hide_default_launcher = true
 end

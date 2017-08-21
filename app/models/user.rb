@@ -26,7 +26,7 @@ class User
 
   field :name, type: String, default: ""
   field :avatar, type: String
-  field :current_campaign_id, type: Moped::BSON::ObjectId
+  field :current_campaign_id, type: BSON::ObjectId
   field :admin, type: Boolean, default: false
 
   # Devise

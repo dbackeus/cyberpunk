@@ -6,10 +6,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.permit :sign_up, keys: %i[name, email, password, password_confirmation]
+  end
+
+  def new_session_path(scope)
+    root_path
   end
 
   private
+
   def current_campaign
     return @current_campaign if @current_campaign
     return nil unless user_signed_in?

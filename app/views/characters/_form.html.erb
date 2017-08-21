@@ -4,13 +4,20 @@
   <script type="text/javascript">window.siblingFormTemplate = '<%= sibling_form_template(f) %>'</script>
 
   <%= f.input :role_id, as: :hidden %>
-  <%= f.input :handle, label: "Handle (#{link_to("name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank")})", wrapper_html: { class: "left" } %> <%= link_to die_image, random_name_characters_path, id: "random-name-button", class: "roll-handle-link" %>
+  <%=
+    f.input :handle,
+      label: "Handle (#{link_to("name generator", "http://donjon.bin.sh/scifi/name/#cyberpunk", target: "_blank")})".html_safe,
+      wrapper_html: { class: "left" }
+  %>
+  <%= link_to die_image, random_name_characters_path, id: "random-name-button", class: "roll-handle-link" %>
   <div class="clear"></div>
   <%= f.input :sex, collection: {"Male" => "male", "Female" => "female"}, include_blank: false %>
   <h2>Statistics <%= link_to die_image, "#roll", data: { roll: "stats" } %></h2>
   <ul id="character-stats" class="editable-stats">
     <% Character::BASIC_ATTRIBUTES.each do |stat| %>
-      <li class="editable-stat"><%= f.input stat, as: :integer, label: %Q{<abbr title="#{stat.to_s.titleize}">#{shortened_stats[stat] || stat.to_s.titleize}</abbr>} %></li>
+      <li class="editable-stat">
+        <%= f.input stat, as: :integer, label: %Q{<abbr title="#{stat.to_s.titleize}">#{shortened_stats[stat] || stat.to_s.titleize}</abbr>}.html_safe %>
+      </li>
     <% end %>
   </ul>
   <div class="clear"></div>

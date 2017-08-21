@@ -221,10 +221,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
-  config.omniauth :google_oauth2,
-    ENV['GOOGLE_OAUTH2_APP_ID'] || "306671003840-ou52li6m4p7d278le64d4l6lkms5kn0c.apps.googleusercontent.com",
-    ENV['GOOGLE_OAUTH2_SECRET'] || "DZF267wQvYReH04RbKy9sKaw",
-    approval_prompt: 'auto'
+  config.omniauth(
+    :google_oauth2,
+    ENV.fetch("GOOGLE_OAUTH2_APP_ID"),
+    ENV.fetch("GOOGLE_OAUTH2_SECRET"),
+    approval_prompt: "auto",
+  )
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
